@@ -1,0 +1,74 @@
+package study.project.search.pojo;
+
+import org.apache.commons.lang3.StringUtils;
+
+import java.io.Serializable;
+
+public class SearchItem implements Serializable{
+
+	private Long id;
+	private String title;
+	private String sell_point;
+	private Long price;
+	private String image;
+	private String catelog_name;
+	private String item_desc;
+    private String[] images;
+	
+	public Long getId() {
+		return id;
+	}
+	public void setId(Long id) {
+		this.id = id;
+	}
+	public String getTitle() {
+		return title;
+	}
+	public void setTitle(String title) {
+		this.title = title;
+	}
+	public String getSell_point() {
+		return sell_point;
+	}
+	public void setSell_point(String sell_point) {
+		this.sell_point = sell_point;
+	}
+	
+	public Long getPrice() {
+		return price;
+	}
+	public void setPrice(Long price) {
+		this.price = price;
+	}
+	public String getImage() {
+		return image;
+	}
+	public void setImage(String image) {
+		this.image = image;
+	}
+	public String getCatelog_name() {
+		return catelog_name;
+	}
+	public void setCatelog_name(String catelog_name) {
+		this.catelog_name = catelog_name;
+	}
+	public String getItem_desc() {
+		return item_desc;
+	}
+	public void setItem_desc(String item_desc) {
+		this.item_desc = item_desc;
+	}
+
+	public String[] getImages() {
+		String[] img = null;
+		if(StringUtils.isNotBlank(image)){
+			img = image.split(",");
+		}
+
+		return img;
+	}
+
+	public void setImages(String[] images) {
+		this.images = images;
+	}
+}

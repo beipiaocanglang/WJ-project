@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "
+	http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+	
+<!--  
+	mybatis接口开发规范：
+		1、映射文件的namespace必须是接口的全类路径名称
+		2、映射文件的sql查询id必须和接口的方法名称一致
+		3、映射配置文件必须和接口在同一个包下，且名称相同
+-->
+<mapper namespace="study.project.search.mapper.SearchItemMapper" >
+	<!-- resultType查询的列名称必须和javabean中的属性名称一一对应，且一样 -->
+ 	<select id="dataImport" resultType="study.project.search.pojo.SearchItem">
+ 		SELECT  
+			a.id,
+			a.title,
+			a.sell_point,
+			a.price,
+			a.image,
+			b.name catelog_name,
+			c.item_desc
+		FROM 
+			tb_item a, 
+			tb_item_cat b, 
+			tb_item_desc c
+		WHERE
+			a.cid=b.id
+			AND a.id=c.item_id
+			AND a.status=1
+ 	</select>
+ 	
+ 	<!-- 
+ 		功能13：
+ 		resultType查询的列名称必须和javabean中的属性名称一一对应，且一样 
+ 		同步索引库时根据itemId查询商品信息
+ 	-->
+ 	<select id="findItemInfoById" parameterType="Long" resultType="study.project.search.pojo.SearchItem">
+ 	
+ 		SELECT  
+			a.id,
+			a.title,
+			a.sell_point,
+			a.price,
+			a.image,
+			b.name catelog_name,
+			c.item_desc
+		FROM 
+			tb_item a, 
+			tb_item_cat b, 
+			tb_item_desc c
+		WHERE
+			a.cid=b.id
+			AND a.id=c.item_id
+			AND a.status=1
+ 			AND a.id=#{itemId}
+ 	</select>
+ 
+</mapper>
