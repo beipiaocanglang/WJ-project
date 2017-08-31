@@ -1,33 +1,33 @@
-¸ÄÔìÌÔÌÔÉÌ³ÇÎªÃæÏò·şÎñ¼Ü¹¹SOA¹¤³Ì¡£
-Ò»¡¢¸ÄÔìË¼Â·£º
-	Taotao-manager-webÌáÈ¡³öÀ´£¬²»ÔÙ±»taotao-manager¾ÛºÏ
+æ”¹é€ æ·˜æ·˜å•†åŸä¸ºé¢å‘æœåŠ¡æ¶æ„SOAå·¥ç¨‹ã€‚
+ä¸€ã€æ”¹é€ æ€è·¯ï¼š
+	Taotao-manager-webæå–å‡ºæ¥ï¼Œä¸å†è¢«taotao-managerèšåˆ
 	
-	Taotao-manager-service¸ÄÔìwar
+	Taotao-manager-serviceæ”¹é€ war
 	
-	¸ÄÔìÒÔºó¼Ü¹¹£º
+	æ”¹é€ ä»¥åæ¶æ„ï¼š
 	
-	¼ûÍ¼1
+	è§å›¾1
 
-¶ş¡¢·şÎñ¸ÄÔì
-	1¡¢¸ÄÔì06taotao-manager-service
-		1.1¡¢¶ÔÏîÄ¿½øĞĞÃæÏò·şÎñ¼Ü¹¹²ğ·Ö£º
-			ÏîÄ¿ÒµÎñ´úÂëµ¥¶À±ä³ÉÒ»¸ö·şÎñ£¬Ìá¹©¸ø±íÏÖ²ãÀ´µ÷ÓÃ£¬Òò´ËĞèÒª½«ÒµÎñ²ã²ğ·Ö³ÉÒ»¸ö·şÎñ(war).
-			¼ûÍ¼2
+äºŒã€æœåŠ¡æ”¹é€ 
+	1ã€æ”¹é€ 06taotao-manager-service
+		1.1ã€å¯¹é¡¹ç›®è¿›è¡Œé¢å‘æœåŠ¡æ¶æ„æ‹†åˆ†ï¼š
+			é¡¹ç›®ä¸šåŠ¡ä»£ç å•ç‹¬å˜æˆä¸€ä¸ªæœåŠ¡ï¼Œæä¾›ç»™è¡¨ç°å±‚æ¥è°ƒç”¨ï¼Œå› æ­¤éœ€è¦å°†ä¸šåŠ¡å±‚æ‹†åˆ†æˆä¸€ä¸ªæœåŠ¡(war).
+			è§å›¾2
 
-		1.2¡¢¸´ÖÆ07taotao-manager-web¹¤³ÌÖĞwebappÎÄ¼ş¼Ğµ½06taotao-manager-serviceÏîÄ¿ÖĞ
+		1.2ã€å¤åˆ¶07taotao-manager-webå·¥ç¨‹ä¸­webappæ–‡ä»¶å¤¹åˆ°06taotao-manager-serviceé¡¹ç›®ä¸­
 		
-		1.3¡¢¸´ÖÆspringÏà¹ØÅäÖÃÎÄ¼ş
+		1.3ã€å¤åˆ¶springç›¸å…³é…ç½®æ–‡ä»¶
 			applicationContext-dao.xml
 			applicationContext-service.xml
 			jdbc.properties
 			log4j.properties
 			sqlMapConfig.xml
 			
-			×¢Òâ£º
-				Service´ËÊ±±ä³ÉwebÏîÄ¿£¬ĞèÒª¼ÓÔØÅäÖÃÎÄ¼ş
+			æ³¨æ„ï¼š
+				Serviceæ­¤æ—¶å˜æˆwebé¡¹ç›®ï¼Œéœ€è¦åŠ è½½é…ç½®æ–‡ä»¶
 				
 		
-		1.4¡¢web.xml¼ÓÔØspringµÄÅäÖÃÎÄ¼ş	
+		1.4ã€web.xmlåŠ è½½springçš„é…ç½®æ–‡ä»¶	
 			<listener>
 				<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
 			</listener>
@@ -36,11 +36,11 @@
 				<param-value>classpath:applicationContext-*.xml</param-value>
 			</context-param>
 			
-			×¢Òâ£º
-				Ö»ĞèÒª¼ÓÔØspringÅäÖÃÎÄ¼ş¼´¿É
+			æ³¨æ„ï¼š
+				åªéœ€è¦åŠ è½½springé…ç½®æ–‡ä»¶å³å¯
 		
-		1.5¡¢Ìí¼ÓdubboÒÀÀµ
-			<!-- dubboÏà¹Ø -->
+		1.5ã€æ·»åŠ dubboä¾èµ–
+			<!-- dubboç›¸å…³ -->
 			<dependency>
 				<groupId>com.alibaba</groupId>
 				<artifactId>dubbo</artifactId>
@@ -57,93 +57,93 @@
 				<version>${zkclient.version}</version>
 			</dependency>
 		
-	2¡¢¸ÄÔì03taotao-manager
-		taotao-manager¾ÛºÏ¹¤³ÌÖĞÉ¾³ıtaotao-manager-web£¬´Ë¹¤³ÌÊôÓÚ¶ÀÁ¢µÄ·şÎñ£¬²»ÔÙ±»taotao-manager¾ÛºÏ¡£
-		¼ûÍ¼3
+	2ã€æ”¹é€ 03taotao-manager
+		taotao-managerèšåˆå·¥ç¨‹ä¸­åˆ é™¤taotao-manager-webï¼Œæ­¤å·¥ç¨‹å±äºç‹¬ç«‹çš„æœåŠ¡ï¼Œä¸å†è¢«taotao-managerèšåˆã€‚
+		è§å›¾3
 		
-	3¡¢¸ÄÔì07taotao-manager-web
-		ÔÚ´ÅÅÌÉÏÕÒµ½ÏîÄ¿Â·¾¶£¬½«03taotao-manager¹¤³ÌÏÂµÄ07taotao-manager-web¼ôÇĞµ½ºÍ03taotao-managerÍ¬¼¶
+	3ã€æ”¹é€ 07taotao-manager-web
+		åœ¨ç£ç›˜ä¸Šæ‰¾åˆ°é¡¹ç›®è·¯å¾„ï¼Œå°†03taotao-managerå·¥ç¨‹ä¸‹çš„07taotao-manager-webå‰ªåˆ‡åˆ°å’Œ03taotao-manageråŒçº§
 		
-		»Øµ½myEclipseÖĞF5Ë¢ĞÂ£¬´ËÊ±¹¤³Ì07taotao-manager-webÏûÊ§
+		å›åˆ°myEclipseä¸­F5åˆ·æ–°ï¼Œæ­¤æ—¶å·¥ç¨‹07taotao-manager-webæ¶ˆå¤±
 		
-		ÓÒ¼ü£¬ÒÔmavneÏîÄ¿µ¼Èë£¬¼´¿É
+		å³é”®ï¼Œä»¥mavneé¡¹ç›®å¯¼å…¥ï¼Œå³å¯
 
-	4¡¢´´½¨service²ãµÄ½Ó¿Ú¹¤³Ì08taotao-manager-Interface
-		³éÈ¡½Ó¿Ú×÷ÓÃ£º
-			°Ñ½Ó¿Ú×¢²áZookeeper×¢²áÖĞĞÄ
-			Taotao-manager-webÍ¨¹ı½Ó¿ÚÒıÈëservice·şÎñ
+	4ã€åˆ›å»ºserviceå±‚çš„æ¥å£å·¥ç¨‹08taotao-manager-Interface
+		æŠ½å–æ¥å£ä½œç”¨ï¼š
+			æŠŠæ¥å£æ³¨å†ŒZookeeperæ³¨å†Œä¸­å¿ƒ
+			Taotao-manager-webé€šè¿‡æ¥å£å¼•å…¥serviceæœåŠ¡
 
-		´´½¨Ò»¸ötaotao-manager¾ÛºÏ×Ó¹¤³Ìtaotao-manager-interface
-		¼ûÍ¼4
+		åˆ›å»ºä¸€ä¸ªtaotao-managerèšåˆå­å·¥ç¨‹taotao-manager-interface
+		è§å›¾4
 		
-		½«06taotao-manager-service¹¤³ÌÖĞµÄ½Ó¿ÚItemService.java¼ôÇĞµ½08taotao-manager-Interface¹¤³ÌÏÂ(ÏÈ´´½¨°ü)
+		å°†06taotao-manager-serviceå·¥ç¨‹ä¸­çš„æ¥å£ItemService.javaå‰ªåˆ‡åˆ°08taotao-manager-Interfaceå·¥ç¨‹ä¸‹(å…ˆåˆ›å»ºåŒ…)
 		
-		ÊµÏÖÀà¹¤³Ì:06taotao-manager-serviceĞèÒªÊµÏÖ½Ó¿Ú,±ØĞëÒÀÀµ½Ó¿Ú¹¤³Ì08taotao-manager-interface.
-			<!-- ÒÀÀµ½Ó¿Ú -->
+		å®ç°ç±»å·¥ç¨‹:06taotao-manager-serviceéœ€è¦å®ç°æ¥å£,å¿…é¡»ä¾èµ–æ¥å£å·¥ç¨‹08taotao-manager-interface.
+			<!-- ä¾èµ–æ¥å£ -->
 			<dependency>
 				<artifactId>03taotao-manager</artifactId>
 				<groupId>com.taotao</groupId>
 				<version>0.0.1-SNAPSHOT</version>
 			</dependency>
 
-		ÓÉÓÚ½Ó¿ÚĞèÒªpojo°ü£¬ĞèÒªÒÀÀµpojo×ø±ê
+		ç”±äºæ¥å£éœ€è¦pojoåŒ…ï¼Œéœ€è¦ä¾èµ–pojoåæ ‡
 			<dependency>
 				<artifactId>03taotao-manager</artifactId>
 				<groupId>com.taotao</groupId>
 				<version>0.0.1-SNAPSHOT</version>
 			</dependency>
 
-	5¡¢ÅäÖÃtomcat²å¼ş
-		ÔÚ06taotao-manager-service¹¤³ÌÖĞÅäÖÃtomcat²å¼ş£º
+	5ã€é…ç½®tomcatæ’ä»¶
+		åœ¨06taotao-manager-serviceå·¥ç¨‹ä¸­é…ç½®tomcatæ’ä»¶ï¼š
 			<build>
 				<plugins>
-					<!-- ÅäÖÃTomcat²å¼ş -->
+					<!-- é…ç½®Tomcatæ’ä»¶ -->
 					<plugin>
 						<groupId>org.apache.tomcat.maven</groupId>
 						<artifactId>tomcat7-maven-plugin</artifactId>
 						<version>2.2</version>
 						<configuration>
-							<!-- ¶¨ÒåÏîÄ¿·¢²¼Â·¾¶£¬Ïàµ±ÓÚÖ±½Ó·Åµ½tomcatµÄROOTÄ¿Â¼£¬ÔÚ·ÃÎÊÊ±²»ĞèÒªÏîÄ¿Ãû³Æ£¬Ö±½Ó·ÃÎÊÂ·¾¶¾ÍĞĞ -->
+							<!-- å®šä¹‰é¡¹ç›®å‘å¸ƒè·¯å¾„ï¼Œç›¸å½“äºç›´æ¥æ”¾åˆ°tomcatçš„ROOTç›®å½•ï¼Œåœ¨è®¿é—®æ—¶ä¸éœ€è¦é¡¹ç›®åç§°ï¼Œç›´æ¥è®¿é—®è·¯å¾„å°±è¡Œ -->
 							<path>/</path>
-							<!-- ÅäÖÃtomcat¶Ë¿Ú -->
+							<!-- é…ç½®tomcatç«¯å£ -->
 							<port>8082</port>
 						</configuration>
 					</plugin>
 				</plugins>
 			</build>
 
-	6¡¢×¢²á·şÎñ
-		Taotao-manager-service°ÑURL·¢²¼Zookeeper×¢²áÖĞĞÄ£¬Ê¹ÓÃdubbo·¢²¼
+	6ã€æ³¨å†ŒæœåŠ¡
+		Taotao-manager-serviceæŠŠURLå‘å¸ƒZookeeperæ³¨å†Œä¸­å¿ƒï¼Œä½¿ç”¨dubboå‘å¸ƒ
 		
-		¸ÄÔì06taotao-manager-service¹¤³ÌÖĞapplication-service.xml	
-			Ìí¼ÓdubboÔ¼Êø£º
+		æ”¹é€ 06taotao-manager-serviceå·¥ç¨‹ä¸­application-service.xml	
+			æ·»åŠ dubboçº¦æŸï¼š
 				xmlns:dubbo="http://code.alibabatech.com/schema/dubbo" 
 				
 				http://code.alibabatech.com/schema/dubbo 
 				http://code.alibabatech.com/schema/dubbo/dubbo.xsd
 
-			<!-- ·¢²¼·şÎñ£º°Ñ½Ó¿Úservice·¢²¼Zookeeper×¢²áÖĞĞÄ -->
-			<!-- Ìá¹©·½Ó¦ÓÃĞÅÏ¢£¬ÓÃÓÚ¼ÆËãÒÀÀµ¹ØÏµ -->
+			<!-- å‘å¸ƒæœåŠ¡ï¼šæŠŠæ¥å£serviceå‘å¸ƒZookeeperæ³¨å†Œä¸­å¿ƒ -->
+			<!-- æä¾›æ–¹åº”ç”¨ä¿¡æ¯ï¼Œç”¨äºè®¡ç®—ä¾èµ–å…³ç³» -->
 			<dubbo:application name="canglang-manager-service"/>
-			<!-- Ê¹ÓÃmulticast¹ã²¥×¢²áÖĞĞÄ±©Â¶·şÎñµØÖ· -->
+			<!-- ä½¿ç”¨multicastå¹¿æ’­æ³¨å†Œä¸­å¿ƒæš´éœ²æœåŠ¡åœ°å€ -->
 			<!-- <dubbo:registry address="multicast://224.5.6.7:1234"/> -->
-			<!-- Ê¹ÓÃdubboÍ¨¹ıZookeeperĞ­Òé×¢²á·şÎñ -->
+			<!-- ä½¿ç”¨dubboé€šè¿‡Zookeeperåè®®æ³¨å†ŒæœåŠ¡ -->
 			<dubbo:registry protocol="zookeeper" address="192.168.203.66:2181"/>
-			<!-- ÓÃdubboĞ­ÒéÔÚ20880¶Ë¿Ú±©Â¶·şÎñ -->
+			<!-- ç”¨dubboåè®®åœ¨20880ç«¯å£æš´éœ²æœåŠ¡ -->
 			<dubbo:protocol name="dubbo" port="20880" />
-			<!-- ÉùÃ÷ĞèÒª±©Â¶µÄ·şÎñ½Ó¿Ú -->
-			<!-- ´´½¨ĞèÒª·¢²¼¶ÔÏó-->
+			<!-- å£°æ˜éœ€è¦æš´éœ²çš„æœåŠ¡æ¥å£ -->
+			<!-- åˆ›å»ºéœ€è¦å‘å¸ƒå¯¹è±¡-->
 			<bean id="itemServiceImpl" class="study.project.service.impl.ItemServiceImpl"></bean>
-			<!-- ·¢²¼·şÎñ -->
+			<!-- å‘å¸ƒæœåŠ¡ -->
 			<dubbo:service interface="study.project.ItemService" ref="itemServiceImpl" />
 
-	7¡¢¸ÄÔì07taotao-manager-web
-		·ÖÎö£º
-			taotao-manager-webºÍtaotao-manager-service²ğ·ÖÒÔºó£¬Ã»ÓĞÈÎºÎ¹ØÏµ¡£²»ÄÜÒÀÀµserviceµÄjar°ü£¬Ò²¾ÍÊÇ²»ÄÜ¼ä½ÓÒÀÀµspringµÄjar¡£
+	7ã€æ”¹é€ 07taotao-manager-web
+		åˆ†æï¼š
+			taotao-manager-webå’Œtaotao-manager-serviceæ‹†åˆ†ä»¥åï¼Œæ²¡æœ‰ä»»ä½•å…³ç³»ã€‚ä¸èƒ½ä¾èµ–serviceçš„jaråŒ…ï¼Œä¹Ÿå°±æ˜¯ä¸èƒ½é—´æ¥ä¾èµ–springçš„jarã€‚
 			
-		ÓÉÓÚtaotao-manager-web¼ÓÔØspringmvcÅäÖÃÎÄ¼ş£¬ĞèÒªspringµÄjar¡£ĞèÒª×Ô¼ºµ¼Èëspring×ø±ê¡£
+		ç”±äºtaotao-manager-webåŠ è½½springmvcé…ç½®æ–‡ä»¶ï¼Œéœ€è¦springçš„jarã€‚éœ€è¦è‡ªå·±å¯¼å…¥springåæ ‡ã€‚
 
-		µ¼ÈëspringµÄÒÀÀµ
+		å¯¼å…¥springçš„ä¾èµ–
 			<!-- Spring -->
 			<dependency>
 				<groupId>org.springframework</groupId>
@@ -181,8 +181,8 @@
 				<version>${spring.version}</version>
 			</dependency>
 		
-		±íÏÖ²ãĞèÒªÒÔÀûÓÃdubbo·şÎñ£¬ËùÒÔÒªÒıÈëdubboÒÀÀµ
-			<!-- dubboÏà¹Ø -->
+		è¡¨ç°å±‚éœ€è¦ä»¥åˆ©ç”¨dubboæœåŠ¡ï¼Œæ‰€ä»¥è¦å¼•å…¥dubboä¾èµ–
+			<!-- dubboç›¸å…³ -->
 			<dependency>
 				<groupId>com.alibaba</groupId>
 				<artifactId>dubbo</artifactId>
@@ -199,21 +199,21 @@
 				<version>${zkclient.version}</version>
 			</dependency>
 			
-		Taotao-manager-serviceÒÑ¾­¸ÄÔì³Éwar°ü£¬²»ÄÜ±»ÒÀÀµ¡£
-			ĞŞ¸Ä³ÉÒÀÀµtaotao-manager-interface:
-				ĞèÒªÊ¹ÓÃ½Ó¿ÚÒıÈëdubbo·şÎñ
-				¼ä½ÓÒÀÀµpojo
+		Taotao-manager-serviceå·²ç»æ”¹é€ æˆwaråŒ…ï¼Œä¸èƒ½è¢«ä¾èµ–ã€‚
+			ä¿®æ”¹æˆä¾èµ–taotao-manager-interface:
+				éœ€è¦ä½¿ç”¨æ¥å£å¼•å…¥dubboæœåŠ¡
+				é—´æ¥ä¾èµ–pojo
 				
-			É¾³ı06taotao-manager-serviceµÄÒÀÀµ
-				<!-- ÒÀÀµservice£¬¼ä½ÓÒÀÀµspringµÄjar -->
+			åˆ é™¤06taotao-manager-serviceçš„ä¾èµ–
+				<!-- ä¾èµ–serviceï¼Œé—´æ¥ä¾èµ–springçš„jar -->
 				<dependency>
 					<groupId>com.taotao</groupId>
 					<artifactId>06taotao-manager-service</artifactId>
 					<version>0.0.1-SNAPSHOT</version>
 				</dependency>
 
-			Ìí¼Ó08taotao-manager-interfaceµÄÒÀÀµ
-				<!-- ÒÀÀµ½Ó¿Ú -->
+			æ·»åŠ 08taotao-manager-interfaceçš„ä¾èµ–
+				<!-- ä¾èµ–æ¥å£ -->
 				<dependency>
 					<groupId>com.taotao</groupId>
 					<artifactId>08taotao-manager-interface</artifactId>
@@ -221,9 +221,9 @@
 				</dependency>
 
 		web.xml
-			É¾³ı¼ÓÔØspringÅäÖÃÎÄ¼ş
+			åˆ é™¤åŠ è½½springé…ç½®æ–‡ä»¶
 			
-			<!-- dubboÏà¹Ø -->
+			<!-- dubboç›¸å…³ -->
 			<dependency>
 				<groupId>com.alibaba</groupId>
 				<artifactId>dubbo</artifactId>
@@ -242,39 +242,39 @@
 
 		spring.xml
 			
-			·şÎñ²ãÔÚZookeeper×¢²áÖĞĞÄ×¢²á·şÎñ£¬±íÏÖ²ãÊÇ·şÎñµÄÏû·ÑÕß£¬±íÏÖ²ãĞèÒªµ÷ÓÃservice²ã¶ÔÏó£¬ĞèÒªÈ¥Zookeeper×¢²áÖĞĞÄ»ñÈ¡service¶ÔÏó¡£ĞèÒªÒıÈëZookeeper×¢²á·şÎñ¡£
+			æœåŠ¡å±‚åœ¨Zookeeperæ³¨å†Œä¸­å¿ƒæ³¨å†ŒæœåŠ¡ï¼Œè¡¨ç°å±‚æ˜¯æœåŠ¡çš„æ¶ˆè´¹è€…ï¼Œè¡¨ç°å±‚éœ€è¦è°ƒç”¨serviceå±‚å¯¹è±¡ï¼Œéœ€è¦å»Zookeeperæ³¨å†Œä¸­å¿ƒè·å–serviceå¯¹è±¡ã€‚éœ€è¦å¼•å…¥Zookeeperæ³¨å†ŒæœåŠ¡ã€‚
 
-			µ¼ÈëÔ¼Êø
+			å¯¼å…¥çº¦æŸ
 				xmlns:dubbo="http://code.alibabatech.com/schema/dubbo"
 			
 				http://code.alibabatech.com/schema/dubbo 
 				http://code.alibabatech.com/schema/dubbo/dubbo.xsd
 
 				
-			ÒıÈë·şÎñ
-				 <!-- ÒıÓÃ·şÎñ -->
+			å¼•å…¥æœåŠ¡
+				 <!-- å¼•ç”¨æœåŠ¡ -->
 				<dubbo:application name="taotao-manager-web"/>
 				<!-- <dubbo:registry address="multicast://224.5.6.7:1234" /> -->
-				<!-- Ê¹ÓÃdubbo´ÓZookeeper×¢²áÖĞĞÄ»ñÈ¡·şÎñ -->
+				<!-- ä½¿ç”¨dubboä»Zookeeperæ³¨å†Œä¸­å¿ƒè·å–æœåŠ¡ -->
 				<dubbo:registry protocol="zookeeper" address="192.168.203.66:2181"/>
-				<!-- ÒıÓÃ·şÎñ -->
+				<!-- å¼•ç”¨æœåŠ¡ -->
 				<dubbo:reference interface="study.project.ItemService" id="itemService" />
 
-	8¡¢ÊµÏÖĞòÁĞ»¯
-		×¢Òâ£º
-			±íÏÖ²ãºÍ·şÎñ²ã½øĞĞ½»»¥ÊÇÔ¶³Ìµ÷ÓÃ£¬javaBeanÊÇ¿ç·şÎñ½øĞĞÊı¾İ´«µİ£¬±ØĞëÊÇÊµÏÖĞòÁĞ»¯½Ó¿Ú
+	8ã€å®ç°åºåˆ—åŒ–
+		æ³¨æ„ï¼š
+			è¡¨ç°å±‚å’ŒæœåŠ¡å±‚è¿›è¡Œäº¤äº’æ˜¯è¿œç¨‹è°ƒç”¨ï¼ŒjavaBeanæ˜¯è·¨æœåŠ¡è¿›è¡Œæ•°æ®ä¼ é€’ï¼Œå¿…é¡»æ˜¯å®ç°åºåˆ—åŒ–æ¥å£
 			
 			implements Serializable
 			
-	9¡¢µ¼Èë¹¤³ÌÔ´Âë
-		¼ûÍ¼5
+	9ã€å¯¼å…¥å·¥ç¨‹æºç 
+		è§å›¾5
 
-	10¡¢²âÊÔ
-		ĞèÇó£º
-			¸ù¾İId²éÑ¯ÉÌÆ·£¬·µ»Øjson¸ñÊ½Êı¾İ
+	10ã€æµ‹è¯•
+		éœ€æ±‚ï¼š
+			æ ¹æ®IdæŸ¥è¯¢å•†å“ï¼Œè¿”å›jsonæ ¼å¼æ•°æ®
 			
-		Ç°Ìá£º
-			ĞèÒªÔÚĞéÄâ»úÖĞÆô¶¯zookeeper·şÎñ
+		å‰æï¼š
+			éœ€è¦åœ¨è™šæ‹Ÿæœºä¸­å¯åŠ¨zookeeperæœåŠ¡
 			
 		ItemController.java	
 			@Controller
@@ -283,13 +283,13 @@
 				private ItemService itemService;
 				
 				/**
-				 * ¸ù¾İÉÌÆ·id²éÑ¯ÉÌÆ·
-				 * ½ÓÊÕ²ÎÊı·½·¨Ò»£º
+				 * æ ¹æ®å•†å“idæŸ¥è¯¢å•†å“
+				 * æ¥æ”¶å‚æ•°æ–¹æ³•ä¸€ï¼š
 				 * 		@RequestMapping("/findItemByItemId/{itemId}")
 				 *		public TbItem findItemByItemId(@PathVariable Long itemId){}
 				 *		url:
 				 *			localhost:8081/findItemByItemId/536563
-				 *½ÓÊÕ²ÎÊı·½·¨¶ş£º
+				 *æ¥æ”¶å‚æ•°æ–¹æ³•äºŒï¼š
 				 *		@RequestMapping("/findItemByItemId")
 				 *		public TbItem findItemByItemId(@RequestParam Long itemId){}
 				 *		url:
@@ -310,13 +310,13 @@
 
 		ItemService.java
 			/**
-			 * service²ã½Ó¿Ú
+			 * serviceå±‚æ¥å£
 			 * @author yeying
 			 */
 			public interface ItemService {
 				
 				/**
-				 * ¸ù¾İitemId²éÑ¯ItemĞÅÏ¢
+				 * æ ¹æ®itemIdæŸ¥è¯¢Itemä¿¡æ¯
 				 * @param itemId
 				 * @return
 				 */
@@ -328,16 +328,16 @@
 				@Resource
 				private TbItemMapper itemMapper;
 				/**
-				 * ¸ù¾İitemId²éÑ¯ItemĞÅÏ¢
+				 * æ ¹æ®itemIdæŸ¥è¯¢Itemä¿¡æ¯
 				 */
 				public TbItem findItemByID(Long itemId) {
-					//´´½¨TbItemExample¶ÔÏó
+					//åˆ›å»ºTbItemExampleå¯¹è±¡
 					TbItemExample example = new TbItemExample();
-					//»ñÈ¡Criteria¶ÔÏó
+					//è·å–Criteriaå¯¹è±¡
 					Criteria criteria = example.createCriteria();
-					//´«²Î
+					//ä¼ å‚
 					criteria.andIdEqualTo(itemId);
-					//Ö´ĞĞ²éÑ¯
+					//æ‰§è¡ŒæŸ¥è¯¢
 					List<TbItem> itemList = itemMapper.selectByExample(example);
 					
 					if (itemList != null && itemList.size() > 0) {
@@ -347,18 +347,18 @@
 				}
 			}
 		
-		·ÃÎÊ£º
+		è®¿é—®ï¼š
 			localhost:8081/findItemByItemId/536563
 			
-	11¡¢×¢²áÁ÷³Ì
-		Á÷³ÌËµÃ÷£º
-			(taotao-manager-service)·şÎñÌá¹©ÕßÆô¶¯Ê±
-				Ïò/dubbo/com.foo.BarService/providersÄ¿Â¼ÏÂĞ´Èë×Ô¼ºµÄURLµØÖ·¡£
-			(taotao-manager-web)·şÎñÏû·ÑÕßÆô¶¯Ê±
-				¶©ÔÄ/dubbo/com.foo.BarService/providersÄ¿Â¼ÏÂµÄÌá¹©ÕßURLµØÖ·¡£
-				²¢Ïò/dubbo/com.foo.BarService/consumersÄ¿Â¼ÏÂĞ´Èë×Ô¼ºµÄURLµØÖ·¡£
-			¼à¿ØÖĞĞÄÆô¶¯Ê±
-				¶©ÔÄ/dubbo/com.foo.BarServiceÄ¿Â¼ÏÂµÄËùÓĞÌá¹©ÕßºÍÏû·ÑÕßURLµØÖ·¡£
+	11ã€æ³¨å†Œæµç¨‹
+		æµç¨‹è¯´æ˜ï¼š
+			(taotao-manager-service)æœåŠ¡æä¾›è€…å¯åŠ¨æ—¶
+				å‘/dubbo/com.foo.BarService/providersç›®å½•ä¸‹å†™å…¥è‡ªå·±çš„URLåœ°å€ã€‚
+			(taotao-manager-web)æœåŠ¡æ¶ˆè´¹è€…å¯åŠ¨æ—¶
+				è®¢é˜…/dubbo/com.foo.BarService/providersç›®å½•ä¸‹çš„æä¾›è€…URLåœ°å€ã€‚
+				å¹¶å‘/dubbo/com.foo.BarService/consumersç›®å½•ä¸‹å†™å…¥è‡ªå·±çš„URLåœ°å€ã€‚
+			ç›‘æ§ä¸­å¿ƒå¯åŠ¨æ—¶
+				è®¢é˜…/dubbo/com.foo.BarServiceç›®å½•ä¸‹çš„æ‰€æœ‰æä¾›è€…å’Œæ¶ˆè´¹è€…URLåœ°å€ã€‚
 
 		
 	

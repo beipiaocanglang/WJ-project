@@ -1,42 +1,42 @@
 
-Ò»¡¢ÏîÄ¿¿ò¼Ü´î½¨
-	0¡¢ÏµÍ³¼Ü¹¹¹ØÏµ
-		¼ûÍ¼0
+ä¸€ã€é¡¹ç›®æ¡†æ¶æ­å»º
+	0ã€ç³»ç»Ÿæ¶æ„å…³ç³»
+		è§å›¾0
 	
-	1¡¢´´½¨×æ¸¸ÏîÄ¿(01taotao_parent)
-		¼ûÍ¼1
+	1ã€åˆ›å»ºç¥–çˆ¶é¡¹ç›®(01taotao_parent)
+		è§å›¾1
 
-	2¡¢´´½¨¹¤¾ßÀàÏîÄ¿(02taotao-common)
-		¼ûÍ¼2
+	2ã€åˆ›å»ºå·¥å…·ç±»é¡¹ç›®(02taotao-common)
+		è§å›¾2
 
-	3¡¢´´½¨ºóÌ¨¸¸¹¤³Ì(03taotao-manager)
-		¼ûÍ¼3
-		3.1¡¢ºóÌ¨¸¸¹¤³ÌµÄpojo¹¤³Ì(04taotao-manager-pojo)
-			¼ûÍ¼4
-		3.2¡¢ºóÌ¨¸¸¹¤³ÌµÄdao(05taotao-manager-dao)
-			¼ûÍ¼5
-		3.3¡¢ºóÌ¨¸¸¹¤³ÌµÄservice(06taotao-manager-service)
-			¼ûÍ¼6
-		3.4¡¢ºóÌ¨¸¸¹¤³ÌµÄ±íÏÖ²ã(07taotao-manager)
-			¼ûÍ¼7
+	3ã€åˆ›å»ºåå°çˆ¶å·¥ç¨‹(03taotao-manager)
+		è§å›¾3
+		3.1ã€åå°çˆ¶å·¥ç¨‹çš„pojoå·¥ç¨‹(04taotao-manager-pojo)
+			è§å›¾4
+		3.2ã€åå°çˆ¶å·¥ç¨‹çš„dao(05taotao-manager-dao)
+			è§å›¾5
+		3.3ã€åå°çˆ¶å·¥ç¨‹çš„service(06taotao-manager-service)
+			è§å›¾6
+		3.4ã€åå°çˆ¶å·¥ç¨‹çš„è¡¨ç°å±‚(07taotao-manager)
+			è§å›¾7
 
-	¿½±´ÒÀÀµ×ø±êÖ±½Ó´Ó¹¤³ÌÖĞ¸´ÖÆ
+	æ‹·è´ä¾èµ–åæ ‡ç›´æ¥ä»å·¥ç¨‹ä¸­å¤åˆ¶
 	
-	4¡¢ÅäÖÃmavenµÄÄÚÖÃtomcat²å¼ş
-		ÔÚ¼¯ºÏ¹¤³Ìtaotao-managerµÄpom.xmlÖĞÅäÖÃmavenµÄÄÚÖÃtomcat²å¼ş
+	4ã€é…ç½®mavençš„å†…ç½®tomcatæ’ä»¶
+		åœ¨é›†åˆå·¥ç¨‹taotao-managerçš„pom.xmlä¸­é…ç½®mavençš„å†…ç½®tomcatæ’ä»¶
 		<project>
 			<dependencies></dependencies>
 			<build>
 				<plugins>
-					<!-- ÅäÖÃTomcat²å¼ş -->
+					<!-- é…ç½®Tomcatæ’ä»¶ -->
 					<plugin>
 						<groupId>org.apache.tomcat.maven</groupId>
 						<artifactId>tomcat7-maven-plugin</artifactId>
 						<version>2.2</version>
 						<configuration>
-							<!-- ¶¨ÒåÏîÄ¿·¢²¼Â·¾¶£¬Ïàµ±ÓÚÖ±½Ó·Åµ½tomcatµÄROOTÄ¿Â¼£¬ÔÚ·ÃÎÊÊ±²»ĞèÒªÏîÄ¿Ãû³Æ£¬Ö±½Ó·ÃÎÊÂ·¾¶¾ÍĞĞ -->
+							<!-- å®šä¹‰é¡¹ç›®å‘å¸ƒè·¯å¾„ï¼Œç›¸å½“äºç›´æ¥æ”¾åˆ°tomcatçš„ROOTç›®å½•ï¼Œåœ¨è®¿é—®æ—¶ä¸éœ€è¦é¡¹ç›®åç§°ï¼Œç›´æ¥è®¿é—®è·¯å¾„å°±è¡Œ -->
 							<path>/</path>
-							<!-- ÅäÖÃtomcat¶Ë¿Ú -->
+							<!-- é…ç½®tomcatç«¯å£ -->
 							<port>8081</port>
 						</configuration>
 					</plugin>
@@ -44,12 +44,12 @@
 			</build>
 		</project>
 
-	5¡¢ÔÚtoatoa-manager-web¹¤³ÌÖĞµ¼Èëweb.xml
+	5ã€åœ¨toatoa-manager-webå·¥ç¨‹ä¸­å¯¼å…¥web.xml
 	
-¶ş¡¢SSH¿ò¼ÜÕûºÏ
+äºŒã€SSHæ¡†æ¶æ•´åˆ
 	
-	1¡¢springµÄÅäÖÃÎÄ¼ş
-		1.1¡¢springmvc.xml
+	1ã€springçš„é…ç½®æ–‡ä»¶
+		1.1ã€springmvc.xml
 			<?xml version="1.0" encoding="UTF-8"?>
 			<beans xmlns="http://www.springframework.org/schema/beans"
 				   xmlns:context="http://www.springframework.org/schema/context"
@@ -73,13 +73,13 @@
 										http://code.alibabatech.com/schema/dubbo 
 										http://code.alibabatech.com/schema/dubbo/dubbo.xsd">
 
-				<!-- É¨Ãècontroller -->
+				<!-- æ‰«æcontroller -->
 				<context:component-scan base-package="study.project"></context:component-scan>
 
-				<!-- Çı¶¯×¢½â -->
+				<!-- é©±åŠ¨æ³¨è§£ -->
 				<mvc:annotation-driven></mvc:annotation-driven>
 				
-				<!-- ÊÓÍ¼½âÎöÆ÷ -->
+				<!-- è§†å›¾è§£æå™¨ -->
 				<bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
 					<property name="prefix" value="/WEB-INF/jsp/"></property>
 					<property name="suffix" value=".jsp"></property>
@@ -87,7 +87,7 @@
 			</beans>
 
 			
-		1.2¡¢applicationContext-service.xml
+		1.2ã€applicationContext-service.xml
 			<?xml version="1.0" encoding="UTF-8"?>
 			<beans xmlns="http://www.springframework.org/schema/beans"
 				xmlns:context="http://www.springframework.org/schema/context" 
@@ -108,15 +108,15 @@
 									http://www.springframework.org/schema/util
 									http://www.springframework.org/schema/util/spring-util-4.0.xsd">	
 				
-				<!-- ´´½¨¹ÜÀíÊÂÎñ¶ÔÏó£ºDataSourceTransactionManager -->
+				<!-- åˆ›å»ºç®¡ç†äº‹åŠ¡å¯¹è±¡ï¼šDataSourceTransactionManager -->
 				<bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
 					<property name="dataSource" ref="dataSource"></property>
 				</bean>
 				
-				<!-- ÊÂÎñÍ¨Öª -->
+				<!-- äº‹åŠ¡é€šçŸ¥ -->
 				<tx:advice id="txAdvice" transaction-manager="transactionManager">
 					<tx:attributes>
-						<!-- ´«²¥ĞĞÎª -->
+						<!-- ä¼ æ’­è¡Œä¸º -->
 						<tx:method name="save*" propagation="REQUIRED" />
 						<tx:method name="insert*" propagation="REQUIRED" />
 						<tx:method name="add*" propagation="REQUIRED" />
@@ -128,13 +128,13 @@
 						<tx:method name="get*" propagation="SUPPORTS" read-only="true" />		
 					</tx:attributes>
 				</tx:advice>
-				<!-- ÇĞÃæ -->
+				<!-- åˆ‡é¢ -->
 				<aop:config>
 					<aop:advisor advice-ref="txAdvice" pointcut="execution(* study.project.service.*.*(..))"/>
 				</aop:config>
 			</beans>
 
-		1.3¡¢applicationContext-dao.xml
+		1.3ã€applicationContext-dao.xml
 			<?xml version="1.0" encoding="UTF-8"?>
 			<beans xmlns="http://www.springframework.org/schema/beans"
 					xmlns:context="http://www.springframework.org/schema/context" 
@@ -154,10 +154,10 @@
 										http://www.springframework.org/schema/mvc/spring-mvc-4.0.xsd
 										http://www.springframework.org/schema/util
 										http://www.springframework.org/schema/util/spring-util-4.0.xsd">
-				<!-- É¨Ãè×ÊÔ´ÅäÖÃÎÄ¼ş -->
+				<!-- æ‰«æèµ„æºé…ç½®æ–‡ä»¶ -->
 				<context:property-placeholder location="classpath:*.properties" file-encoding="UTF-8"/>
 				
-				<!-- Êı¾İÔ´ -->
+				<!-- æ•°æ®æº -->
 				<bean id="dataSource" class="com.alibaba.druid.pool.DruidDataSource">
 					<property name="driverClassName" value="${jdbc.driver}"></property>
 					<property name="url" value="${jdbc.url}"></property>
@@ -165,19 +165,19 @@
 					<property name="password" value="${jdbc.password}"></property>
 				</bean>
 				
-				<!-- sqlSessioinFactory¹¤³§£ºÉú²úsqlSession -->
+				<!-- sqlSessioinFactoryå·¥å‚ï¼šç”Ÿäº§sqlSession -->
 				<bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
 					<property name="dataSource" ref="dataSource"></property>
-					<!-- ¶¨Òå±ğÃû -->
+					<!-- å®šä¹‰åˆ«å -->
 					<property name="typeAliasesPackage" value="study.project.domain"></property>
-					<!-- ¼ÓÔØsqlMapConfigÅäÖÃÎÄ¼ş -->
+					<!-- åŠ è½½sqlMapConfigé…ç½®æ–‡ä»¶ -->
 					<property name="configLocation" value="classpath:sqlMapConfig.xml"></property>
 				</bean>
-				<!-- ½Ó¿Ú´úÀí¿ª·¢£¬É¨Ãè½Ó¿Ú -->
+				<!-- æ¥å£ä»£ç†å¼€å‘ï¼Œæ‰«ææ¥å£ -->
 				<!-- 
-					1.½Ó¿ÚÃû³ÆºÍÓ³ÉäÎÄ¼şÃû³ÆÏàÍ¬£¬ÇÒÔÚÍ¬Ò»¸öÄ¿Â¼ÏÂ
-					2.Ó³ÉäÎÄ¼şnamespaceÃû³Æ±ØĞëÊÇ½Ó¿ÚµÄÈ«ÀàÂ·¾¶Ãû
-					3.Ó³ÉäÎÄ¼şsqlÓï¾äµÄ×Ö¶ÎId±ØĞëÊÇ½Ó¿Ú·½·¨Ãû
+					1.æ¥å£åç§°å’Œæ˜ å°„æ–‡ä»¶åç§°ç›¸åŒï¼Œä¸”åœ¨åŒä¸€ä¸ªç›®å½•ä¸‹
+					2.æ˜ å°„æ–‡ä»¶namespaceåç§°å¿…é¡»æ˜¯æ¥å£çš„å…¨ç±»è·¯å¾„å
+					3.æ˜ å°„æ–‡ä»¶sqlè¯­å¥çš„å­—æ®µIdå¿…é¡»æ˜¯æ¥å£æ–¹æ³•å
 				 -->
 				 <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
 					<property name="basePackage" value="study.project.mapper"></property>
@@ -185,26 +185,26 @@
 				 </bean>
 			</beans>
 
-		1.4¡¢sqlMapConfig.xml
+		1.4ã€sqlMapConfig.xml
 			<?xml version="1.0" encoding="UTF-8"?>
 			<!DOCTYPE configuration
 					PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
 					"http://mybatis.org/dtd/mybatis-3-config.dtd">
 			<configuration>
-				<!-- ÅäÖÃ²å¼şÊ¹ÓÃ£¬ÏÈ¿Õ×Å -->
+				<!-- é…ç½®æ’ä»¶ä½¿ç”¨ï¼Œå…ˆç©ºç€ -->
 			</configuration>
 		
-		1.5¡¢JDBC.properties
+		1.5ã€JDBC.properties
 			#url
 			jdbc.url = jdbc\:mysql\:///taotao
-			#mysqlÊı¾İÔ´Çı¶¯
+			#mysqlæ•°æ®æºé©±åŠ¨
 			jdbc.driver = com.mysql.jdbc.Driver
-			#ÓÃ»§Ãû
+			#ç”¨æˆ·å
 			jdbc.username = root
-			#ÃÜÂë
+			#å¯†ç 
 			jdbc.password =root
 
-		1.6¡¢log4j.properties
+		1.6ã€log4j.properties
 			### \u8BBE\u7F6E###
 			log4j.rootLogger = debug,stdout,D,info,warn,E,fatal
 			### ConsoleAppender
@@ -248,7 +248,7 @@
 			log4j.appender.fatal.layout = org.apache.log4j.PatternLayout
 			log4j.appender.fatal.layout.ConversionPattern = %-d{yyyy-MM-dd HH:mm:ss}  [ %t:%r ] - [ %p ]  %m%n
 	
-	2¡¢taotao-manager-web¹¤³ÌµÄweb.xmlÅäÖÃ
+	2ã€taotao-manager-webå·¥ç¨‹çš„web.xmlé…ç½®
 		<?xml version="1.0" encoding="UTF-8"?>
 		<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 				xmlns="http://java.sun.com/xml/ns/javaee" 
@@ -256,7 +256,7 @@
 				xsi:schemaLocation="http://java.sun.com/xml/ns/javaee 
 									http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" id="taotao" version="2.5">
 
-			<!-- ±àÂë¹ıÂË -->
+			<!-- ç¼–ç è¿‡æ»¤ -->
 			<filter>
 				<filter-name>characterEncoding</filter-name>
 				<filter-class>org.springframework.web.filter.CharacterEncodingFilter</filter-class>
@@ -267,13 +267,13 @@
 			</filter>
 			<filter-mapping>
 				<filter-name>characterEncoding</filter-name>
-				<url-pattern>/ĞÇ</url-pattern>
+				<url-pattern>/æ˜Ÿ</url-pattern>
 			</filter-mapping>
 			
-			<!-- ¼ÓÔØspringÅäÖÃÎÄ¼ş 
-				1.Èç¹û¼ÓÔØjar°üÅäÖÃÎÄ¼ş£¬ĞèÒªÈçÏÂ¼ÓÔØ·½Ê½£ºclasspath*:applicatonContext-*.xml
-				2.°ÑÅäÖÃÎÄ¼şÈ«²¿·ÅÈëwebÏîÄ¿¡£
-				¼ÓÔØ·½Ê½£ºclasspath£ºapplicationContext-*.xml(Ê¹ÓÃMAVENÄÚÖÃtomcat²å¼ş)
+			<!-- åŠ è½½springé…ç½®æ–‡ä»¶ 
+				1.å¦‚æœåŠ è½½jaråŒ…é…ç½®æ–‡ä»¶ï¼Œéœ€è¦å¦‚ä¸‹åŠ è½½æ–¹å¼ï¼šclasspath*:applicatonContext-*.xml
+				2.æŠŠé…ç½®æ–‡ä»¶å…¨éƒ¨æ”¾å…¥webé¡¹ç›®ã€‚
+				åŠ è½½æ–¹å¼ï¼šclasspathï¼šapplicationContext-*.xml(ä½¿ç”¨MAVENå†…ç½®tomcatæ’ä»¶)
 			-->
 			<listener>
 				<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
@@ -283,7 +283,7 @@
 				<param-value>classpath:applicationContext-*.xml</param-value>
 			</context-param>
 				
-			<!-- ¼ÓÔØspringmvcÅäÖÃÎÄ¼ş -->
+			<!-- åŠ è½½springmvcé…ç½®æ–‡ä»¶ -->
 			<servlet>
 				<servlet-name>springmvc</servlet-name>
 				<servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
@@ -299,12 +299,12 @@
 			</servlet-mapping>
 		</web-app>
 		
-	3¡¢ÕûºÏDAO--µ¼ÈëÊı¾İ¿â
-		µ¼ÈëÊı¾İ¿âÊı¾İ,Ïê¼û¸½¼ştaotao.sql
+	3ã€æ•´åˆDAO--å¯¼å…¥æ•°æ®åº“
+		å¯¼å…¥æ•°æ®åº“æ•°æ®,è¯¦è§é™„ä»¶taotao.sql
 
-		½«ÅäÖÃÎÄ¼ş½»¸øweb²ã¹ÜÀí£¬mavenÄÚÖÃtomcatÆô¶¯Ê±»á¼ÓÔØÅäÖÃÎÄ¼ş
+		å°†é…ç½®æ–‡ä»¶äº¤ç»™webå±‚ç®¡ç†ï¼Œmavenå†…ç½®tomcatå¯åŠ¨æ—¶ä¼šåŠ è½½é…ç½®æ–‡ä»¶
 		
-		½«
+		å°†
 			applicationContext-dao.xml
 			applicationContext-service.xml
 			jdbc.properties
@@ -312,75 +312,75 @@
 			springmvc.xml
 			sqlMapConfig.xml
 			
-		ÕâĞ©ÎÄ¼ş·ÅÔÚ07taotao-manager-webÖĞ
+		è¿™äº›æ–‡ä»¶æ”¾åœ¨07taotao-manager-webä¸­
 			
-	4¡¢ÕûºÏDAO--ÄæÏò¹¤³Ì
-		4.1¡¢ÕûºÏ²å¼ş
-			½«²å¼şÖĞµÄfeaturesºÍpluginsÎÄ¼ş¼Ó¸´ÖÆµ½myeclipseµÄdropinsÄ¿Â¼ÖĞ£¬»òÕßÔÚ´ËÄ¿Â¼ÖĞĞÂ´´½¨Ò»¸öÎÄ¼ş¼Ğ
-		4.2¡¢ÖØÆômyeclipse
-			¼ûÍ¼8
-		4.3¡¢ÔÚdao²ã´´½¨Ò»¸ögeneratorConfig-base.xml
+	4ã€æ•´åˆDAO--é€†å‘å·¥ç¨‹
+		4.1ã€æ•´åˆæ’ä»¶
+			å°†æ’ä»¶ä¸­çš„featureså’Œpluginsæ–‡ä»¶åŠ å¤åˆ¶åˆ°myeclipseçš„dropinsç›®å½•ä¸­ï¼Œæˆ–è€…åœ¨æ­¤ç›®å½•ä¸­æ–°åˆ›å»ºä¸€ä¸ªæ–‡ä»¶å¤¹
+		4.2ã€é‡å¯myeclipse
+			è§å›¾8
+		4.3ã€åœ¨daoå±‚åˆ›å»ºä¸€ä¸ªgeneratorConfig-base.xml
 			<?xml version="1.0" encoding="UTF-8"?>
 			<!DOCTYPE generatorConfiguration
 			  PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
 			  "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
 			<generatorConfiguration>
-				<!-- classPathEntry:±¾µØÊı¾İ¿âµÄJDBC(mysql)Çı¶¯µÄjar°üµØÖ· -->
+				<!-- classPathEntry:æœ¬åœ°æ•°æ®åº“çš„JDBC(mysql)é©±åŠ¨çš„jaråŒ…åœ°å€ -->
 				<classPathEntry
 					location="D:\studySoftware\software\mysql-connector-java-5.1.7-bin.jar" />
 				<context id="caigouTables" targetRuntime="MyBatis3">
 					<commentGenerator>
-						<!-- ÊÇ·ñÈ¥³ı×Ô¶¯Éú³ÉµÄ×¢ÊÍ true£ºÊÇ £º false:·ñ -->
+						<!-- æ˜¯å¦å»é™¤è‡ªåŠ¨ç”Ÿæˆçš„æ³¨é‡Š trueï¼šæ˜¯ ï¼š false:å¦ -->
 						<property name="suppressAllComments" value="true" />
 					</commentGenerator>
-					<!--Êı¾İ¿âÁ¬½ÓµÄĞÅÏ¢£ºÇı¶¯Àà¡¢Á¬½ÓµØÖ·¡¢ÓÃ»§Ãû¡¢ÃÜÂë -->
+					<!--æ•°æ®åº“è¿æ¥çš„ä¿¡æ¯ï¼šé©±åŠ¨ç±»ã€è¿æ¥åœ°å€ã€ç”¨æˆ·åã€å¯†ç  -->
 					<jdbcConnection driverClass="com.mysql.jdbc.Driver"
 						connectionURL="jdbc:mysql://localhost:3306/mybatis" 
 						userId="root"
 						password="root">
 					</jdbcConnection>
 					
-					<!--oracleÊı¾İ¿âÁ¬½ÓµÄĞÅÏ¢£ºÇı¶¯Àà¡¢Á¬½ÓµØÖ·¡¢ÓÃ»§Ãû¡¢ÃÜÂë -->
+					<!--oracleæ•°æ®åº“è¿æ¥çš„ä¿¡æ¯ï¼šé©±åŠ¨ç±»ã€è¿æ¥åœ°å€ã€ç”¨æˆ·åã€å¯†ç  -->
 					<!-- <jdbcConnection driverClass="oracle.jdbc.OracleDriver"
 						connectionURL="jdbc:oracle:thin:@127.0.0.1:1521:yycg" 
 						userId="yycg"
 						password="yycg">
 					</jdbcConnection> -->
-					<!-- Ä¬ÈÏfalse£¬°ÑJDBC DECIMAL ºÍ NUMERIC ÀàĞÍ½âÎöÎª Integer true£¬°ÑJDBC DECIMAL ºÍ 
-						NUMERIC ÀàĞÍ½âÎöÎªjava.math.BigDecimal -->
+					<!-- é»˜è®¤falseï¼ŒæŠŠJDBC DECIMAL å’Œ NUMERIC ç±»å‹è§£æä¸º Integer trueï¼ŒæŠŠJDBC DECIMAL å’Œ 
+						NUMERIC ç±»å‹è§£æä¸ºjava.math.BigDecimal -->
 					<javaTypeResolver>
 						<property name="forceBigDecimals" value="false" />
 					</javaTypeResolver>
 					<!-- 
-						targetPackage:Éú³ÉÊµÌåÀàµÄ°üÃû
-						targetProject:Éú³ÉÊµÌåÀàµÄÎ»ÖÃ£¨¹¤³ÌÃû£©
+						targetPackage:ç”Ÿæˆå®ä½“ç±»çš„åŒ…å
+						targetProject:ç”Ÿæˆå®ä½“ç±»çš„ä½ç½®ï¼ˆå·¥ç¨‹åï¼‰
 					-->
 					<javaModelGenerator targetPackage="cn.itcast.domain"
 						targetProject="springmvc-02">
-						<!-- enableSubPackages:ÊÇ·ñÈÃschema×÷Îª°üµÄºó×º -->
+						<!-- enableSubPackages:æ˜¯å¦è®©schemaä½œä¸ºåŒ…çš„åç¼€ -->
 						<property name="enableSubPackages" value="true" />
-						<!-- ´ÓÊı¾İ¿â·µ»ØµÄÖµ±»ÇåÀíÇ°ºóµÄ¿Õ¸ñ -->
+						<!-- ä»æ•°æ®åº“è¿”å›çš„å€¼è¢«æ¸…ç†å‰åçš„ç©ºæ ¼ -->
 						<property name="trimStrings" value="true" />
 					</javaModelGenerator>
 					<!-- 
-						targetPackage£ºÉú³Édao½Ó¿ÚµÄ°üÃû
-						targetProject:×Ô¶¯mapper(dao)µÄÎ»ÖÃ(¹¤³ÌÃû) 
+						targetPackageï¼šç”Ÿæˆdaoæ¥å£çš„åŒ…å
+						targetProject:è‡ªåŠ¨mapper(dao)çš„ä½ç½®(å·¥ç¨‹å) 
 					-->
 					<sqlMapGenerator targetPackage="cn.itcast.mapper" 
 						targetProject="springmvc-02">
 						<property name="enableSubPackages" value="false" />
 					</sqlMapGenerator>
 					<!-- 
-						targetPackage£ºÉú³Édao½Ó¿ÚÓ³ÉäÅäÖÃÎÄ¼şµÄµÄ°üÃû£¨×¢Òâ£ºÒªºÍdao½Ó¿ÚÔÚÍ¬Ò»¸ö°üÏÂ£©
-						targetProject:×Ô¶¯mapper(dao)µÄÎ»ÖÃ(¹¤³ÌÃû) 
-						implementationPackage£ºdao½Ó¿ÚµÄ°üÃû
+						targetPackageï¼šç”Ÿæˆdaoæ¥å£æ˜ å°„é…ç½®æ–‡ä»¶çš„çš„åŒ…åï¼ˆæ³¨æ„ï¼šè¦å’Œdaoæ¥å£åœ¨åŒä¸€ä¸ªåŒ…ä¸‹ï¼‰
+						targetProject:è‡ªåŠ¨mapper(dao)çš„ä½ç½®(å·¥ç¨‹å) 
+						implementationPackageï¼šdaoæ¥å£çš„åŒ…å
 					-->
 					<javaClientGenerator type="XMLMAPPER"
 						targetPackage="cn.itcast.mapper" implementationPackage="cn.itcast.mapper"
 						targetProject="springmvc-02">
 						<property name="enableSubPackages" value="false" />
 					</javaClientGenerator>
-					<!-- ¶ÔÓ¦µÄÒªÉú³ÉµÄÊı¾İ¿âÖĞµÄ±íÃû -->	
+					<!-- å¯¹åº”çš„è¦ç”Ÿæˆçš„æ•°æ®åº“ä¸­çš„è¡¨å -->	
 					<table schema="" tableName="items"></table>
 					<!-- <table schema="" tableName="userjd" />
 					<table schema="" tableName="usergys" />
@@ -390,10 +390,10 @@
 				</context>
 			</generatorConfiguration>	
 	
-	5¡¢¼ÓÔØdaoµÄÅäÖÃÎÄ¼ş
-		Dao²ã½Ó¿ÚºÍxmlÅäÖÃÎÄ¼şÔÚÍ¬Ò»¸öÄ¿Â¼src/main/java,ÓÉÓÚ´ËÄ¿Â¼ÏÂÖ»¼ÓÔØjava´úÂë¡£²»¼ÓÔØÅäÖÃÎÄ¼ş¡£
+	5ã€åŠ è½½daoçš„é…ç½®æ–‡ä»¶
+		Daoå±‚æ¥å£å’Œxmlé…ç½®æ–‡ä»¶åœ¨åŒä¸€ä¸ªç›®å½•src/main/java,ç”±äºæ­¤ç›®å½•ä¸‹åªåŠ è½½javaä»£ç ã€‚ä¸åŠ è½½é…ç½®æ–‡ä»¶ã€‚
 		
-		ĞŞ¸Ädao²ãpomÎÄ¼ş£¬¼ÓÔØxmlÎÄ¼ş
+		ä¿®æ”¹daoå±‚pomæ–‡ä»¶ï¼ŒåŠ è½½xmlæ–‡ä»¶
 			<dependencies></dependencies>
 			<build>
 				<finalName>bizcloud-tcb2b</finalName>
@@ -417,8 +417,8 @@
 				</resources>
 			</build>
 
-	6¡¢²âÊÔ
-		ĞèÇó£º¸ù¾İId²éÑ¯ÉÌÆ·£¬·µ»Øjson¸ñÊ½Êı¾İ
+	6ã€æµ‹è¯•
+		éœ€æ±‚ï¼šæ ¹æ®IdæŸ¥è¯¢å•†å“ï¼Œè¿”å›jsonæ ¼å¼æ•°æ®
 		
 		ItemController.java	
 			@Controller
@@ -428,13 +428,13 @@
 				private ItemService itemService;
 				
 				/**
-				 * ¸ù¾İÉÌÆ·id²éÑ¯ÉÌÆ·
-				 * ½ÓÊÕ²ÎÊı·½·¨Ò»£º
+				 * æ ¹æ®å•†å“idæŸ¥è¯¢å•†å“
+				 * æ¥æ”¶å‚æ•°æ–¹æ³•ä¸€ï¼š
 				 * 		@RequestMapping("/findItemByItemId/{itemId}")
 				 *		public TbItem findItemByItemId(@PathVariable Long itemId){}
 				 *		url:
 				 *			localhost:8081/findItemByItemId/536563
-				 *½ÓÊÕ²ÎÊı·½·¨¶ş£º
+				 *æ¥æ”¶å‚æ•°æ–¹æ³•äºŒï¼š
 				 *		@RequestMapping("/findItemByItemId")
 				 *		public TbItem findItemByItemId(@RequestParam Long itemId){}
 				 *		url:
@@ -454,13 +454,13 @@
 			}
 		ItemService.java
 			/**
-			 * service²ã½Ó¿Ú
+			 * serviceå±‚æ¥å£
 			 * @author yeying
 			 */
 			public interface ItemService {
 				
 				/**
-				 * ¸ù¾İitemId²éÑ¯ItemĞÅÏ¢
+				 * æ ¹æ®itemIdæŸ¥è¯¢Itemä¿¡æ¯
 				 * @param itemId
 				 * @return
 				 */
@@ -474,17 +474,17 @@
 				@Resource
 				private TbItemMapper itemMapper;
 				/**
-				 * ¸ù¾İitemId²éÑ¯ItemĞÅÏ¢
+				 * æ ¹æ®itemIdæŸ¥è¯¢Itemä¿¡æ¯
 				 */
 				public TbItem findItemByID(Long itemId) {
 
-					//´´½¨TbItemExample¶ÔÏó
+					//åˆ›å»ºTbItemExampleå¯¹è±¡
 					TbItemExample example = new TbItemExample();
-					//»ñÈ¡Criteria¶ÔÏó
+					//è·å–Criteriaå¯¹è±¡
 					Criteria criteria = example.createCriteria();
-					//´«²Î
+					//ä¼ å‚
 					criteria.andIdEqualTo(itemId);
-					//Ö´ĞĞ²éÑ¯
+					//æ‰§è¡ŒæŸ¥è¯¢
 					List<TbItem> itemList = itemMapper.selectByExample(example);
 					
 					if (itemList != null && itemList.size() > 0) {
