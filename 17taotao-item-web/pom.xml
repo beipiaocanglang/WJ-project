@@ -118,12 +118,18 @@
 			 <artifactId>junit</artifactId>
 			 <scope>compile</scope>
 		 </dependency>
+		 <!--freemarker-->
 		<dependency>
 			<groupId>org.freemarker</groupId>
 			<artifactId>freemarker</artifactId>
 			<version>${freemarker.version}</version>
 		</dependency>
-	
+		 <!-- Activemq -->
+		 <dependency>
+			 <groupId>org.apache.activemq</groupId>
+			 <artifactId>activemq-all</artifactId>
+			 <version>${activemq.version}</version>
+		 </dependency>
 		
 		<!-- 依赖接口 -->
 		<dependency>

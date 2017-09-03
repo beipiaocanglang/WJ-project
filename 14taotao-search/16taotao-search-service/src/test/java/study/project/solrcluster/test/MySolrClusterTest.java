@@ -24,7 +24,7 @@ public class MySolrClusterTest {
 	@Test
 	public void addSolrclusterDoc(){
 		//设置zk集群地址
-		String zkhost = "192.168.145.129:2182,192.168.145.129:2183,192.168.145.129:2184";
+		String zkhost = "192.168.254.66:2182,192.168.254.66:2183,192.168.254.66:2184";
 		//创建solr集群对象
 		CloudSolrServer cloudSolrServer = new CloudSolrServer(zkhost);
 		//设置默认操作的索引库
@@ -57,7 +57,7 @@ public class MySolrClusterTest {
 	@Test
 	public void querySolrclusterDoc(){
 		//设置zk集群地址
-		String zkhost = "192.168.145.129:2182,192.168.145.129:2183,192.168.145.129:2184";
+		String zkhost = "192.168.254.66:2182,192.168.254.66:2183,192.168.254.66:2184";
 		//创建solr集群对象
 		CloudSolrServer cloudSolrServer = new CloudSolrServer(zkhost);
 		//设置默认操作的索引库

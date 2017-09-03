@@ -1,7 +1,5 @@
 package study.project.upload.test;
 
-import java.io.IOException;
-
 import org.csource.fastdfs.ClientGlobal;
 import org.csource.fastdfs.StorageClient;
 import org.csource.fastdfs.StorageServer;
