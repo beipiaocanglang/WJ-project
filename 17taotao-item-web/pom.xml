@@ -113,12 +113,15 @@
 			<artifactId>fastdfs_client</artifactId>
 			<version>1.25</version>
 		</dependency>
-		<!-- 单元测试 -->
+		 <dependency>
+			 <groupId>junit</groupId>
+			 <artifactId>junit</artifactId>
+			 <scope>compile</scope>
+		 </dependency>
 		<dependency>
-			<groupId>junit</groupId>
-			<artifactId>junit</artifactId>
-			<version>${junit.version}</version>
-			<scope>test</scope>
+			<groupId>org.freemarker</groupId>
+			<artifactId>freemarker</artifactId>
+			<version>${freemarker.version}</version>
 		</dependency>
 	
 		
