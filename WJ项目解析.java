@@ -4610,12 +4610,162 @@
 
 二十七、前台系统-Freemarker简介及使用
     详见：项目中用的新知识点/Freemarker
-	
+    
+二十八、前台系统-页面实现静态化(16)
+    数据同步分析
+		见图2
+
+    1、导入依赖
+        在item-service工程中导入ActiveMq和Freemarker的依赖
+
+        <!--freemarker-->
+		<dependency>
+			<groupId>org.freemarker</groupId>
+			<artifactId>freemarker</artifactId>
+			<version>${freemarker.version}</version>
+		</dependency>
+        <!-- Activemq -->
+        <dependency>
+            <groupId>org.apache.activemq</groupId>
+            <artifactId>activemq-all</artifactId>
+            <version>${activemq.version}</version>
+        </dependency>
 			
-			
-			
-			
-			
+	2、添加配置文件		
+		在item-service工程中添加ActiveMq和Freemarker配置文件
+
+        在resource.properties中添加html文件保存的路径
+
+        复制search-service工程中mq的配置文件即可
+
+        applicationContext-mq-receive.xml
+            <?xml version="1.0" encoding="UTF-8"?>
+            <beans xmlns="http://www.springframework.org/schema/beans"
+                。。。。。。
+
+                <!--将Freemarker对像的创建交给spring管理-->
+                <bean class="org.springframework.web.servlet.view.freemarker.FreeMarkerConfigurer">
+                    <property name="templateLoaderPath" value="/WEB-INF/jsp/freemarker/"/>
+                    <property name="defaultEncoding" value="UTF-8"/>
+                </bean>
+            </beans>
+
+        applicationContext-freemarker.xml	
+			<?xml version="1.0" encoding="UTF-8"?>
+            <beans xmlns="http://www.springframework.org/schema/beans"
+                。。。。。。
+                
+                <!--消息工厂交给spring管理-->
+                <bean id="targetConnectionFactory" class="org.apache.activemq.ActiveMQConnectionFactory">
+                    <constructor-arg name="brokerURL" value="tcp://192.168.254.66:61616"/>
+                </bean>
+
+                <!--
+                    spring消息服务管理：管理消息工厂
+                    spring来管理jms消息服务器
+                -->
+                <bean id="connectionFactory" class="org.springframework.jms.connection.SingleConnectionFactory">
+                    <property name="targetConnectionFactory" ref="targetConnectionFactory"/>
+                </bean>
+                
+                <!-- 整合到项目中 -->
+                <bean id="addItem" class="org.apache.activemq.command.ActiveMQTopic">
+                    <constructor-arg index="0" value="add_item_topic"/>
+                </bean>
+                
+                <!-- 指定自己的监听器 -->
+                <!-- <bean id="messageListener" class="study.project.avtivemqListerne.MyMqListener"></bean> -->
+                <bean id="messageListener" class="study.project.item.controller.freemarkerListerne.AddItemFreemarkerListerne"/>
+                
+                <!--  
+                    使用监听器接收消息
+                    spring JMS框架使用默认监听器来加载自定义监听器接收消息
+                -->
+                <bean class="org.springframework.jms.listener.DefaultMessageListenerContainer">
+                    <!-- 指定信息服务器地址 -->
+                    <property name="connectionFactory" ref="connectionFactory"/>
+                    <!-- 指定消息服务器监听的目的地 -->
+                    <!-- <property name="destination" ref="myqueue"></property> -->
+                    
+                        <!--使用订阅模式时将这一行放开，将上面的注释掉就行-->
+                    <property name="destination" ref="addItem"/>
+                    
+                    <!-- 指定自己的监听器 -->
+                    <property name="messageListener" ref="messageListener"/>
+                </bean>
+            </beans>
+
+        resource.properties
+            #Freemarker生成的html路径
+            GEN_HTML_PATH=E:\\JAVA\\ReStudy\\Study\\Project\\WJ-project\\WJ-project\\17taotao-item-web\\src\\main\\webapp\\WEB-INF\\jsp\\freemarker\\out\\
+
+    3、监听器
+        在item-web工程中的study.project.item.controller.freemarkerListerne包下创建AddItemFreemarkerListerne.java监听器
+
+        /**
+        * freemarker的mq监听器
+        * Created by canglang on 2017/9/3.
+        */
+        public class AddItemFreemarkerListerne implements MessageListener{
+
+            @Resource
+            private ItemService itemService;
+
+            @Resource
+            private FreeMarkerConfigurer freeMarkerConfigurer;
+
+            @Value("${GEN_HTML_PATH}")
+            private String GEN_HTML_PATH;
+
+            public void onMessage(Message message) {
+
+                if (message instanceof TextMessage){
+                    TextMessage textMessage = (TextMessage)message;
+
+                    try {
+                        String itemId = textMessage.getText();
+
+                        //根据消息商品id查询商品信息
+                        TbItem item = itemService.findItemByID(Long.parseLong(itemId));
+
+                        //根据消息商品id查询商品描述信息
+                        TbItemDesc itemDesc = itemService.findItemDescById(Long.parseLong(itemId));
+
+                        //创建Freemarker配置对象
+
+                        Configuration configuration = freeMarkerConfigurer.getConfiguration();
+
+                        Template template = configuration.getTemplate("item.ftl");
+
+                        Map<String, Object> maps = new HashMap<>();
+                        maps.put("item", item);
+                        maps.put("itemDesc", itemDesc);
+
+                        Writer out = new FileWriter(new File(GEN_HTML_PATH + itemId + ".html"));
+
+                        template.process(maps, out);
+
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
+
+                }
+            }
+        }
+
+    4、改造页面
+        改造item-web工程中的item.jsp页面为freemarker模版
+
+        需要将item-web工程下的WEB-INF/jsp/commons目录、error目录、item.jsp、success.jsp复制到WEB-INF/jsp/freemarker目录下
+
+        将这些文件中的jsp引用，循环改成Freemarker的动态指令
+
+        将这些文件的后缀改成Freemarker的后缀(.ftl)
+
+
+
+        
+        
 			
 			
 			

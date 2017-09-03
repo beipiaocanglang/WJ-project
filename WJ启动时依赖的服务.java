@@ -345,15 +345,30 @@ linux需要启动的服务：
 		24、前台系统-搭建商品详情服务
 		
 		25、前台系统-展示商品详情(14)
+
+        26、前台系统-商品详情也添加缓存(15)
+        
+        27、前台系统-Freemarker简介及使用
+
+        28、前台系统-页面实现静态化(16)
+
+		
+		
 		
 
-	http://192.168.254.67/group1/M00/00/00/wKj-Q1mcY7SASXKKAAD6nNM0jms858.jpg,http://192.168.254.67/group1/M00/00/00/wKj-Q1mcY7WAAGGzAABvaLLSa9M274.jpg
-		
-		
-		
-		
-		
-		
+
+要学的：
+    项目
+    
+    私服
+
+    solr
+
+    mybatis
+
+    p2p
+
+    oracle
 		
 		
 		
