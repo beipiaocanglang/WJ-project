@@ -11,10 +11,14 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 public class PageController {
 
+    /**
+     * 跳转到登录或注册
+     * @param page
+     * @return
+     */
     @RequestMapping("{page}")
     public String showIndex(@PathVariable String page){
 
         return page;
     }
-
 }
