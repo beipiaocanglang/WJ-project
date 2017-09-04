@@ -12,10 +12,10 @@
 	<packaging>war</packaging>
   
 	<!--  
-  	表现层：
-  		springmvc(集成service就继承了spring的jar)
-  		mvc依赖
-  		jstl/servlet/jsp等
+        表现层：
+            springmvc(集成service就继承了spring的jar)
+            mvc依赖
+            jstl/servlet/jsp等
 	-->
 	<dependencies>
 		<!-- JSP相关 -->

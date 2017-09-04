@@ -8,7 +8,6 @@
 		<groupId>com.taotao</groupId>
 		<version>0.0.1-SNAPSHOT</version>
 	</parent>
-	<groupId>com.taotao</groupId>
 	<artifactId>13taotao-search-web</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<packaging>war</packaging>

@@ -1,17 +1,45 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-  <modelVersion>4.0.0</modelVersion>
-  <parent>
-    <groupId>com.taotao</groupId>
-    <artifactId>01taotao-parent</artifactId>
+    <modelVersion>4.0.0</modelVersion>
+    <parent>
+        <groupId>com.taotao</groupId>
+        <artifactId>01taotao-parent</artifactId>
+        <version>0.0.1-SNAPSHOT</version>
+    </parent>
+    <artifactId>18taotao-user</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-  </parent>
-  <groupId>com.taotao</groupId>
-  <artifactId>18taotao-user</artifactId>
-  <version>0.0.1-SNAPSHOT</version>
-  <packaging>pom</packaging>
-  <build/>
-  <modules>
-  	<module>19taotao-user-interface</module>
-  	<module>20taotao-user-service</module>
-  </modules>
+    <packaging>pom</packaging>
+    <modules>
+  	    <module>19taotao-user-interface</module>
+  	    <module>20taotao-user-service</module>
+    </modules>
+    <!--
+		需要的依赖：
+			1、抽取公共的jar
+			2、管理聚合项目(依赖、插件)
+		参考：
+			content工程
+	-->
+    <dependencies>
+        <dependency>
+            <groupId>com.taotao</groupId>
+            <artifactId>02taotao-common</artifactId>
+            <version>0.0.1-SNAPSHOT</version>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.tomcat.maven</groupId>
+                <artifactId>tomcat7-maven-plugin</artifactId>
+                <version>2.2</version>
+                <configuration>
+                    <!-- 定义项目发布路径，相当于直接放到tomcat的ROOT目录，在访问时不需要项目名称，直接访问路径就行 -->
+                    <path>/</path>
+                    <!-- 配置tomcat端口 -->
+                    <port>8088</port>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
 </project>
