@@ -32,7 +32,7 @@ public class MyReceiveTopicMessage {
 		 * 创建消息工厂：
 		 * 		参数：协议(tcp)、地址、端口
 		 */
-		ConnectionFactory cf = new ActiveMQConnectionFactory("tcp://192.168.254.66:61616");
+		ConnectionFactory cf = new ActiveMQConnectionFactory("tcp://192.168.145.129:61616");
 		
 		//获取连接
 		Connection connection = cf.createConnection();
