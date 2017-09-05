@@ -1,15 +1,21 @@
 package study.project.user.service.impl;
 
+import org.apache.commons.lang3.StringUtils;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
+import org.springframework.util.DigestUtils;
+import study.project.JsonUtils;
 import study.project.ProjectResultDTO;
 import study.project.domain.TbUser;
 import study.project.domain.TbUserExample;
 import study.project.mapper.TbUserMapper;
+import study.project.user.redis.dao.JedisDao;
 import study.project.user.service.IUserService;
 
 import javax.annotation.Resource;
 import java.util.Date;
 import java.util.List;
+import java.util.UUID;
 
 /**
  *  sso
@@ -57,9 +63,9 @@ public class UserServiceImpl implements IUserService {
 
     /**
      * 功能18：
-     *      用户注册(注册前要先检查数据的可用性)
+     *      用户注册
      * 请求：
-     *      http://sso.taotao.com/user/register
+     *      /user/register
      * 参数：
      *      TbUser
      */
@@ -69,6 +75,11 @@ public class UserServiceImpl implements IUserService {
             //补全参数
             user.setCreated(new Date());
             user.setUpdated(new Date());
+
+            //给密码加密
+            if (StringUtils.isNotBlank(user.getPassword())) {
+                user.setPassword(DigestUtils.md5DigestAsHex(user.getPassword().getBytes()));
+            }
 
             //注册
             int insert = userMapper.insert(user);
@@ -83,5 +94,96 @@ public class UserServiceImpl implements IUserService {
         }
 
         return ProjectResultDTO.ok();
+    }
+
+    @Value("${SESSION_KEY}")
+    private String SESSION_KEY;
+
+    @Value("${SESSION_TIMEOUT}")
+    private Integer SESSION_TIMEOUT;
+
+    @Resource
+    private JedisDao jedisDao;
+
+    /**
+     * 功能19：
+     *      用户登录
+     * 请求：
+     *      /user/login
+     * 参数：
+     *      String username
+     *      String password
+     * 返回值：
+     *       封装token数据TaoTaoResult。
+     *       校验用户名不存在，返回400,msg:用户名或者密码错误
+     *       校验密码：密码错误，返回400，msg：用户名或者密码错误。
+     */
+    public ProjectResultDTO login(String username, String password) {
+
+        TbUserExample example = new TbUserExample();
+
+        TbUserExample.Criteria criteria = example.createCriteria();
+
+        criteria.andUsernameEqualTo(username);
+
+        //根据用户名查询用户信息，正常情况下只能查出一条数据
+        List<TbUser> users = userMapper.selectByExample(example);
+
+        //查询结果为空表示用户不存在
+        if (users == null || users.isEmpty() || users.size() < 1) {
+            return ProjectResultDTO.build(400, "用户名或密码错误，请核对后重试！");
+        }
+
+        //获取用户信息
+        TbUser user = users.get(0);
+
+        //对密码进行md5加密
+        String md5 = DigestUtils.md5DigestAsHex(password.getBytes());
+
+        ///判断密码是否相等
+        if(!md5.equals(user.getPassword())){
+            return ProjectResultDTO.build(400, "用户名或密码错误，请核对后重试！");
+        }
+
+        //返回用户已经登录的标识token，token使用UUID
+        String token = UUID.randomUUID().toString();
+
+        //将用户登录信息存入redis缓存服务器中
+        //把密码置成null
+        user.setPassword(null);
+
+        //将用户登录信息存入redis缓存
+        jedisDao.set(SESSION_KEY+":"+token, JsonUtils.objectToJson(user));
+        //设置用户登录信息的超时时间
+        jedisDao.expire(SESSION_KEY+":"+token, SESSION_TIMEOUT);
+
+        return ProjectResultDTO.ok(token);
+    }
+
+    /**
+     * 功能20：
+     *      页面加载时根据token查询redis服务器中是否有用户登录信息
+     * 请求：
+     *      /user/token/{token}
+     * 参数：
+     *      String token
+     *      String callback
+     */
+    public ProjectResultDTO userCheck(String token, String callback) {
+
+        String userCookieInfo = jedisDao.get(SESSION_KEY + ":" + token);
+
+        if (StringUtils.isNotBlank(userCookieInfo)) {
+
+            TbUser user = JsonUtils.jsonToPojo(userCookieInfo, TbUser.class);
+
+            //将用户登录信息存入redis缓存
+            jedisDao.set(SESSION_KEY+":"+token, JsonUtils.objectToJson(user));
+            //设置用户登录信息的超时时间
+            jedisDao.expire(SESSION_KEY+":"+token, SESSION_TIMEOUT);
+
+            return ProjectResultDTO.ok(user);
+        }
+        return ProjectResultDTO.build(201, "您的登录信息已经过期，请重新登录！");
     }
 }
