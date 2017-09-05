@@ -84,9 +84,10 @@ public class UaerController {
 
         ProjectResultDTO result = userService.login(username, password);
 
-        //把token放入cookies
-        CookieUtils.setCookie(request, response, TOKEN_COOKIE_KEY, result.getData().toString());
-
+        if (result.getStatus() == 200 && result.getData() != null) {
+            //把token放入cookies
+            CookieUtils.setCookie(request, response, TOKEN_COOKIE_KEY, result.getData().toString());
+        }
         return result;
     }
 
@@ -100,12 +101,12 @@ public class UaerController {
      *      String callback
      */
     @ResponseBody
-    @RequestMapping("/user/login/{token}")
+    @RequestMapping("/user/token/{token}")
     public Object userCheck(@PathVariable String token, String callback){
 
         ProjectResultDTO result = userService.userCheck(token, callback);
 
-        if (StringUtils.isNotBlank(callback)) {
+        if (StringUtils.isBlank(callback)) {
             return result;
         } else {
             //否则是一个跨域请求
