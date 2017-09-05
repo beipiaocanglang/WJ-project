@@ -2,9 +2,11 @@
  Date: 2014-01-21 
  */
 function login() {
+    //跳转到登录页面，走的是controller请求
     return location.href = "http://localhost:8084/user/showLogin";
 }
 function regist() {
+    //跳转到注册页面，走的是controller请求
     return location.href = "http://localhost:8084/user/showRegister";
 }
 function createCookie(a, b, c, d) {

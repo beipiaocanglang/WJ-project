@@ -3,8 +3,10 @@ package study.project.user.sso.controller;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import study.project.ProjectResultDTO;
+import study.project.domain.TbUser;
 import study.project.user.service.IUserService;
 
 import javax.annotation.Resource;
@@ -35,7 +37,25 @@ public class UaerController {
 
         ProjectResultDTO dataCheck = userService.dataCheck(param, type);
 
-
         return dataCheck;
     }
+
+    /**
+     * 功能18：
+     *      用户注册(注册前要先检查数据的可用性)
+     * 请求：
+     *      http://sso.taotao.com/user/register
+     * 参数：
+     *      TbUser
+     */
+    @ResponseBody
+    @RequestMapping(value = "/user/register", method = RequestMethod.POST)
+    public ProjectResultDTO register(TbUser user){
+
+        ProjectResultDTO result = userService.register(user);
+
+        return result;
+    }
+
+
 }

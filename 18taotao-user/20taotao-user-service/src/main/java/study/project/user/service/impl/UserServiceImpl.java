@@ -8,6 +8,7 @@ import study.project.mapper.TbUserMapper;
 import study.project.user.service.IUserService;
 
 import javax.annotation.Resource;
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -52,5 +53,35 @@ public class UserServiceImpl implements IUserService {
         }
 
         return ProjectResultDTO.ok(false);
+    }
+
+    /**
+     * 功能18：
+     *      用户注册(注册前要先检查数据的可用性)
+     * 请求：
+     *      http://sso.taotao.com/user/register
+     * 参数：
+     *      TbUser
+     */
+    public ProjectResultDTO register(TbUser user) {
+
+        try {
+            //补全参数
+            user.setCreated(new Date());
+            user.setUpdated(new Date());
+
+            //注册
+            int insert = userMapper.insert(user);
+
+            if (insert != 1) {
+                return ProjectResultDTO.build(400, "注册失败，请稍后重试！");
+            }
+
+        } catch (Exception e) {
+            e.printStackTrace();
+            return ProjectResultDTO.build(400, "注册失败，请稍后重试！");
+        }
+
+        return ProjectResultDTO.ok();
     }
 }

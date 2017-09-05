@@ -27,6 +27,7 @@
         </ul>
         <div class="extra">
         <span>我已经注册，现在就&nbsp;
+            <%--跳转到登录页面，走的是controller请求--%>
         	<a href="/user/showLogin" class="flk13">登录</a>
         </span>
         </div>
@@ -182,7 +183,7 @@
 			});
 		},
 		login:function() {
-			 location.href = "/user/showLogin";
+			 location.href = "/user/showLogin";//跳转到登录页面，走的是controller请求
 			 return false;
 		},
 		reg:function() {

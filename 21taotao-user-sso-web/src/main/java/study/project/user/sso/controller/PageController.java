@@ -1,7 +1,6 @@
 package study.project.user.sso.controller;
 
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 /**
@@ -12,13 +11,23 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class PageController {
 
     /**
-     * 跳转到登录或注册
-     * @param page
+     * 跳转到注册
+     * /user/showLogin
      * @return
      */
-    @RequestMapping("{page}")
-    public String showIndex(@PathVariable String page){
+    @RequestMapping("/user/showRegister")
+    public String showRegister(){
 
-        return page;
+        return "register";
+    }
+    /**
+     * 跳转到登录
+     * /user/showLogin
+     * @return
+     */
+    @RequestMapping("/user/showLogin")
+    public String showLogin(){
+
+        return "login";
     }
 }

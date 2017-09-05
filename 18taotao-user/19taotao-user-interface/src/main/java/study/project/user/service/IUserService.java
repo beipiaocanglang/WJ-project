@@ -1,6 +1,7 @@
 package study.project.user.service;
 
 import study.project.ProjectResultDTO;
+import study.project.domain.TbUser;
 
 /**
  * SSO接口
@@ -19,4 +20,14 @@ public interface IUserService {
      *      json格式的ProjectResultDTO
      */
     public ProjectResultDTO dataCheck(String param, Integer type);
+
+    /**
+     * 功能18：
+     *      用户注册(注册前要先检查数据的可用性)
+     * 请求：
+     *      http://sso.taotao.com/user/register
+     * 参数：
+     *      TbUser
+     */
+    public ProjectResultDTO register(TbUser user);
 }

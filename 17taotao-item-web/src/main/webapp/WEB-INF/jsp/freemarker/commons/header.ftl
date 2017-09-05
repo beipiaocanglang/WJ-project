@@ -29,6 +29,7 @@
 			<dl>
 				<dt class="ld">
 					<s></s>
+                    <%--跳转到登录页面，走的是controller请求--%>
 					<a href="http://localhost:8084/user/showLogin" clstag="homepage|keycount|home2012|04a">我的淘淘</a>
 					<b></b>
 				</dt>
