@@ -43,7 +43,7 @@
 	<dubbo:registry protocol="zookeeper" address="192.168.145.129:2181"/>
 	
 	<!-- 引用服务(y引用solr索引库服务) -->
-	<dubbo:reference id="userService" interface="study.project.user.service.IUserService" version="1.0.0" timeout="5000"/>
+	<dubbo:reference id="userService" interface="study.project.user.service.IUserService" version="1.0.0" timeout="100000"/>
     
 </beans>
 

@@ -52,19 +52,19 @@
 	<dubbo:registry protocol="zookeeper" address="192.168.145.129:2181"/>
 	
 	<!-- 引用服务(包含根据id查询商品信息、分页查询商品列表) -->
-	<dubbo:reference id="itemService" interface="study.project.ItemService" version="1.0.0" timeout="5000"/>
+	<dubbo:reference id="itemService" interface="study.project.ItemService" retries="0" version="1.0.0" timeout="100000"/>
 
 	<!-- 引用服务(查询商品类目) -->
-	<dubbo:reference id="itemCatService" interface="study.project.ItemCatService" version="1.0.0" timeout="5000"/>
+	<dubbo:reference id="itemCatService" interface="study.project.ItemCatService" retries="0" version="1.0.0" timeout="100000"/>
 
 	<!-- 引用服务(后台管理系统加载首页分类的树形菜单) -->
-	<dubbo:reference id="contentCategoryService" interface="study.project.ContentCategoryService" version="1.0.0" timeout="5000"/>
+	<dubbo:reference id="contentCategoryService" interface="study.project.ContentCategoryService" retries="0" version="1.0.0" timeout="100000"/>
     
 	<!-- 引用服务(根据子节点的id查询节点中的分类内容) -->
-	<dubbo:reference id="contentService" interface="study.project.ContentService" version="1.0.0" timeout="5000"/>
+	<dubbo:reference id="contentService" interface="study.project.ContentService" version="1.0.0" retries="0" timeout="100000"/>
 
 	<!-- 引用服务(y引用solr索引库服务) -->
-	<dubbo:reference id="searchItemService" interface="study.project.search.service.SearchItemService" version="1.0.0" timeout="5000"/>
+	<dubbo:reference id="searchItemService" interface="study.project.search.service.SearchItemService" retries="0" version="1.0.0" timeout="100000"/>
     
 </beans>
 

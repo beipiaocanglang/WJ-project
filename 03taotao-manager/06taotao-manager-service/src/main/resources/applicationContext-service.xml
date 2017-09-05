@@ -60,11 +60,11 @@
     <!-- 创建需要发布对象(包含根据id查询商品信息、分页查询商品列表)-->
     <bean id="itemServiceImpl" class="study.project.service.impl.ItemServiceImpl"/>
    	<!-- 发布服务 -->
-    <dubbo:service ref="itemServiceImpl" interface="study.project.ItemService" version="1.0.0" retries="0" timeout="10000"/>
+    <dubbo:service ref="itemServiceImpl" interface="study.project.ItemService" version="1.0.0" retries="0" timeout="100000"/>
 
     <!-- 创建需要发布对象(查询商品类目)-->
     <bean id="itemCatServiceImpl" class="study.project.service.impl.ItemCatServiceImpl"/>
    	<!-- 发布服务 -->
-    <dubbo:service ref="itemCatServiceImpl" interface="study.project.ItemCatService" version="1.0.0" retries="0" timeout="10000"/>
+    <dubbo:service ref="itemCatServiceImpl" interface="study.project.ItemCatService" version="1.0.0" retries="0" timeout="100000"/>
 	
 </beans>

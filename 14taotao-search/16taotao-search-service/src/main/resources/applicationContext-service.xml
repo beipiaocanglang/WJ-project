@@ -60,5 +60,5 @@
     <!-- 创建需要发布对象(包含根据id查询商品信息、分页查询商品列表)-->
     <bean id="searchItemServiceImpl" class="study.project.search.service.impl.SearchItemServiceImpl"/>
    	<!-- 发布服务 -->
-    <dubbo:service ref="searchItemServiceImpl" interface="study.project.search.service.SearchItemService" version="1.0.0" retries="0"  timeout="10000"/>
+    <dubbo:service ref="searchItemServiceImpl" interface="study.project.search.service.SearchItemService" version="1.0.0" retries="0"  timeout="100000"/>
 </beans>

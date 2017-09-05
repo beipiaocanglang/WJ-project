@@ -60,5 +60,6 @@
     <!-- 创建需要发布对象(包含根据id查询商品信息、分页查询商品列表)-->
     <bean id="userServiceImpl" class="study.project.user.service.impl.UserServiceImpl"/>
    	<!-- 发布服务 user工程 -->
-    <dubbo:service ref="userServiceImpl" interface="study.project.user.service.IUserService" version="1.0.0" retries="0" timeout="10000"/>
+    <dubbo:service ref="userServiceImpl" interface="study.project.user.service.IUserService" version="1.0.0" retries="0" timeout="100000"/>
+
 </beans>
