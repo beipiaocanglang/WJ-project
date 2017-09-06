@@ -15,26 +15,33 @@
 	        </tr>
 	        <tr>
 	            <td>商品标题:</td>
-	            <td><input class="easyui-textbox" type="text" name="title" data-options="required:true" style="width: 280px;"></input></td>
+	            <td>
+                    <input class="easyui-textbox" type="text" name="title" data-options="required:true" style="width: 280px;"/>
+                </td>
 	        </tr>
 	        <tr>
 	            <td>商品卖点:</td>
-	            <td><input class="easyui-textbox" name="sellPoint" data-options="multiline:true,validType:'length[0,150]'" style="height:60px;width: 280px;"></input></td>
+	            <td>
+                    <input class="easyui-textbox" name="sellPoint" data-options="multiline:true,validType:'length[0,150]'" style="height:60px;width: 280px;"/>
+                </td>
 	        </tr>
 	        <tr>
 	            <td>商品价格:</td>
-	            <td><input class="easyui-numberbox" type="text" name="priceView" data-options="min:1,max:99999999,precision:2,required:true" />
+	            <td>
+                    <input class="easyui-numberbox" type="text" name="priceView" data-options="min:1,max:99999999,precision:2,required:true" />
 	            	<input type="hidden" name="price"/>
 	            </td>
 	        </tr>
 	        <tr>
 	            <td>库存数量:</td>
-	            <td><input class="easyui-numberbox" type="text" name="num" data-options="min:1,max:99999999,precision:0,required:true" /></td>
+	            <td>
+                    <input class="easyui-numberbox" type="text" name="num" data-options="min:1,max:99999999,precision:0,required:true"/>
+                </td>
 	        </tr>
 	        <tr>
 	            <td>条形码:</td>
 	            <td>
-	                <input class="easyui-textbox" type="text" name="barcode" data-options="validType:'length[1,30]'" />
+	                <input class="easyui-textbox" type="text" name="barcode" data-options="validType:'length[1,30]'"/>
 	            </td>
 	        </tr>
 	        <tr>
@@ -52,9 +59,7 @@
 	        </tr>
 	        <tr class="params hide">
 	        	<td>商品规格:</td>
-	        	<td>
-	        		
-	        	</td>
+	        	<td></td>
 	        </tr>
 	    </table>
 	    <input type="hidden" name="itemParams"/>

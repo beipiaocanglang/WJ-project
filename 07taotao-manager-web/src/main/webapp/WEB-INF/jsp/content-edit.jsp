@@ -9,20 +9,27 @@
 	    <table cellpadding="5">
 	        <tr>
 	            <td>内容标题:</td>
-	            <td><input class="easyui-textbox" type="text" name="title" data-options="required:true" style="width: 280px;"></input></td>
+	            <td>
+                    <input class="easyui-textbox" type="text" name="title" data-options="required:true" style="width: 280px;"/>
+                </td>
 	        </tr>
 	        <tr>
 	            <td>内容子标题:</td>
-	            <td><input class="easyui-textbox" type="text" name="subTitle" style="width: 280px;"></input></td>
+	            <td>
+                    <input class="easyui-textbox" type="text" name="subTitle" style="width: 280px;"/>
+                </td>
 	        </tr>
 	        <tr>
 	            <td>内容描述:</td>
-	            <td><input class="easyui-textbox" name="titleDesc" data-options="multiline:true,validType:'length[0,150]'" style="height:60px;width: 280px;"></input>
+	            <td>
+                    <input class="easyui-textbox" name="titleDesc" data-options="multiline:true,validType:'length[0,150]'" style="height:60px;width: 280px;"/>
 	            </td>
 	        </tr>
 	         <tr>
 	            <td>URL:</td>
-	            <td><input class="easyui-textbox" type="text" name="url" style="width: 280px;"></input></td>
+	            <td>
+                    <input class="easyui-textbox" type="text" name="url" style="width: 280px;"/>
+                </td>
 	        </tr>
 	        <tr>
 	            <td>图片:</td>
@@ -52,31 +59,30 @@
 	</div>
 </div>
 <script type="text/javascript">
-var contentEditEditor ;
-$(function(){
-	contentEditEditor = TT.createEditor("#contentEditForm [name=content]");
-	TT.initOnePicUpload();
-});
+    var contentEditEditor ;
+    $(function(){
+        contentEditEditor = TT.createEditor("#contentEditForm [name=content]");
+        TT.initOnePicUpload();
+    });
 
-var contentEditPage = {
-		submitForm : function(){
-			if(!$('#contentEditForm').form('validate')){
-				$.messager.alert('提示','表单还未填写完成!');
-				return ;
-			}
-			contentEditEditor.sync();
-			
-			$.post("/rest/content/edit",$("#contentEditForm").serialize(), function(data){
-				if(data.status == 200){
-					$.messager.alert('提示','新增内容成功!');
-					$("#contentList").datagrid("reload");
-					TT.closeCurrentWindow();
-				}
-			});
-		},
-		clearForm : function(){
-			
-		}
-};
+    var contentEditPage = {
+        submitForm : function(){
+            if(!$('#contentEditForm').form('validate')){
+                $.messager.alert('提示','表单还未填写完成!');
+                return ;
+            }
+            contentEditEditor.sync();
 
+            $.post("/rest/content/edit",$("#contentEditForm").serialize(), function(data){
+                if(data.status == 200){
+                    $.messager.alert('提示','新增内容成功!');
+                    $("#contentList").datagrid("reload");
+                    TT.closeCurrentWindow();
+                }
+            });
+        },
+        clearForm : function(){
+
+        }
+    };
 </script>

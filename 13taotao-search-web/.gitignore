@@ -15,5 +15,4 @@
 *.ipr
 *.iws
 rebel.xml
-target
 .settings

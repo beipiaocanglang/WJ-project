@@ -3,11 +3,11 @@
  */
 function login() {
     //跳转到登录页面，走的是controller请求
-    return location.href = "http://localhost:8084/user/showLogin";
+    return location.href = "http://localhost:8089/user/showLogin";
 }
 function regist() {
     //跳转到注册页面，走的是controller请求
-    return location.href = "http://localhost:8084/user/showRegister";
+    return location.href = "http://localhost:8089/user/showRegister";
 }
 function createCookie(a, b, c, d) {
     var d = d ? d : "/";
@@ -40,7 +40,7 @@ window.pageConfig = window.pageConfig || {}, pageConfig.wideVersion = function()
     return screen.width >= 1210
 }(), pageConfig.wideVersion && pageConfig.compatible && (document.getElementsByTagName("body")[0].className = "root61"), pageConfig.FN_getDomain = function() {
     var a = location.hostname;
-    return /360buy.com/.test(a) ? "360buy.com" : "jd.com"
+    return /360buy.com/.test(a) ? "360buy.com" : "jd.com";
 }, pageConfig.FN_GetUrl = function(a, b) {
     return "string" == typeof a ? a : pageConfig.FN_GetDomain(a) + b + ".html"
 }, pageConfig.FN_StringFormat = function() {

@@ -13,7 +13,7 @@
 				}
 			}
 		});
-	};
+	}
 </script>
 
 <div style="padding:5px">
