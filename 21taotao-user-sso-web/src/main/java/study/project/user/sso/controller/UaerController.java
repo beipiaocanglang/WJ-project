@@ -77,6 +77,22 @@ public class UaerController {
      *       封装token数据TaoTaoResult。
      *       校验用户名不存在，返回400,msg:用户名或者密码错误
      *       校验密码：密码错误，返回400，msg：用户名或者密码错误。
+     * 业务流程：
+     *      1、根据用户名查询用户信息(校验用户是否存在)
+     *          存在：
+     *              获取查询到的数据
+     *              判断加密后的密码是否正确，校验通过，则等陆成功
+     *          不存在：
+     *              直接返回给出错误 信息
+     *
+     *      2、登录成功后把用户信息放入redis服务器
+     *      3、返回token，token就是redis存储用户身份信息的可以
+     *      4、把返回的token写入cookie
+     *
+     * 需要将用户信息写入redis
+     *      redis的数据结构：key ：value
+     *      key: SESSION_KEY:token
+     *      value: json格式i的user对象
      */
     @ResponseBody
     @RequestMapping(value = "/user/login", method = RequestMethod.POST)
@@ -85,8 +101,8 @@ public class UaerController {
         ProjectResultDTO result = userService.login(username, password);
 
         if (result.getStatus() == 200 && result.getData() != null) {
-            //把token放入cookies
-            CookieUtils.setCookie(request, response, TOKEN_COOKIE_KEY, result.getData().toString());
+            //把token放入cookies、true：存入cookie中的数据加密
+            CookieUtils.setCookie(request, response, TOKEN_COOKIE_KEY, result.getData().toString(), true);
         }
         return result;
     }

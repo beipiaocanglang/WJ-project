@@ -132,7 +132,7 @@ linux系统上安装的软件
 			执行 ./apache-tomcat-7.0.61/bin/startup.sh
 
 		第四步：在外部访问
-			http://192.168.145.129:8080/
+			http://192.168.254.66:8080/
 
 	6、zookeeper/dubbo/moniter
 		详见：项目/30taotao/项目中用到的新知识点/dubbo
@@ -196,7 +196,7 @@ linux需要启动的服务：
 		
 		端口：8080
 
-		访问：http://192.168.145.129:8080/dubbo(用户名和密码都是root)
+		访问：http://192.168.254.66:8080/dubbo(用户名和密码都是root)
 
 	3、nginx
 		cd /usr/local/hadoop/canglang/nginx/nginx-server/sbin
@@ -223,7 +223,7 @@ linux需要启动的服务：
 			启动：./redis-start-all.sh
 			登录：
 				cd 7001/bin
-				./redis-cli -c -h 192.168.145.129 -p 7001
+				./redis-cli -c -h 192.168.254.66 -p 7001
 
 			端口：7001、7002、7003、7004、7005、7006、7007、7008
 
@@ -238,7 +238,7 @@ linux需要启动的服务：
 			
 			监控日志：tail -f tomcat-solr/logs/catalina.out
 			
-			访问：http://192.168.145.129:8081/solr
+			访问：http://192.168.254.66:8081/solr
 			
 			端口：8081
 
@@ -262,7 +262,7 @@ linux需要启动的服务：
 			
 		端口：8161
 
-		通讯端口：tcp://192.168.145.129:61616
+		通讯端口：tcp://192.168.254.66:61616
 			
 
 项目服务：
