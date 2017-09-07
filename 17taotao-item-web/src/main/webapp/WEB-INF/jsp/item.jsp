@@ -205,7 +205,13 @@
                     <ul id="choose" clstag="shangpin|keycount|product|choose">
                         <li id='choose-type'></li>
                         <script type="text/javascript">
-                            var ColorSize = [{"SkuId":1221882,"Size":"","Color":""}];
+                            var ColorSize = [
+                                {
+                                    "SkuId":1221882,
+                                    "Size":"",
+                                    "Color":""
+                                }
+                            ];
                         </script>
                         <li id="choose-amount">
                             <div class="dt">购买数量：</div>
@@ -223,7 +229,7 @@
                         </li>
                         <li id="choose-btns">
                             <div id="choose-btn-append"  class="btn">
-                                <a class="btn-append " id="InitCartUrl" href="/cart/add/${item.id}.html" clstag="shangpin|keycount|product|initcarturl">加入购物车<b></b></a>
+                                <a class="btn-append " id="InitCartUrl" href="http://localhost:8091/cart/add/${item.id}.html" clstag="shangpin|keycount|product|initcarturl">加入购物车<b></b></a>
                             </div>
                             <div id="choose-btn-easybuy" class="btn"></div>
                             <div id="choose-btn-divide" class="btn"></div>
@@ -390,11 +396,6 @@
             <!--right end-->
 
             <div class="left">
-                <div id="miaozhen7886" class="m">
-                    <a href="http://c.nfa.jd.com/adclick?sid=2&amp;cid=163&amp;aid=817&amp;bid=7853&amp;unit=69570&amp;advid=156740&amp;guv=&amp;url=http://sale.jd.com/act/IFkpQYSVnG1Jet.html" target="_blank">
-                        <img data-img="2" width="211" height="261" src="http://image.taotao.com/images/2014/10/23/2014102305423212301343.jpg" class="loading-style2">
-                    </a>
-                </div>
                 <div id="miaozhen7886" class="m">
                     <a href="http://c.nfa.jd.com/adclick?sid=2&amp;cid=163&amp;aid=817&amp;bid=7853&amp;unit=69570&amp;advid=156740&amp;guv=&amp;url=http://sale.jd.com/act/IFkpQYSVnG1Jet.html" target="_blank">
                         <img data-img="2" width="211" height="261" src="http://image.taotao.com/images/2014/10/23/2014102305423212301343.jpg" class="loading-style2">

@@ -245,7 +245,7 @@ a.btn:hover,a.btn:hover span {
 }
 .cart .cart-hd .btn-text {
 	line-height: 21px;
-	a
+
 }
 .cart-frame {
 	height: 0;
@@ -1623,11 +1623,11 @@ color:#999;
 .feature-service .tab li.curr b {
 	background-position: -7px -57px;
 }
-.feature-service .tab li.curr, .feature-service .tab li.curr a: link,.feature-service .tab li.curr a:visited {
+.feature-service .tab li.curr, .feature-service .tab li.curr a:link,.feature-service .tab li.curr a:visited {
 	color: #ff6600;
 	font-weight: bold;
 }
-.feature-service .tab li a: link,.tab li a:visited {
+.feature-service .tab li a:link,.tab li a:visited {
 	color: #333333;
 }
 .f-sercvice-list .item {
@@ -2348,7 +2348,7 @@ color:#999;
 .cart-dibu .jdradio,.cart-dibu .jdcheckbox {
 	float:none;
 	vertical-align:-2px;
-	_vertical-align:-1px;
+	_vertical-align: -1px;
 	margin:0 3px 0 0;
 	padding:0;
 }
