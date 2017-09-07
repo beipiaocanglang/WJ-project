@@ -1,5 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <script type="text/javascript" src="/js/base-v1.js" charset="utf-8"></script>
 <!--shortcut start-->
 <jsp:include page="shortcut.jsp" />
@@ -211,5 +210,11 @@
 	</div>
 </div>
 <script type="text/javascript">
-(function(){if(pageConfig.navId){var object=document.getElementById("nav-"+pageConfig.navId);if(object)object.className+=" curr";}})();
+    (function(){
+        if(pageConfig.navId){
+            var object=document.getElementById("nav-"+pageConfig.navId);
+            if(object)
+                object.className+=" curr";
+        }
+    })();
 </script>

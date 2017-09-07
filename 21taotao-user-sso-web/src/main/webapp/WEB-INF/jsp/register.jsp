@@ -42,10 +42,8 @@
 
                             <div class="fl item-ifo">
                                 <div class="o-intelligent-regName">
-                                    <input type="text" id="regName" name="username" class="text" tabindex="1" autoComplete="off"
-                                           onpaste="return false;" value=""
-                                           onfocus="if(this.value=='') this.value='';this.style.color='#333'"
-                                           onblur="if(this.value=='') {this.value='';this.style.color='#999999'}"/>
+                                    <input type="text" id="regName" name="username" class="text" tabindex="1" autoComplete="off" onpaste="return false;" value=""
+                                           onfocus="if(this.value=='') this.value='';this.style.color='#333'" onblur="if(this.value=='') {this.value='';this.style.color='#999999'}"/>
                                     <i class="i-name"></i>
                                     <ul id="intelligent-regName" class="hide"></ul>
                                     <label id="regName_succeed" class="blank"></label>
@@ -60,8 +58,7 @@
                                 </span>
 
                                 <div class="fl item-ifo">
-                                    <input type="password" id="pwd" name="password" class="text" tabindex="2"
-                                           style="ime-mode:disabled;" onpaste="return  false" autocomplete="off"/>
+                                    <input type="password" id="pwd" name="password" class="text" tabindex="2" style="ime-mode:disabled;" onpaste="return  false" autocomplete="off"/>
                                     <i class="i-pass"></i>
                                     <label id="pwd_succeed" class="blank"></label>
                                     <label id="pwd_error"></label>
@@ -85,11 +82,11 @@
                                 <span class="label">
                                     <b class="ftx04">*</b>验证手机：
                                 </span>
-
                                 <div class="fl item-ifo">
-                                    <input type="text" id="phone" maxlength="11" name="phone"
-                                        class="text" tabindex="4" autocomplete="off" /> <i class="i-phone"></i> <label
-                                        id="phone_succeed" class="blank"></label> <label id="phone_error"></label>
+                                    <input type="text" id="phone" maxlength="11" name="phone" class="text" tabindex="4" autocomplete="off" />
+                                    <i class="i-phone"></i>
+                                    <label id="phone_succeed" class="blank"></label>
+                                    <label id="phone_error"></label>
                                 </div>
                             </div>
                         </div>
@@ -105,8 +102,7 @@
                         </div>
                         <div class="item">
                             <span class="label">&nbsp;</span>
-                            <input type="button" class="btn-img btn-regist" id="registsubmit" value="立即注册" tabindex="8"
-                                   clstag="regist|keycount|personalreg|07" onclick="REGISTER.reg();"/>
+                            <input type="button" class="btn-img btn-regist" id="registsubmit" value="立即注册" tabindex="8" clstag="regist|keycount|personalreg|07" onclick="REGISTER.reg();"/>
                         </div>
                     </div>
                     <div class="phone">
