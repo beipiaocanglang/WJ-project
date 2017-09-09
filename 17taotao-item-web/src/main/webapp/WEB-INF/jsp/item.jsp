@@ -229,7 +229,8 @@
                         </li>
                         <li id="choose-btns">
                             <div id="choose-btn-append"  class="btn">
-                                <a class="btn-append " id="InitCartUrl" href="http://localhost:8091/cart/add/${item.id}.html" clstag="shangpin|keycount|product|initcarturl">加入购物车<b></b></a>
+                                <%--href="http://localhost:8091/cart/add/${item.id}.html"--%>
+                                <a class="btn-append " id="InitCartUrl" href="javascript:void(0)" onclick="addCart();" clstag="shangpin|keycount|product|initcarturl">加入购物车<b></b></a>
                             </div>
                             <div id="choose-btn-easybuy" class="btn"></div>
                             <div id="choose-btn-divide" class="btn"></div>
@@ -455,6 +456,11 @@
                     itemControl.getItemDesc(itemId);
                 },1000);
             });
+
+            //添加购物车方法
+            function addCart() {
+                window.location.href="http://localhost:8091/cart/add/${item.id}/" + $("#buy-num").val() + ".html";
+            }
         </script>
     </body>
 </html>

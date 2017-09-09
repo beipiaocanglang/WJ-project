@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import study.project.CookieUtils;
+import study.project.JsonUtils;
 import study.project.ProjectResultDTO;
 import study.project.domain.TbUser;
 import study.project.user.service.IUserService;
@@ -122,13 +123,24 @@ public class UaerController {
 
         ProjectResultDTO result = userService.userCheck(token, callback);
 
-        if (StringUtils.isBlank(callback)) {
+        if (StringUtils.isBlank(callback)) {//如果是空就是普通请求，直接返回
             return result;
         } else {
-            //否则是一个跨域请求
-            //返回json格式就是必须是callback(json) callback(userCheck)
+            //否则是一个跨域请求，
+            /*
+             * 返回json格式就是必须是callback(json) callback(userCheck)
+             * 注意：
+             *      系统跨域进行数据请求，，返回时不能直接识别json格式数据  但是识别js代码
+             * 思考：
+             *      能不能把json格式数据转成js代码呢？
+             *      普通的json格式数据：{"username"："张三"，"password"："123"}
+             *      跨域json格式：callback({"username"："张三"，"password"："123"});
+             */
             MappingJacksonValue mappingJacksonValue = new MappingJacksonValue(result);
             mappingJacksonValue.setJsonpFunction(callback);
+
+            String s = JsonUtils.objectToJson(mappingJacksonValue);
+
             return mappingJacksonValue;
         }
     }

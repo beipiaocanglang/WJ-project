@@ -192,10 +192,9 @@ public class UserServiceImpl implements IUserService {
 
         if (StringUtils.isNotBlank(userCookieInfo)) {
 
+            //将用户信息重新设置到redis服务器中
             TbUser user = JsonUtils.jsonToPojo(userCookieInfo, TbUser.class);
 
-            //将用户登录信息存入redis缓存
-            jedisDao.set(SESSION_KEY+":"+token, JsonUtils.objectToJson(user));
             //设置用户登录信息的超时时间
             jedisDao.expire(SESSION_KEY+":"+token, SESSION_TIMEOUT);
 

@@ -32,7 +32,7 @@ public final class CookieUtils {
      * @
      * @return
      */
-    private static String getCookieValue(HttpServletRequest request, String cookieName, Boolean isDecoder) {
+    public static String getCookieValue(HttpServletRequest request, String cookieName, Boolean isDecoder) {
         Cookie[] cookieList = request.getCookies();
         if (cookieList == null || cookieName == null) {
             return null;
