@@ -34,7 +34,9 @@
 </div>
 
 <form id="orderForm" class="hide" action="/order/create.html" method="post">
-    <input type="hidden" name="paymentType" value="1"/>
+
+    <input type="hidden" name="order.paymentType" value="1"/>
+
     <c:forEach items="${cartList}" var="cart" varStatus="status">
         <c:set var="totalPrice"  value="${ totalPrice + (cart.price * cart.num)}"/>
         <input type="hidden" name="orderItems[${status.index}].itemId" value="${cart.id}"/>
@@ -44,7 +46,9 @@
         <input type="hidden" name="orderItems[${status.index}].title" value="${cart.title}"/>
         <input type="hidden" name="orderItems[${status.index}].picPath" value="${cart.images[0]}"/>
     </c:forEach>
-    <input type="hidden" name="payment" value="<fmt:formatNumber groupingUsed="false" maxFractionDigits="2" minFractionDigits="2" value="${totalPrice/100 }"/>"/>
+
+    <input type="hidden" name="order.payment" value="<fmt:formatNumber groupingUsed="false" maxFractionDigits="2" minFractionDigits="2" value="${totalPrice/100 }"/>"/>
+
     <input type="hidden" name="orderShipping.receiverName" value="入云龙"/>
     <input type="hidden" name="orderShipping.receiverMobile" value="15891588888"/>
     <input type="hidden" name="orderShipping.receiverState" value="北京"/>

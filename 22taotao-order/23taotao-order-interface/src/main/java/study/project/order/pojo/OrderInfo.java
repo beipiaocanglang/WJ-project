@@ -1,16 +1,17 @@
-package study.project.pojo;
+package study.project.order.pojo;
 
 import study.project.domain.TbOrder;
 import study.project.domain.TbOrderItem;
 import study.project.domain.TbOrderShipping;
 
+import java.io.Serializable;
 import java.util.List;
 
 /**
  * 提交订单的包装类对象
  * Created by panhusun on 2017/9/10.
  */
-public class OrderInfo {
+public class OrderInfo implements Serializable{
     //变量名称必须和页面保持一样才能封装成功
     //封装订单对象
     private TbOrder order;

@@ -57,6 +57,9 @@
 	
 	<!-- 引用服务(引用manager工程中的根据ID查询商品信息服务) -->
 	<dubbo:reference id="userService" interface="study.project.ItemService" version="1.0.0" timeout="100000"/>
+
+    <!--提交订单服务-->
+    <dubbo:reference id="orderService" interface="study.project.order.service.OrderService" version="1.0.0" timeout="100000"/>
     
 </beans>
 
