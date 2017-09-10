@@ -45,7 +45,7 @@
                     <span class="shopping">
                         <span id="shopping-amount"></span>
                     </span>
-                    <a href="/cart/cart.html" id="settleup-url">去购物车结算</a>
+                    <a href="http://localhost:8091/cart/cart.html" id="settleup-url">去购物车结算</a>
                     <b></b>
                 </dt>
             </dl>

@@ -13,9 +13,9 @@ import study.project.ItemService;
 import study.project.JsonUtils;
 import study.project.ProjectResultDTO;
 import study.project.domain.TbItem;
+import study.project.domain.TbUser;
 
 import javax.annotation.Resource;
-import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.util.ArrayList;
@@ -199,5 +199,29 @@ public class CartController {
 
         //重定向的上面获取购物车列表的请求
         return "redirect:/cart/cart.html";
+    }
+
+    /**
+     * 功能25：
+     *      去结算 - 跳转待订单详情页
+     * URL:
+     *      /order/order-cart.html
+     * return：
+     *      String  跳转到订单详情页
+     */
+    @RequestMapping("/order/order-cart")
+    public String orderCart(HttpServletRequest request, HttpServletResponse response, Model model){
+
+        //从cookie中获取购物车列表数据
+        List<TbItem> cartList = this.getCookieValue(request);
+
+        //从request中获取用户身份信息
+        TbUser user = (TbUser) request.getAttribute("user");
+
+        //放入model中
+        model.addAttribute("user", user);
+        model.addAttribute("cartList", cartList);
+
+        return "order-cart";
     }
 }

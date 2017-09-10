@@ -139,8 +139,6 @@ public class UaerController {
             MappingJacksonValue mappingJacksonValue = new MappingJacksonValue(result);
             mappingJacksonValue.setJsonpFunction(callback);
 
-            String s = JsonUtils.objectToJson(mappingJacksonValue);
-
             return mappingJacksonValue;
         }
     }

@@ -1,6 +1,7 @@
 package study.project.user.sso.controller;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 /**
@@ -26,7 +27,9 @@ public class PageController {
      * @return
      */
     @RequestMapping("/user/showLogin")
-    public String showLogin(){
+    public String showLogin(Model model, String redirect){
+
+        model.addAttribute("redirect", redirect);
 
         return "login";
     }
