@@ -16,7 +16,7 @@
        <link href="/css/purchase.2012.css?v=201410141639" rel="stylesheet" type="text/css">
        <title>我的购物车 - 淘淘商城</title>
        <script>
-        var pageConfig  = {};
+           var pageConfig  = {};
        </script>
     <body>
 
@@ -63,16 +63,22 @@
                     <div class="column t-quantity">数量</div>
                     <div class="column t-action">操作</div>
                 </div>
+
                 <div id="product-list" class="cart-tbody">
                     <!-- ************************商品开始********************* -->
                     <c:set var="totalPrice" value="0"></c:set>
                     <c:set var="totalNum" value="0"></c:set>
+
                     <c:forEach items="${cartList}" var="cart">
+
                         <c:set var="totalPrice"  value="${ totalPrice + (cart.price * cart.num)}"/>
                         <c:set var="totalNum"  value="${totalNum + cart.num}"/>
+
                         <div id="product_11345721" data-bind="rowid:1" class="item item_selected ">
                             <div class="item_form clearfix">
-                                <div class="cell p-checkbox"><input data-bind="cbid:1" class="checkbox" type="checkbox" name="checkItem" checked="" value="11345721-1"></div>
+                                <div class="cell p-checkbox">
+                                    <input data-bind="cbid:1" class="checkbox" type="checkbox" name="checkItem" checked="" value="11345721-1">
+                                </div>
                                 <div class="cell p-goods">
                                     <div class="p-img">
                                         <a href="/item/${cart.id }.html" target="_blank">
@@ -84,9 +90,10 @@
                                         <span class="promise411 promise411_11345721" id="promise411_11345721"></span>
                                     </div>
                                 </div>
-                                <div class="cell p-price"><span class="price">¥<fmt:formatNumber groupingUsed="false" value="${cart.price / 100}" maxFractionDigits="2" minFractionDigits="2"/> </span></div>
-                                <div class="cell p-promotion">
+                                <div class="cell p-price">
+                                    <span class="price">¥<fmt:formatNumber groupingUsed="false" value="${cart.price / 100}" maxFractionDigits="2" minFractionDigits="2"/> </span>
                                 </div>
+                                <div class="cell p-promotion"></div>
                                 <div class="cell p-inventory stock-11345721">有货</div>
                                 <div class="cell p-quantity" for-stock="for-stock-11345721">
                                     <div class="quantity-form" data-bind="">
@@ -103,10 +110,13 @@
                     </c:forEach>
                 </div>
                 <!-- product-list结束 -->
+
                 <div class="cart-toolbar clearfix">
                     <div class="total fr">
                         <p>
-                            <span class="totalSkuPrice">¥<fmt:formatNumber value="${totalPrice / 100}" maxFractionDigits="2" minFractionDigits="2" groupingUsed="true"/></span>总计：
+                            <span class="totalSkuPrice">
+                                ¥<fmt:formatNumber value="${totalPrice / 100}" maxFractionDigits="2" minFractionDigits="2" groupingUsed="true"/>
+                            </span>总计：
                         </p>
                         <p>
                             <span id="totalRePrice">- ¥0.00</span>优惠：
@@ -148,7 +158,9 @@
                                 </span>
                             </div>
                             <div class="total fr">总计（不含运费）：
-                              <span class="totalSkuPrice">¥<fmt:formatNumber value="${totalPrice / 100}" maxFractionDigits="2" minFractionDigits="2" groupingUsed="true"/></span>
+                              <span class="totalSkuPrice">
+                                  ¥<fmt:formatNumber value="${totalPrice / 100}" maxFractionDigits="2" minFractionDigits="2" groupingUsed="true"/>
+                              </span>
                             </div>
                         </div>
                     </div>
@@ -158,7 +170,6 @@
         </div>
     </div>
     <!--推荐位html修改处-->
-
 
     <script type="text/javascript" src="/js/base-v1.js"></script>
 
