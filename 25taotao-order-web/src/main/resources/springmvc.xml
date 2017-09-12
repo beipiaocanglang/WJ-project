@@ -53,7 +53,7 @@
 	<dubbo:application name="taotao-user-sso-web"/>
 	<!-- <dubbo:registry address="multicast://224.5.6.7:1234" /> -->
 	<!-- 使用dubbo从Zookeeper注册中心获取服务 -->
-	<dubbo:registry protocol="zookeeper" address="192.168.145.129:2181"/>
+	<dubbo:registry protocol="zookeeper" address="192.168.254.66:2181"/>
 	
 	<!-- 引用服务(引用manager工程中的根据ID查询商品信息服务) -->
 	<dubbo:reference id="userService" interface="study.project.ItemService" version="1.0.0" timeout="100000"/>

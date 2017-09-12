@@ -3384,9 +3384,9 @@
 			每一台zookeeper服务的zoo.cfg配置文件(最后一行下面)中都需要配置
 
 			内容：
-				server.1=192.168.145.129:2881:3881
-				server.2=192.168.145.129:2882:3882
-				server.3=192.168.145.129:2883:3883
+				server.1=192.168.254.66:2881:3881
+				server.2=192.168.254.66:2882:3882
+				server.3=192.168.254.66:2883:3883
 				
 			见图1
 
@@ -3514,16 +3514,16 @@
 				配置每一台tomcat的bin目录下的catalina.sh配置文件
 
 			tomcat-solrCluster-8082
-				export JAVA_OPTS="-Dsolr.solr.home=/home/canglang/solr/solrcluster/solrClusterHome/solrClusterHome-2/solr -DzkHost=192.168.145.129:2182,192.168.145.129:2183,192.168.145.129:2184"
+				export JAVA_OPTS="-Dsolr.solr.home=/home/canglang/solr/solrcluster/solrClusterHome/solrClusterHome-2/solr -DzkHost=192.168.254.66:2182,192.168.254.66:2183,192.168.254.66:2184"
 
 			tomcat-solrCluster-8083
-				export JAVA_OPTS="-Dsolr.solr.home=/home/canglang/solr/solrcluster/solrClusterHome/solrClusterHome-3/solr -DzkHost=192.168.145.129:2182,192.168.145.129:2183,192.168.145.129:2184" 
+				export JAVA_OPTS="-Dsolr.solr.home=/home/canglang/solr/solrcluster/solrClusterHome/solrClusterHome-3/solr -DzkHost=192.168.254.66:2182,192.168.254.66:2183,192.168.254.66:2184"
 			
 			tomcat-solrCluster-8084
-				export JAVA_OPTS="-Dsolr.solr.home=/home/canglang/solr/solrcluster/solrClusterHome/solrClusterHome-4/solr -DzkHost=192.168.145.129:2182,192.168.145.129:2183,192.168.145.129:2184" 
+				export JAVA_OPTS="-Dsolr.solr.home=/home/canglang/solr/solrcluster/solrClusterHome/solrClusterHome-4/solr -DzkHost=192.168.254.66:2182,192.168.254.66:2183,192.168.254.66:2184"
 			
 			tomcat-solrCluster-8085
-				export JAVA_OPTS="-Dsolr.solr.home=/home/canglang/solr/solrcluster/solrClusterHome/solrClusterHome-5/solr -DzkHost=192.168.145.129:2182,192.168.145.129:2183,192.168.145.129:2184" 
+				export JAVA_OPTS="-Dsolr.solr.home=/home/canglang/solr/solrcluster/solrClusterHome/solrClusterHome-5/solr -DzkHost=192.168.254.66:2182,192.168.254.66:2183,192.168.254.66:2184"
 
 		第五步：修改tomcat端口
 			tomcat-solrCluster-8082
@@ -3591,7 +3591,7 @@
 
 			进入solr解压目录：cd /home/canglang/solr/solr-4.10.3/example/scripts/cloud-scripts
 			
-			执行上传命令：./zkcli.sh -zkhost 192.168.145.129:2182, 192.168.145.129:2183, 192.168.145.129:2184 -cmd upconfig -confdir /home/canglang/solr/solrcluster/solrClusterHome/solrClusterHome-2/solr/collection1/conf -confname myconf
+			执行上传命令：./zkcli.sh -zkhost 192.168.254.66:2182, 192.168.254.66:2183, 192.168.254.66:2184 -cmd upconfig -confdir /home/canglang/solr/solrcluster/solrClusterHome/solrClusterHome-2/solr/collection1/conf -confname myconf
 				详解：
 					./zkcli.sh :zookeeper解压目录下的执行命令
 					-zkhost :zookeeper服务的地址
@@ -3602,9 +3602,9 @@
 		第八步：登录Zookeeper
 			进入：cd /home/canglang/solr/solrcluster/zkCluster-2182/bin/
 
-			执行登录命令：./zkCli.sh  -server 192.168.145.129:2182
+			执行登录命令：./zkCli.sh  -server 192.168.254.66:2182
 
-			成功后的标识：[zk: 192.168.145.129:2182(CONNECTED) 0] 
+			成功后的标识：[zk: 192.168.254.66:2182(CONNECTED) 0]
 
 			查看：ls / (出现：[configs, zookeeper] )
 
@@ -3625,7 +3625,7 @@
 			此时会看到7个进程(3个zk、4个solr)
 
 		第十一步：访问
-			http://192.168.145.129:8082/solr/#/
+			http://192.168.254.66:8082/solr/#/
 
 			见图3
 
@@ -5396,7 +5396,7 @@
                 
                 <!--1、 测试单机版的Jedis连接Redis -->
                 <!-- <bean class="redis.clients.jedis.Jedis">
-                    <constructor-arg name="host" value="192.168.145.129"></constructor-arg>
+                    <constructor-arg name="host" value="192.168.254.66"></constructor-arg>
                     <constructor-arg name="port" value="6379"></constructor-arg>
                 </bean> -->
                 
@@ -5408,7 +5408,7 @@
                 <!-- 将JedisPool对象交给spring创建 -->
                 <!-- <bean class="redis.clients.jedis.JedisPool">
                     <constructor-arg name="poolConfig" ref="poolConfig"></constructor-arg>
-                    <constructor-arg name="host" value="192.168.145.129"></constructor-arg>
+                    <constructor-arg name="host" value="192.168.254.66"></constructor-arg>
                     <constructor-arg name="port" value="6379"></constructor-arg>
                 </bean> -->
                 
@@ -5417,35 +5417,35 @@
                     <constructor-arg name="nodes">
                         <set>
                             <bean class="redis.clients.jedis.HostAndPort">
-                                <constructor-arg name="host" value="192.168.145.129"/>
+                                <constructor-arg name="host" value="192.168.254.66"/>
                                 <constructor-arg name="port" value="7001"/>
                             </bean>
                             <bean class="redis.clients.jedis.HostAndPort">
-                                <constructor-arg name="host" value="192.168.145.129"/>
+                                <constructor-arg name="host" value="192.168.254.66"/>
                                 <constructor-arg name="port" value="7002"/>
                             </bean>
                             <bean class="redis.clients.jedis.HostAndPort">
-                                <constructor-arg name="host" value="192.168.145.129"/>
+                                <constructor-arg name="host" value="192.168.254.66"/>
                                 <constructor-arg name="port" value="7003"/>
                             </bean>
                             <bean class="redis.clients.jedis.HostAndPort">
-                                <constructor-arg name="host" value="192.168.145.129"/>
+                                <constructor-arg name="host" value="192.168.254.66"/>
                                 <constructor-arg name="port" value="7004"/>
                             </bean>
                             <bean class="redis.clients.jedis.HostAndPort">
-                                <constructor-arg name="host" value="192.168.145.129"/>
+                                <constructor-arg name="host" value="192.168.254.66"/>
                                 <constructor-arg name="port" value="7005"/>
                             </bean>
                             <bean class="redis.clients.jedis.HostAndPort">
-                                <constructor-arg name="host" value="192.168.145.129"/>
+                                <constructor-arg name="host" value="192.168.254.66"/>
                                 <constructor-arg name="port" value="7006"/>
                             </bean>
                             <bean class="redis.clients.jedis.HostAndPort">
-                                <constructor-arg name="host" value="192.168.145.129"/>
+                                <constructor-arg name="host" value="192.168.254.66"/>
                                 <constructor-arg name="port" value="7007"/>
                             </bean>
                             <bean class="redis.clients.jedis.HostAndPort">
-                                <constructor-arg name="host" value="192.168.145.129"/>
+                                <constructor-arg name="host" value="192.168.254.66"/>
                                 <constructor-arg name="port" value="7008"/>
                             </bean>
                         </set>
@@ -6639,7 +6639,7 @@
                 
                 <!--1、 测试单机版的Jedis连接Redis -->
                 <!-- <bean class="redis.clients.jedis.Jedis">
-                    <constructor-arg name="host" value="192.168.145.129"></constructor-arg>
+                    <constructor-arg name="host" value="192.168.254.66"></constructor-arg>
                     <constructor-arg name="port" value="6379"></constructor-arg>
                 </bean> -->
                 
@@ -6651,7 +6651,7 @@
                 <!-- 将JedisPool对象交给spring创建 -->
                 <!-- <bean class="redis.clients.jedis.JedisPool">
                     <constructor-arg name="poolConfig" ref="poolConfig"></constructor-arg>
-                    <constructor-arg name="host" value="192.168.145.129"></constructor-arg>
+                    <constructor-arg name="host" value="192.168.254.66"></constructor-arg>
                     <constructor-arg name="port" value="6379"></constructor-arg>
                 </bean> -->
                 
@@ -6660,35 +6660,35 @@
                     <constructor-arg name="nodes">
                         <set>
                             <bean class="redis.clients.jedis.HostAndPort">
-                                <constructor-arg name="host" value="192.168.145.129"/>
+                                <constructor-arg name="host" value="192.168.254.66"/>
                                 <constructor-arg name="port" value="7001"/>
                             </bean>
                             <bean class="redis.clients.jedis.HostAndPort">
-                                <constructor-arg name="host" value="192.168.145.129"/>
+                                <constructor-arg name="host" value="192.168.254.66"/>
                                 <constructor-arg name="port" value="7002"/>
                             </bean>
                             <bean class="redis.clients.jedis.HostAndPort">
-                                <constructor-arg name="host" value="192.168.145.129"/>
+                                <constructor-arg name="host" value="192.168.254.66"/>
                                 <constructor-arg name="port" value="7003"/>
                             </bean>
                             <bean class="redis.clients.jedis.HostAndPort">
-                                <constructor-arg name="host" value="192.168.145.129"/>
+                                <constructor-arg name="host" value="192.168.254.66"/>
                                 <constructor-arg name="port" value="7004"/>
                             </bean>
                             <bean class="redis.clients.jedis.HostAndPort">
-                                <constructor-arg name="host" value="192.168.145.129"/>
+                                <constructor-arg name="host" value="192.168.254.66"/>
                                 <constructor-arg name="port" value="7005"/>
                             </bean>
                             <bean class="redis.clients.jedis.HostAndPort">
-                                <constructor-arg name="host" value="192.168.145.129"/>
+                                <constructor-arg name="host" value="192.168.254.66"/>
                                 <constructor-arg name="port" value="7006"/>
                             </bean>
                             <bean class="redis.clients.jedis.HostAndPort">
-                                <constructor-arg name="host" value="192.168.145.129"/>
+                                <constructor-arg name="host" value="192.168.254.66"/>
                                 <constructor-arg name="port" value="7007"/>
                             </bean>
                             <bean class="redis.clients.jedis.HostAndPort">
-                                <constructor-arg name="host" value="192.168.145.129"/>
+                                <constructor-arg name="host" value="192.168.254.66"/>
                                 <constructor-arg name="port" value="7008"/>
                             </bean>
                         </set>
@@ -7024,7 +7024,7 @@ public class LoginInterceptor implements HandlerInterceptor{
                 
                 <!--1、 测试单机版的Jedis连接Redis -->
                 <!-- <bean class="redis.clients.jedis.Jedis">
-                    <constructor-arg name="host" value="192.168.145.129"></constructor-arg>
+                    <constructor-arg name="host" value="192.168.254.66"></constructor-arg>
                     <constructor-arg name="port" value="6379"></constructor-arg>
                 </bean> -->
                 
@@ -7036,7 +7036,7 @@ public class LoginInterceptor implements HandlerInterceptor{
                 <!-- 将JedisPool对象交给spring创建 -->
                 <!-- <bean class="redis.clients.jedis.JedisPool">
                     <constructor-arg name="poolConfig" ref="poolConfig"></constructor-arg>
-                    <constructor-arg name="host" value="192.168.145.129"></constructor-arg>
+                    <constructor-arg name="host" value="192.168.254.66"></constructor-arg>
                     <constructor-arg name="port" value="6379"></constructor-arg>
                 </bean> -->
                 
@@ -7045,35 +7045,35 @@ public class LoginInterceptor implements HandlerInterceptor{
                     <constructor-arg name="nodes">
                         <set>
                             <bean class="redis.clients.jedis.HostAndPort">
-                                <constructor-arg name="host" value="192.168.145.129"/>
+                                <constructor-arg name="host" value="192.168.254.66"/>
                                 <constructor-arg name="port" value="7001"/>
                             </bean>
                             <bean class="redis.clients.jedis.HostAndPort">
-                                <constructor-arg name="host" value="192.168.145.129"/>
+                                <constructor-arg name="host" value="192.168.254.66"/>
                                 <constructor-arg name="port" value="7002"/>
                             </bean>
                             <bean class="redis.clients.jedis.HostAndPort">
-                                <constructor-arg name="host" value="192.168.145.129"/>
+                                <constructor-arg name="host" value="192.168.254.66"/>
                                 <constructor-arg name="port" value="7003"/>
                             </bean>
                             <bean class="redis.clients.jedis.HostAndPort">
-                                <constructor-arg name="host" value="192.168.145.129"/>
+                                <constructor-arg name="host" value="192.168.254.66"/>
                                 <constructor-arg name="port" value="7004"/>
                             </bean>
                             <bean class="redis.clients.jedis.HostAndPort">
-                                <constructor-arg name="host" value="192.168.145.129"/>
+                                <constructor-arg name="host" value="192.168.254.66"/>
                                 <constructor-arg name="port" value="7005"/>
                             </bean>
                             <bean class="redis.clients.jedis.HostAndPort">
-                                <constructor-arg name="host" value="192.168.145.129"/>
+                                <constructor-arg name="host" value="192.168.254.66"/>
                                 <constructor-arg name="port" value="7006"/>
                             </bean>
                             <bean class="redis.clients.jedis.HostAndPort">
-                                <constructor-arg name="host" value="192.168.145.129"/>
+                                <constructor-arg name="host" value="192.168.254.66"/>
                                 <constructor-arg name="port" value="7007"/>
                             </bean>
                             <bean class="redis.clients.jedis.HostAndPort">
-                                <constructor-arg name="host" value="192.168.145.129"/>
+                                <constructor-arg name="host" value="192.168.254.66"/>
                                 <constructor-arg name="port" value="7008"/>
                             </bean>
                         </set>
