@@ -415,14 +415,14 @@
                     get /etc/fdfs/client.conf(在本地文档中)
                     剪切到项目的配置文件中，只要下面的一行
 
-                tracker_server=192.168.145.130:22122
+                tracker_server=192.168.254.67:22122
 
         2.2、MyUploadPic.java
             在web工程的测试包下创建study.project.upload.test包，创建
 
             /**
             * 使用fastDFS测试图片上传
-            * 访问：http://192.168.145.130/group1/M00/00/00/wKj-Q1liKvGAJPlVAAsuME-Y23k010.jpg
+            * 访问：http://192.168.254.67/group1/M00/00/00/wKj-Q1liKvGAJPlVAAsuME-Y23k010.jpg
             * @author canglang
             */
             public class MyUploadPic {
@@ -591,11 +591,11 @@
             在配置文件所在的包下创建client.conf和resource.properties
 
             client.conf
-            tracker_server=192.168.145.130:22122
+            tracker_server=192.168.254.67:22122
 
             resource.properties
             #分布式文件系统路径
-            IMAGE_SERVER_PATH=http://192.168.145.130/
+            IMAGE_SERVER_PATH=http://192.168.254.67/
 
         3.4、springmvc.xml
             <!-- 扫描配置文件 -->
@@ -1158,7 +1158,7 @@
                         <dubbo:application name="taotao-manager-web"/>
                         <!-- <dubbo:registry address="multicast://224.5.6.7:1234" /> -->
                         <!-- 使用dubbo从Zookeeper注册中心获取服务 -->
-                        <dubbo:registry protocol="zookeeper" address="192.168.145.129:2181"/>
+                        <dubbo:registry protocol="zookeeper" address="192.168.254.66:2181"/>
 
                         <!-- 引用服务(包含根据id查询商品信息、分页查询商品列表) -->
                         <dubbo:reference id="itemService" interface="study.project.ItemService" version="1.0.0" timeout="5000"/>
@@ -1764,7 +1764,7 @@
             启动：./redis-start-all.sh
             登录：
                 cd 7001/bin
-                ./redis-cli -c -h 192.168.145.129 -p 7001
+                ./redis-cli -c -h 192.168.254.66 -p 7001
 
     4、redis测试
         在content-service工程中需要使用redis缓存，以为此服务是展示首页数据的
@@ -1789,7 +1789,7 @@
                     @Test
                     public void testRedis01(){
                         //创建Jedis对象，连接redis缓存数据库
-                        Jedis jedis = new Jedis("192.168.145.129", 6379);
+                        Jedis jedis = new Jedis("192.168.254.66", 6379);
                         jedis.set("itemName", "洗脚盆");
                         String itemName = jedis.get("itemName");
                         System.out.println(itemName);
@@ -1806,7 +1806,7 @@
                         //设置最大连接数
                         poolConfig.setMaxTotal(10000);
                         //创建JedisPool对象
-                        JedisPool jedisPool = new JedisPool(poolConfig, "192.168.145.129", 6379);
+                        JedisPool jedisPool = new JedisPool(poolConfig, "192.168.254.66", 6379);
                         //获取redis对象
                         Jedis jedis = jedisPool.getResource();
                         jedis.set("itemName", "洗脚盆wwww");
@@ -1829,14 +1829,14 @@
                         poolConfig.setMaxTotal(10000);
 
                         Set<HostAndPort> nodes = new HashSet<HostAndPort>();
-                        nodes.add(new HostAndPort("192.168.145.129", 7001));
-                        nodes.add(new HostAndPort("192.168.145.129", 7002));
-                        nodes.add(new HostAndPort("192.168.145.129", 7003));
-                        nodes.add(new HostAndPort("192.168.145.129", 7004));
-                        nodes.add(new HostAndPort("192.168.145.129", 7005));
-                        nodes.add(new HostAndPort("192.168.145.129", 7006));
-                        nodes.add(new HostAndPort("192.168.145.129", 7007));
-                        nodes.add(new HostAndPort("192.168.145.129", 7008));
+                        nodes.add(new HostAndPort("192.168.254.66", 7001));
+                        nodes.add(new HostAndPort("192.168.254.66", 7002));
+                        nodes.add(new HostAndPort("192.168.254.66", 7003));
+                        nodes.add(new HostAndPort("192.168.254.66", 7004));
+                        nodes.add(new HostAndPort("192.168.254.66", 7005));
+                        nodes.add(new HostAndPort("192.168.254.66", 7006));
+                        nodes.add(new HostAndPort("192.168.254.66", 7007));
+                        nodes.add(new HostAndPort("192.168.254.66", 7008));
 
                         //创建JedisCluster对象
                         JedisCluster jedisCluster = new JedisCluster(nodes, poolConfig);
@@ -1876,7 +1876,7 @@
 
                     <!--1、 测试单机版的Jedis连接Redis -->
                     <bean class="redis.clients.jedis.Jedis">
-                        <constructor-arg name="host" value="192.168.145.129"></constructor-arg>
+                        <constructor-arg name="host" value="192.168.254.66"></constructor-arg>
                         <constructor-arg name="port" value="6379"></constructor-arg>
                     </bean>
 
@@ -1889,7 +1889,7 @@
                     <!-- 将JedisPool对象交给spring创建 -->
                     <bean class="redis.clients.jedis.JedisPool">
                         <constructor-arg name="poolConfig" ref="poolConfig"></constructor-arg>
-                        <constructor-arg name="host" value="192.168.145.129"></constructor-arg>
+                        <constructor-arg name="host" value="192.168.254.66"></constructor-arg>
                         <constructor-arg name="port" value="6379"></constructor-arg>
                     </bean>
 
@@ -1898,35 +1898,35 @@
                         <constructor-arg name="nodes">
                             <set>
                                 <bean class="redis.clients.jedis.HostAndPort">
-                                    <constructor-arg name="host" value="192.168.145.129"></constructor-arg>
+                                    <constructor-arg name="host" value="192.168.254.66"></constructor-arg>
                                     <constructor-arg name="port" value="7001"></constructor-arg>
                                 </bean>
                                 <bean class="redis.clients.jedis.HostAndPort">
-                                    <constructor-arg name="host" value="192.168.145.129"></constructor-arg>
+                                    <constructor-arg name="host" value="192.168.254.66"></constructor-arg>
                                     <constructor-arg name="port" value="7002"></constructor-arg>
                                 </bean>
                                 <bean class="redis.clients.jedis.HostAndPort">
-                                    <constructor-arg name="host" value="192.168.145.129"></constructor-arg>
+                                    <constructor-arg name="host" value="192.168.254.66"></constructor-arg>
                                     <constructor-arg name="port" value="7003"></constructor-arg>
                                 </bean>
                                 <bean class="redis.clients.jedis.HostAndPort">
-                                    <constructor-arg name="host" value="192.168.145.129"></constructor-arg>
+                                    <constructor-arg name="host" value="192.168.254.66"></constructor-arg>
                                     <constructor-arg name="port" value="7004"></constructor-arg>
                                 </bean>
                                 <bean class="redis.clients.jedis.HostAndPort">
-                                    <constructor-arg name="host" value="192.168.145.129"></constructor-arg>
+                                    <constructor-arg name="host" value="192.168.254.66"></constructor-arg>
                                     <constructor-arg name="port" value="7005"></constructor-arg>
                                 </bean>
                                 <bean class="redis.clients.jedis.HostAndPort">
-                                    <constructor-arg name="host" value="192.168.145.129"></constructor-arg>
+                                    <constructor-arg name="host" value="192.168.254.66"></constructor-arg>
                                     <constructor-arg name="port" value="7006"></constructor-arg>
                                 </bean>
                                 <bean class="redis.clients.jedis.HostAndPort">
-                                    <constructor-arg name="host" value="192.168.145.129"></constructor-arg>
+                                    <constructor-arg name="host" value="192.168.254.66"></constructor-arg>
                                     <constructor-arg name="port" value="7007"></constructor-arg>
                                 </bean>
                                 <bean class="redis.clients.jedis.HostAndPort">
-                                    <constructor-arg name="host" value="192.168.145.129"></constructor-arg>
+                                    <constructor-arg name="host" value="192.168.254.66"></constructor-arg>
                                     <constructor-arg name="port" value="7008"></constructor-arg>
                                 </bean>
                             </set>
@@ -2130,7 +2130,7 @@
                     <!-- 将JedisPool对象交给spring创建 -->
                     <!-- <bean class="redis.clients.jedis.JedisPool">
                         <constructor-arg name="poolConfig" ref="poolConfig"></constructor-arg>
-                        <constructor-arg name="host" value="192.168.145.129"></constructor-arg>
+                        <constructor-arg name="host" value="192.168.254.66"></constructor-arg>
                         <constructor-arg name="port" value="6379"></constructor-arg>
                     </bean> -->
                 </beans>
@@ -2261,35 +2261,35 @@
                         <constructor-arg name="nodes">
                             <set>
                                 <bean class="redis.clients.jedis.HostAndPort">
-                                    <constructor-arg name="host" value="192.168.145.129"></constructor-arg>
+                                    <constructor-arg name="host" value="192.168.254.66"></constructor-arg>
                                     <constructor-arg name="port" value="7001"></constructor-arg>
                                 </bean>
                                 <bean class="redis.clients.jedis.HostAndPort">
-                                    <constructor-arg name="host" value="192.168.145.129"></constructor-arg>
+                                    <constructor-arg name="host" value="192.168.254.66"></constructor-arg>
                                     <constructor-arg name="port" value="7002"></constructor-arg>
                                 </bean>
                                 <bean class="redis.clients.jedis.HostAndPort">
-                                    <constructor-arg name="host" value="192.168.145.129"></constructor-arg>
+                                    <constructor-arg name="host" value="192.168.254.66"></constructor-arg>
                                     <constructor-arg name="port" value="7003"></constructor-arg>
                                 </bean>
                                 <bean class="redis.clients.jedis.HostAndPort">
-                                    <constructor-arg name="host" value="192.168.145.129"></constructor-arg>
+                                    <constructor-arg name="host" value="192.168.254.66"></constructor-arg>
                                     <constructor-arg name="port" value="7004"></constructor-arg>
                                 </bean>
                                 <bean class="redis.clients.jedis.HostAndPort">
-                                    <constructor-arg name="host" value="192.168.145.129"></constructor-arg>
+                                    <constructor-arg name="host" value="192.168.254.66"></constructor-arg>
                                     <constructor-arg name="port" value="7005"></constructor-arg>
                                 </bean>
                                 <bean class="redis.clients.jedis.HostAndPort">
-                                    <constructor-arg name="host" value="192.168.145.129"></constructor-arg>
+                                    <constructor-arg name="host" value="192.168.254.66"></constructor-arg>
                                     <constructor-arg name="port" value="7006"></constructor-arg>
                                 </bean>
                                 <bean class="redis.clients.jedis.HostAndPort">
-                                    <constructor-arg name="host" value="192.168.145.129"></constructor-arg>
+                                    <constructor-arg name="host" value="192.168.254.66"></constructor-arg>
                                     <constructor-arg name="port" value="7007"></constructor-arg>
                                 </bean>
                                 <bean class="redis.clients.jedis.HostAndPort">
-                                    <constructor-arg name="host" value="192.168.145.129"></constructor-arg>
+                                    <constructor-arg name="host" value="192.168.254.66"></constructor-arg>
                                     <constructor-arg name="port" value="7008"></constructor-arg>
                                 </bean>
                             </set>
@@ -2599,7 +2599,7 @@
 
 		监控日志：tail -f tomcat-solr/logs/catalina.out
 
-		访问：http://192.168.145.129:8081/solr
+		访问：http://192.168.254.66:8081/solr
 
 		见图1
 
@@ -2869,7 +2869,7 @@
 									http://code.alibabatech.com/schema/dubbo 
 									http://code.alibabatech.com/schema/dubbo/dubbo.xsd">	
 				<bean class="org.apache.solr.client.solrj.impl.HttpSolrServer">
-					<property name="baseURL" value="http://192.168.145.129:8081/solr"></property>
+					<property name="baseURL" value="http://192.168.254.66:8081/solr"></property>
 				</bean>
 			</beans>
 
@@ -3517,13 +3517,13 @@
 				export JAVA_OPTS="-Dsolr.solr.home=/home/canglang/solr/solrcluster/solrClusterHome/solrClusterHome-2/solr -DzkHost=192.168.145.129:2182,192.168.145.129:2183,192.168.145.129:2184"
 
 			tomcat-solrCluster-8083
-				export JAVA_OPTS="-Dsolr.solr.home=/home/canglang/solr/solrcluster/solrClusterHome/solrClusterHome-3/solr -DzkHost=192.168.145.129:2182,192.168.145.129:2183,192.168.145.129:2184"
+				export JAVA_OPTS="-Dsolr.solr.home=/home/canglang/solr/solrcluster/solrClusterHome/solrClusterHome-3/solr -DzkHost=192.168.145.129:2182,192.168.145.129:2183,192.168.145.129:2184" 
 			
 			tomcat-solrCluster-8084
-				export JAVA_OPTS="-Dsolr.solr.home=/home/canglang/solr/solrcluster/solrClusterHome/solrClusterHome-4/solr -DzkHost=192.168.145.129:2182,192.168.145.129:2183,192.168.145.129:2184"
+				export JAVA_OPTS="-Dsolr.solr.home=/home/canglang/solr/solrcluster/solrClusterHome/solrClusterHome-4/solr -DzkHost=192.168.145.129:2182,192.168.145.129:2183,192.168.145.129:2184" 
 			
 			tomcat-solrCluster-8085
-				export JAVA_OPTS="-Dsolr.solr.home=/home/canglang/solr/solrcluster/solrClusterHome/solrClusterHome-5/solr -DzkHost=192.168.145.129:2182,192.168.145.129:2183,192.168.145.129:2184"
+				export JAVA_OPTS="-Dsolr.solr.home=/home/canglang/solr/solrcluster/solrClusterHome/solrClusterHome-5/solr -DzkHost=192.168.145.129:2182,192.168.145.129:2183,192.168.145.129:2184" 
 
 		第五步：修改tomcat端口
 			tomcat-solrCluster-8082
@@ -3604,7 +3604,7 @@
 
 			执行登录命令：./zkCli.sh  -server 192.168.145.129:2182
 
-			成功后的标识：[zk: 192.168.145.129:2182(CONNECTED) 0]
+			成功后的标识：[zk: 192.168.145.129:2182(CONNECTED) 0] 
 
 			查看：ls / (出现：[configs, zookeeper] )
 
@@ -3669,12 +3669,12 @@
 			直接在浏览器上执行以下命令即可
 			
 			命令：
-				http://192.168.145.129:8082/solr/admin/collections?action=CREATE&name=collection2&numShards=2&replicationFactor=3&maxShardsPerNode=8&property=schema.xml&property.config=solrconfig.xml
+				http://192.168.254.66:8082/solr/admin/collections?action=CREATE&name=collection2&numShards=2&replicationFactor=3&maxShardsPerNode=8&property=schema.xml&property.config=solrconfig.xml
 				
 				见图4
 				
 			详解：
-				http://192.168.145.129:8082：solr服务地址
+				http://192.168.254.66:8082：solr服务地址
 				/solr/admin/collections?
 				action=CREATE：创建
 				&name=collection2：索引库名称
@@ -3704,7 +3704,7 @@
 			@Test
 			public void addSolrclusterDoc(){
 				//设置zk集群地址
-				String zkhost = "192.168.145.129:2182,192.168.145.129:2183,192.168.145.129:2184";
+				String zkhost = "192.168.254.66:2182,192.168.254.66:2183,192.168.254.66:2184";
 				//创建solr集群对象
 				CloudSolrServer cloudSolrServer = new CloudSolrServer(zkhost);
 				//设置默认操作的索引库
@@ -3737,7 +3737,7 @@
 			@Test
 			public void querySolrclusterDoc(){
 				//设置zk集群地址
-				String zkhost = "192.168.145.129:2182,192.168.145.129:2183,192.168.145.129:2184";
+				String zkhost = "192.168.254.66:2182,192.168.254.66:2183,192.168.254.66:2184";
 				//创建solr集群对象
 				CloudSolrServer cloudSolrServer = new CloudSolrServer(zkhost);
 				//设置默认操作的索引库
@@ -3769,12 +3769,12 @@
 		
 		<!-- 配置单机版的solr -->			
 		<!-- <bean class="org.apache.solr.client.solrj.impl.HttpSolrServer">
-			<constructor-arg name="baseURL" value="http://192.168.145.129:8081/solr"></constructor-arg>
+			<constructor-arg name="baseURL" value="http://192.168.254.66:8081/solr"></constructor-arg>
 		</bean> -->
 		
 		<!-- 配置集群版的solr -->
 		<bean class="org.apache.solr.client.solrj.impl.CloudSolrServer">
-			<constructor-arg name="zkHost" value="192.168.145.129:2182,192.168.145.129:2183,192.168.145.129:2184"></constructor-arg>
+			<constructor-arg name="zkHost" value="192.168.254.66:2182,192.168.254.66:2183,192.168.254.66:2184"></constructor-arg>
 			<property name="defaultCollection" value="collection2"></property>
 		</bean>
 
@@ -3843,7 +3843,7 @@
 			
 			<!--消息工厂交给spring管理-->
 			<bean id="targetConnectionFactory" class="org.apache.activemq.ActiveMQConnectionFactory">
-				<constructor-arg name="brokerURL" value="tcp://192.168.145.129:61616"></constructor-arg>
+				<constructor-arg name="brokerURL" value="tcp://192.168.254.66:61616"></constructor-arg>
 			</bean>
 
 			<!--
@@ -3969,7 +3969,7 @@
 			
 			<!--消息工厂交给spring管理-->
 			<bean id="targetConnectionFactory" class="org.apache.activemq.ActiveMQConnectionFactory">
-				<constructor-arg name="brokerURL" value="tcp://192.168.145.129:61616"></constructor-arg>
+				<constructor-arg name="brokerURL" value="tcp://192.168.254.66:61616"></constructor-arg>
 			</bean>
 
 			<!--
@@ -4405,7 +4405,7 @@
             
             <!--1、 测试单机版的Jedis连接Redis -->
             <!-- <bean class="redis.clients.jedis.Jedis">
-                <constructor-arg name="host" value="192.168.145.129"></constructor-arg>
+                <constructor-arg name="host" value="192.168.254.66"></constructor-arg>
                 <constructor-arg name="port" value="6379"></constructor-arg>
             </bean> -->
             
@@ -4417,7 +4417,7 @@
             <!-- 将JedisPool对象交给spring创建 -->
             <!-- <bean class="redis.clients.jedis.JedisPool">
                 <constructor-arg name="poolConfig" ref="poolConfig"></constructor-arg>
-                <constructor-arg name="host" value="192.168.145.129"></constructor-arg>
+                <constructor-arg name="host" value="192.168.254.66"></constructor-arg>
                 <constructor-arg name="port" value="6379"></constructor-arg>
             </bean> -->
             
@@ -4426,35 +4426,35 @@
                 <constructor-arg name="nodes">
                     <set>
                         <bean class="redis.clients.jedis.HostAndPort">
-                            <constructor-arg name="host" value="192.168.145.129"/>
+                            <constructor-arg name="host" value="192.168.254.66"/>
                             <constructor-arg name="port" value="7001"/>
                         </bean>
                         <bean class="redis.clients.jedis.HostAndPort">
-                            <constructor-arg name="host" value="192.168.145.129"/>
+                            <constructor-arg name="host" value="192.168.254.66"/>
                             <constructor-arg name="port" value="7002"/>
                         </bean>
                         <bean class="redis.clients.jedis.HostAndPort">
-                            <constructor-arg name="host" value="192.168.145.129"/>
+                            <constructor-arg name="host" value="192.168.254.66"/>
                             <constructor-arg name="port" value="7003"/>
                         </bean>
                         <bean class="redis.clients.jedis.HostAndPort">
-                            <constructor-arg name="host" value="192.168.145.129"/>
+                            <constructor-arg name="host" value="192.168.254.66"/>
                             <constructor-arg name="port" value="7004"/>
                         </bean>
                         <bean class="redis.clients.jedis.HostAndPort">
-                            <constructor-arg name="host" value="192.168.145.129"/>
+                            <constructor-arg name="host" value="192.168.254.66"/>
                             <constructor-arg name="port" value="7005"/>
                         </bean>
                         <bean class="redis.clients.jedis.HostAndPort">
-                            <constructor-arg name="host" value="192.168.145.129"/>
+                            <constructor-arg name="host" value="192.168.254.66"/>
                             <constructor-arg name="port" value="7006"/>
                         </bean>
                         <bean class="redis.clients.jedis.HostAndPort">
-                            <constructor-arg name="host" value="192.168.145.129"/>
+                            <constructor-arg name="host" value="192.168.254.66"/>
                             <constructor-arg name="port" value="7007"/>
                         </bean>
                         <bean class="redis.clients.jedis.HostAndPort">
-                            <constructor-arg name="host" value="192.168.145.129"/>
+                            <constructor-arg name="host" value="192.168.254.66"/>
                             <constructor-arg name="port" value="7008"/>
                         </bean>
                     </set>
@@ -4657,7 +4657,7 @@
                 
                 <!--消息工厂交给spring管理-->
                 <bean id="targetConnectionFactory" class="org.apache.activemq.ActiveMQConnectionFactory">
-                    <constructor-arg name="brokerURL" value="tcp://192.168.145.129:61616"/>
+                    <constructor-arg name="brokerURL" value="tcp://192.168.254.66:61616"/>
                 </bean>
 
                 <!--
@@ -4763,7 +4763,31 @@
         将这些文件的后缀改成Freemarker的后缀(.ftl)
 
 
-二十九、前台系统-搭建登录系统
+二十九、前台系统-单点登录(sso)			
+    1、SSO简介
+        SSO英文全称Single Sign On，单点登录。
+        
+        SSO是在多个应用系统中，用户只需要登录一次就可以访问所有相互信任的应用系统。
+        
+        它包括可以将这次主要的登录映射到其他应用中用于同一个用户的登录的机制。
+        
+        它是目前比较流行的企业业务整合的解决方案之一。
+        
+    2、SSO作用   
+        单点登录主要解决的问题就是session共享
+
+    3、登录流程
+        传统登录模式：适合单个项目，小型项目
+        见图1
+
+    4、session共享的演变
+        集群Session共享
+        见图1
+
+        分布式Session共享			
+        见图3
+			
+三十、前台系统-搭建登录系统
     1、搭建
         1.1、18taotao-user
             继承：01taotao-parent
@@ -4886,6 +4910,8 @@
                         <aop:advisor advice-ref="txAdvice" pointcut="execution(* study.project.user.service.*.*(..))"/>
                     </aop:config>
 
+                    <dubbo:protocol name="dubbo" port="20883" /><!-- 同一个tomcat下端口不能重复 -->
+
                 resource.properties
                     清空这个配置文件中的内容，需要时再添加
 
@@ -4989,32 +5015,2341 @@
             或者
             http://localhost:8089/login.html
 			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
+三十一、前台系统-单点登录前检查数据是否可用(17)
+    1、interface
+        在user-interface 工程下创建study.project.user.service包，在此包下创建数据检查的接口IUserService.java
 
-		
+        /**
+        * SSO接口
+        * Created by canglang on 2017/9/5.
+        */
+        public interface IUserService {
+
+            /**
+            * 功能17：
+            *      登录前检查数据的可用性
+            * 请求：
+            *      http://sso.taotao.com/user/check/{param}/{type}
+            * 要检查的数据：
+            *      username、phone、email
+            * 返回值：
+            *      json格式的ProjectResultDTO
+            */
+            public ProjectResultDTO dataCheck(String param, Integer type);
+        }
+
+    2、service
+        在user-service工程下创建study.project.user.service.impl包，在此包下创建UserServiceImpl.java数据检查的接口实现类
+
+        /**
+        *  sso
+        * Created by panhusun on 2017/9/4.
+        */
+        @Service
+        public class UserServiceImpl implements IUserService {
+
+            @Resource
+            private TbUserMapper userMapper;
+
+            /**
+            * 功能17：
+            *      登录前检查数据的可用性
+            * 请求：
+            *      http://sso.taotao.com/user/check/{param}/{type}
+            * 要检查的数据：
+            *      username、phone、email
+            * 返回值：
+            *      json格式的ProjectResultDTO
+            */
+            public ProjectResultDTO dataCheck(String param, Integer type) {
+
+                TbUserExample example = new TbUserExample();
+
+                TbUserExample.Criteria criteria = example.createCriteria();
+
+                //根据参数类型设置值
+                if (type == 1) {
+                    criteria.andUsernameEqualTo(param);
+                } else if (type == 2) {
+                    criteria.andPhoneEqualTo(param);
+                } else if (type == 3) {
+                    criteria.andEmailEqualTo(param);
+                }
+
+                List<TbUser> tbUsers = userMapper.selectByExample(example);
+
+                if (tbUsers == null || tbUsers .isEmpty() || tbUsers.size() == 0) {
+                    return ProjectResultDTO.ok(true);
+                }
+
+                return ProjectResultDTO.ok(false);
+            }
+        }
+
+        在applicationContext-service.xml配置文件中发布dubbo服务
+
+            <!-- 创建需要发布对象(包含根据id查询商品信息、分页查询商品列表)-->
+            <bean id="userServiceImpl" class="study.project.user.service.impl.UserServiceImpl"/>
+            <!-- 发布服务 user工程 -->
+            <dubbo:service ref="userServiceImpl" interface="study.project.user.service.IUserService" version="1.0.0" retries="0" timeout="100000"/>
+
+    3、controller
+        在user-sso-web工程中的study.project.user.sso.controller包下创建UserContrller.java
+
+        /**
+        * 校验登录数据是否可用
+        * Created by canglang on 2017/9/5.
+        */
+        @Controller
+        public class UaerController {
+
+            @Resource
+            private IUserService userService;
+
+            /**
+            * 功能17：
+            *      登录前检查数据的可用性
+            * 请求：
+            *      http://sso.taotao.com/user/check/{param}/{type}
+            * 要检查的数据：
+            *      username、phone、email
+            * 返回值：
+            *      json格式的ProjectResultDTO
+            */
+            @RequestMapping("/user/check/{param}/{type}")
+            @ResponseBody
+            public ProjectResultDTO dataCheck(@PathVariable String param, @PathVariable Integer type){
+
+                ProjectResultDTO dataCheck = userService.dataCheck(param, type);
+
+
+                return dataCheck;
+            }
+        }
+
+        在springmvc.xml配置文件中引用dubbo服务
+        
+            <!-- 引用服务(y引用solr索引库服务) -->
+            <dubbo:reference id="userService" interface="study.project.user.service.IUserService" version="1.0.0" timeout="5000"/>
+
+    4、web.xml
+		根据接口开发文档得知请求采用restfull风格的结构，所以需要将web.xml中的拦截改成“/”	
 			
+	5、测试
+        见图4	
 			
+三十二、前台系统-用户注册(18)
+    1、controller
+        访问登录和注册页面创建controller跳转方法，在PageController.java中操作
+
+        /**
+        *
+        * Created by panhusun on 2017/9/4.
+        */
+        @Controller
+        public class PageController {
+
+            /**
+            * 跳转到注册
+            * /user/showLogin
+            * @return
+            */
+            @RequestMapping("/user/showRegister")
+            public String showRegister(){
+
+                return "register";
+            }
+            /**
+            * 跳转到登录
+            * /user/showLogin
+            * @return
+            */
+            @RequestMapping("/user/showLogin")
+            public String showLogin(){
+
+                return "login";
+            }
+        }
+
+    2、interface
+        在User-interface工程中的IuserService接口类中添加
+
+        /**
+        * 功能18：
+        *      用户注册(注册前要先检查数据的可用性)
+        * 请求：
+        *      http://sso.taotao.com/user/register
+        * 参数：
+        *      TbUser
+        */
+        public ProjectResultDTO register(TbUser user);
+
+    3、service
+        在User-service工程中的UserService中实现接口的实现类
+
+        /**
+        * 功能18：
+        *      用户注册(注册前要先检查数据的可用性)
+        * 请求：
+        *      http://sso.taotao.com/user/register
+        * 参数：
+        *      TbUser
+        */
+        public ProjectResultDTO register(TbUser user) {
+
+            try {
+                //补全参数
+                user.setCreated(new Date());
+                user.setUpdated(new Date());
+
+                //给密码加密
+                if (StringUtils.isNotBlank(user.getPassword())) {
+                    //DigestUtils是spring提供的工具类
+                    user.setPassword(DigestUtils.md5DigestAsHex(user.getPassword().getBytes()));
+                }
+
+                //注册
+                int insert = userMapper.insert(user);
+
+                if (insert != 1) {
+                    return ProjectResultDTO.build(400, "注册失败，请稍后重试！");
+                }
+
+            } catch (Exception e) {
+                e.printStackTrace();
+                return ProjectResultDTO.build(400, "注册失败，请稍后重试！");
+            }
+
+            return ProjectResultDTO.ok();
+        }
+
+    4、controller
+        在user-sso-web工程的UserController中调用接口
+
+        /**
+        * 功能18：
+        *      用户注册(注册前要先检查数据的可用性)
+        * 请求：
+        *      http://sso.taotao.com/user/register
+        * 参数：
+        *      TbUser
+        */
+        @ResponseBody
+        @RequestMapping(value = "/user/register", method = RequestMethod.POST)
+        public ProjectResultDTO register(TbUser user){
+
+            ProjectResultDTO result = userService.register(user);
+
+            return result;
+        }
+
+    5、配置文件
+        在springmvc.xml配置文件中添加放行静态页面
+
+        <!-- 放行静态资源  或者使用<mvc:default-servlet-handler/>-->
+        <mvc:resources location="/css/" mapping="/css/**"/>
+        <mvc:resources location="/js/" mapping="/js/**"/>
+        <mvc:resources location="/images/" mapping="/images/**"/>
+
+    6、注册流程
+        跳转register页面
+
+        立即注册
+
+        触发js事件
+
+        验证输入数据格式是否正确(不能为空)
+
+        验证数据是否可以使用（用户名是否被占用）
+
+        提交
+
+    7、jsp
+        跳转到注册页面(register.jsp)的请求：/user/showRegister
+
+        当用户输入完注册信息点击立即注册，执行108行代码，出发一个点击事件onclick=‘REGISTER.reg()’;
+
+        执行189行的点击事件，执行191行的调用this.beforeSubmit();
+
+        执行150行方法，注册前的先校验用户名和手机号是否已经被注册，
+
+        数据可用的情况下执行REGISTER.doSubmit();方法
+
+        执行175行代码进行注册，成功后跳转到登录页面
+
+        执行185行代码跳转到登录页面
+
+    8、测试
+        启动user和user-sso-web工程
+			
+三十三、前台系统-用户登录(19)
+    1、业务流程：
+        传递用户名，密码，根据用户名查询数据库
+
+        校验，校验用户名，校验密码，密码需要使用md5加密再校验
+
+        校验功能，登录成功。把用户基本信息写入redis中，设置redis过期时间，
+
+        返回token信息。Token就是Redis的key。
+
+        需要把token写入cookie当中，当用户在不同系统之前登录时，先从cookie中拿到token，
+
+        根据token去redis服务其中查询用户信息，有值并且用户信息没有过期，说明用户登录成功 
+
+        成功后再重新设置redis中的用户信息的过期时间
+
+        注意：
+            cookie可以在系统之间进行交互。
+
+    2、导入jedis依赖
+        <!-- Redis客户端 -->
+        <dependency>
+            <groupId>redis.clients</groupId>
+            <artifactId>jedis</artifactId>
+            <version>${jedis.version}</version>
+        </dependency>
+
+    3、interface
+        在user-interface工程下的IUserService接口类中编写用户登录的接口方法
+
+        /**
+        * 功能19：
+        *      用户登录
+        * 请求：
+        *      /user/login
+        * 参数：
+        *      String username
+        *      String password
+        * 返回值：
+        *       封装token数据TaoTaoResult。
+        *       校验用户名不存在，返回400,msg:用户名或者密码错误
+        *       校验密码：密码错误，返回400，msg：用户名或者密码错误。
+        * 业务流程：
+        *      1、根据用户名查询用户信息(校验用户是否存在)
+        *          存在：
+        *              获取查询到的数据
+        *              判断加密后的密码是否正确，校验通过，则等陆成功
+        *          不存在：
+        *              直接返回给出错误 信息
+        *              
+        *      2、登录成功后把用户信息放入redis服务器
+        *      3、返回token，token就是redis存储用户身份信息的可以
+        *      4、把返回的token写入cookie
+        *      
+        * 需要将用户信息写入redis
+        *      redis的数据结构：key ：value
+        *      key: SESSION_KEY:token
+        *      value: json格式i的user对象
+        */
+        public ProjectResultDTO login(String username, String password);
+
+
+        在user-interface工程下创建study\project\user\redis\dao\JedisDao.java、复制manager工程下的JedisDao.java即可
+
+        public interface JedisDao {
+
+            //抽取Jedis的常用方法
+            //数据结构string
+            public String set(String key, String value);
+            public String get(String key);
+            //自增、自减
+            public Long incr(String key);
+            public Long decr(String key);
+            
+            //数据结构hash
+            public Long hset(String key, String field, String value);
+            public String hget(String key, String field);
+            //删除
+            public Long hdel(String key, String field);
+            
+            //过期设置
+            public Long expire(String key, int seconds);
+            //查看过期时间
+            public Long ttl(String key);
+        }
+
+    4、配置文件
+        在user-service工程下创建redis的配置文件applicationContext-redis.xml、复制manager工程中的redis配置文件即可
+
+            <?xml version="1.0" encoding="UTF-8"?>
+            <beans xmlns="http://www.springframework.org/schema/beans"
+                xmlns:context="http://www.springframework.org/schema/context" 
+                xmlns:mvc="http://www.springframework.org/schema/mvc"
+                xmlns:aop="http://www.springframework.org/schema/aop" 
+                xmlns:tx="http://www.springframework.org/schema/tx"
+                xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                xmlns:dubbo="http://code.alibabatech.com/schema/dubbo"
+                xsi:schemaLocation="http://www.springframework.org/schema/beans 
+                                    http://www.springframework.org/schema/beans/spring-beans-4.0.xsd
+                                    http://www.springframework.org/schema/context 
+                                    http://www.springframework.org/schema/context/spring-context-4.0.xsd
+                                    http://www.springframework.org/schema/aop 
+                                    http://www.springframework.org/schema/aop/spring-aop-4.0.xsd
+                                    http://www.springframework.org/schema/tx 
+                                    http://www.springframework.org/schema/tx/spring-tx-4.0.xsd
+                                    http://www.springframework.org/schema/mvc
+                                    http://www.springframework.org/schema/mvc/spring-mvc-4.0.xsd
+                                    http://www.springframework.org/schema/util
+                                    http://www.springframework.org/schema/util/spring-util-4.0.xsd
+                                    http://code.alibabatech.com/schema/dubbo 
+                                    http://code.alibabatech.com/schema/dubbo/dubbo.xsd">	
+                
+                <!--1、 测试单机版的Jedis连接Redis -->
+                <!-- <bean class="redis.clients.jedis.Jedis">
+                    <constructor-arg name="host" value="192.168.145.129"></constructor-arg>
+                    <constructor-arg name="port" value="6379"></constructor-arg>
+                </bean> -->
+                
+                <!--2、使用单机版的jedis连接池连接redis 把JedisPoolConfig对象交给spring创建 -->
+                <bean id="poolConfig" class="redis.clients.jedis.JedisPoolConfig">
+                    <property name="maxIdle" value="20"/>
+                    <property name="maxTotal" value="1000"/>
+                </bean>
+                <!-- 将JedisPool对象交给spring创建 -->
+                <!-- <bean class="redis.clients.jedis.JedisPool">
+                    <constructor-arg name="poolConfig" ref="poolConfig"></constructor-arg>
+                    <constructor-arg name="host" value="192.168.145.129"></constructor-arg>
+                    <constructor-arg name="port" value="6379"></constructor-arg>
+                </bean> -->
+                
+                <!-- 3、使用spring整合集群版的jedis连接池连接redis集群 -->
+                <bean class="redis.clients.jedis.JedisCluster">
+                    <constructor-arg name="nodes">
+                        <set>
+                            <bean class="redis.clients.jedis.HostAndPort">
+                                <constructor-arg name="host" value="192.168.145.129"/>
+                                <constructor-arg name="port" value="7001"/>
+                            </bean>
+                            <bean class="redis.clients.jedis.HostAndPort">
+                                <constructor-arg name="host" value="192.168.145.129"/>
+                                <constructor-arg name="port" value="7002"/>
+                            </bean>
+                            <bean class="redis.clients.jedis.HostAndPort">
+                                <constructor-arg name="host" value="192.168.145.129"/>
+                                <constructor-arg name="port" value="7003"/>
+                            </bean>
+                            <bean class="redis.clients.jedis.HostAndPort">
+                                <constructor-arg name="host" value="192.168.145.129"/>
+                                <constructor-arg name="port" value="7004"/>
+                            </bean>
+                            <bean class="redis.clients.jedis.HostAndPort">
+                                <constructor-arg name="host" value="192.168.145.129"/>
+                                <constructor-arg name="port" value="7005"/>
+                            </bean>
+                            <bean class="redis.clients.jedis.HostAndPort">
+                                <constructor-arg name="host" value="192.168.145.129"/>
+                                <constructor-arg name="port" value="7006"/>
+                            </bean>
+                            <bean class="redis.clients.jedis.HostAndPort">
+                                <constructor-arg name="host" value="192.168.145.129"/>
+                                <constructor-arg name="port" value="7007"/>
+                            </bean>
+                            <bean class="redis.clients.jedis.HostAndPort">
+                                <constructor-arg name="host" value="192.168.145.129"/>
+                                <constructor-arg name="port" value="7008"/>
+                            </bean>
+                        </set>
+                    </constructor-arg>
+                    <constructor-arg name="poolConfig" ref="poolConfig"/>
+                </bean>
+            </beans>
+
+        在user-service工程下的resource.properties配置文件中配置存入redis缓存中的用户登录信息的key和超时时间的key
+
+            #存入redis缓存服务器中的用户登录信息的key
+            SESSION_KEY=SESSION_KEY
+            #用户登录后的session过期时间(7天)
+            SESSION_TIMEOUT=604800
+
+    5、service
+        在user-service工程中操作
+
+        Jedis接口的实现类：study.project.user.redis.impl包下的JedisDaoImpl implements JedisDao、复制manager-service工程中的jedis接口实现类即可
+
+            @Repository
+            public class JedisDaoImpl implements JedisDao {
+
+                //**************集群版*********************
+                @Resource
+                private JedisCluster jedisCluster;
+                
+                @Override
+                public String set(String key, String value) {
+                    String set = jedisCluster.set(key, value);
+                    return set;
+                }
+
+                @Override
+                public String get(String key) {
+                    String get = jedisCluster.get(key);
+                    return get;
+                }
+
+                @Override
+                public Long incr(String key) {
+                    Long incr = jedisCluster.incr(key);
+                    return incr;
+                }
+
+                @Override
+                public Long decr(String key) {
+                    Long decr = jedisCluster.decr(key);
+                    return decr;
+                }
+
+                @Override
+                public Long hset(String key, String field, String value) {
+                    Long hset = jedisCluster.hset(key, field, value);
+                    return hset;
+                }
+
+                @Override
+                public String hget(String key, String field) {
+                    String hget = jedisCluster.hget(key, field);
+                    return hget;
+                }
+
+                @Override
+                public Long hdel(String key, String field) {
+                    Long hdel = jedisCluster.hdel(key, field);
+                    return hdel;
+                }
+
+                @Override
+                public Long expire(String key, int seconds) {
+                    Long expire = jedisCluster.expire(key, seconds);
+                    return expire;
+                }
+
+                @Override
+                public Long ttl(String key) {
+                    Long ttl = jedisCluster.ttl(key);
+                    return ttl;
+                }
+            }
+
+        用户登录的接口实现类：UserServiceImpl implements IUserService
+
+            @Value("${SESSION_KEY}")
+            private String SESSION_KEY;
+
+            @Value("${SESSION_TIMEOUT}")
+            private Integer SESSION_TIMEOUT;
+
+            @Resource
+            private JedisDao jedisDao;
+
+            /**
+            * 功能19：
+            *      用户登录
+            * 请求：
+            *      /user/login
+            * 参数：
+            *      String username
+            *      String password
+            * 返回值：
+            *       封装token数据TaoTaoResult。
+            *       校验用户名不存在，返回400,msg:用户名或者密码错误
+            *       校验密码：密码错误，返回400，msg：用户名或者密码错误。
+            * 业务流程：
+            *      1、根据用户名查询用户信息(校验用户是否存在)
+            *          存在：
+            *              获取查询到的数据
+            *              判断加密后的密码是否正确，校验通过，则等陆成功
+            *          不存在：
+            *              直接返回给出错误 信息
+            *              
+            *      2、登录成功后把用户信息放入redis服务器
+            *      3、返回token，token就是redis存储用户身份信息的可以
+            *      4、把返回的token写入cookie
+            *      
+            * 需要将用户信息写入redis
+            *      redis的数据结构：key ：value
+            *      key: SESSION_KEY:token
+            *      value: json格式i的user对象
+            */
+            public ProjectResultDTO login(String username, String password) {
+
+                TbUserExample example = new TbUserExample();
+
+                TbUserExample.Criteria criteria = example.createCriteria();
+
+                criteria.andUsernameEqualTo(username);
+
+                //根据用户名查询用户信息，正常情况下只能查出一条数据
+                List<TbUser> users = userMapper.selectByExample(example);
+
+                //查询结果为空表示用户不存在
+                if (users == null || users.isEmpty() || users.size() < 1) {
+                    return ProjectResultDTO.build(400, "用户名或密码错误，请核对后重试！");
+                }
+
+                //获取用户信息
+                TbUser user = users.get(0);
+
+                //对密码进行md5加密
+                String md5 = DigestUtils.md5DigestAsHex(password.getBytes());
+
+                ///判断密码是否相等
+                if(!md5.equals(user.getPassword())){
+                    return ProjectResultDTO.build(400, "用户名或密码错误，请核对后重试！");
+                }
+
+                //返回用户已经登录的标识token，token使用UUID
+                String token = UUID.randomUUID().toString();
+
+                //将用户登录信息存入redis缓存服务器中
+                //把密码置成null
+                user.setPassword(null);
+
+                //将用户登录信息存入redis缓存
+                jedisDao.set(SESSION_KEY+":"+token, JsonUtils.objectToJson(user));
+                //设置用户登录信息的超时时间
+                jedisDao.expire(SESSION_KEY+":"+token, SESSION_TIMEOUT);
+
+                return ProjectResultDTO.ok(token);
+            }
+
+    6、工具类
+        在common工程中导入servlet-api、jsp-api依赖
+            <dependency>
+                <groupId>javax.servlet</groupId>
+                <artifactId>servlet-api</artifactId>
+                <version>${servlet-api.version}</version>
+                <scope>provided</scope>
+            </dependency>
+            <dependency>
+                <groupId>javax.servlet</groupId>
+                <artifactId>jsp-api</artifactId>
+                <version>${jsp-api.version}</version>
+                <scope>provided</scope>
+            </dependency>
+
+        在common工程中创建cookie的工具类
+            /**
+            * 
+            * Cookie 工具类
+            *
+            */
+            public final class CookieUtils {
+
+                /**
+                * 得到Cookie的值, 不编码
+                * 
+                * @param request
+                * @param cookieName
+                * @return
+                */
+                public static String getCookieValue(HttpServletRequest request, String cookieName) {
+                    return getCookieValue(request, cookieName, false);
+                }
+
+                /**
+                * 得到Cookie的值,
+                * 
+                * @param request
+                * @
+                * @return
+                */
+                private static String getCookieValue(HttpServletRequest request, String cookieName, Boolean isDecoder) {
+                    Cookie[] cookieList = request.getCookies();
+                    if (cookieList == null || cookieName == null) {
+                        return null;
+                    }
+                    String retValue = null;
+                    try {
+                        for (int i = 0; i < cookieList.length; i++) {
+                            if (cookieList[i].getName().equals(cookieName)) {
+                                if (isDecoder) {
+                                    retValue = URLDecoder.decode(cookieList[i].getValue(), "UTF-8");
+                                } else {
+                                    retValue = cookieList[i].getValue();
+                                }
+                                break;
+                            }
+                        }
+                    } catch (UnsupportedEncodingException e) {
+                        e.printStackTrace();
+                    }
+                    return retValue;
+                }
+
+                /**
+                * 得到Cookie的值,
+                * 
+                * @param request
+                * @param cookieName
+                * @return
+                */
+                public static String getCookieValue(HttpServletRequest request, String cookieName, String encodeString) {
+                    Cookie[] cookieList = request.getCookies();
+                    if (cookieList == null || cookieName == null) {
+                        return null;
+                    }
+                    String retValue = null;
+                    try {
+                        for (int i = 0; i < cookieList.length; i++) {
+                            if (cookieList[i].getName().equals(cookieName)) {
+                                retValue = URLDecoder.decode(cookieList[i].getValue(), encodeString);
+                                break;
+                            }
+                        }
+                    } catch (UnsupportedEncodingException e) {
+                        e.printStackTrace();
+                    }
+                    return retValue;
+                }
+
+                /**
+                * 设置Cookie的值 不设置生效时间默认浏览器关闭即失效,也不编码
+                */
+                public static void setCookie(HttpServletRequest request, HttpServletResponse response, String cookieName,
+                                            String cookieValue) {
+                    setCookie(request, response, cookieName, cookieValue, -1);
+                }
+
+                /**
+                * 设置Cookie的值 在指定时间内生效,但不编码
+                */
+                public static void setCookie(HttpServletRequest request, HttpServletResponse response, String cookieName,
+                        String cookieValue, int cookieMaxage) {
+                    setCookie(request, response, cookieName, cookieValue, cookieMaxage, false);
+                }
+
+                /**
+                * 设置Cookie的值 不设置生效时间,但编码
+                */
+                public static void setCookie(HttpServletRequest request, HttpServletResponse response, String cookieName,
+                        String cookieValue, boolean isEncode) {
+                    setCookie(request, response, cookieName, cookieValue, -1, isEncode);
+                }
+
+                /**
+                * 设置Cookie的值 在指定时间内生效, 编码参数
+                */
+                public static void setCookie(HttpServletRequest request, HttpServletResponse response, String cookieName,
+                        String cookieValue, int cookieMaxage, boolean isEncode) {
+                    doSetCookie(request, response, cookieName, cookieValue, cookieMaxage, isEncode);
+                }
+
+                /**
+                * 设置Cookie的值 在指定时间内生效, 编码参数(指定编码)
+                */
+                public static void setCookie(HttpServletRequest request, HttpServletResponse response, String cookieName,
+                        String cookieValue, int cookieMaxage, String encodeString) {
+                    doSetCookie(request, response, cookieName, cookieValue, cookieMaxage, encodeString);
+                }
+
+                /**
+                * 删除Cookie带cookie域名
+                */
+                public static void deleteCookie(HttpServletRequest request, HttpServletResponse response,
+                        String cookieName) {
+                    doSetCookie(request, response, cookieName, "", -1, false);
+                }
+
+                /**
+                * 设置Cookie的值，并使其在指定时间内生效
+                * 
+                * @param cookieMaxage cookie生效的最大秒数
+                */
+                private static final void doSetCookie(HttpServletRequest request, HttpServletResponse response,
+                        String cookieName, String cookieValue, int cookieMaxage, boolean isEncode) {
+                    try {
+                        if (cookieValue == null) {
+                            cookieValue = "";
+                        } else if (isEncode) {
+                            cookieValue = URLEncoder.encode(cookieValue, "utf-8");
+                        }
+                        Cookie cookie = new Cookie(cookieName, cookieValue);
+                        if (cookieMaxage > 0)
+                            cookie.setMaxAge(cookieMaxage);
+                        if (null != request) {// 设置域名的cookie
+                            String domainName = getDomainName(request);
+                            System.out.println(domainName);
+                            if (!"localhost".equals(domainName)) {
+                                cookie.setDomain(domainName);
+                            }
+                        }
+                        cookie.setPath("/");
+                        response.addCookie(cookie);
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
+                }
+
+                /**
+                * 设置Cookie的值，并使其在指定时间内生效
+                * 
+                * @param cookieMaxage cookie生效的最大秒数
+                */
+                private static final void doSetCookie(HttpServletRequest request, HttpServletResponse response,
+                        String cookieName, String cookieValue, int cookieMaxage, String encodeString) {
+                    try {
+                        if (cookieValue == null) {
+                            cookieValue = "";
+                        } else {
+                            cookieValue = URLEncoder.encode(cookieValue, encodeString);
+                        }
+                        Cookie cookie = new Cookie(cookieName, cookieValue);
+                        if (cookieMaxage > 0)
+                            cookie.setMaxAge(cookieMaxage);
+                        if (null != request) {// 设置域名的cookie
+                            String domainName = getDomainName(request);
+                            System.out.println(domainName);
+                            if (!"localhost".equals(domainName)) {
+                                cookie.setDomain(domainName);
+                            }
+                        }
+                        cookie.setPath("/");
+                        response.addCookie(cookie);
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
+                }
+
+                /**
+                * 得到cookie的域名
+                */
+                private static final String getDomainName(HttpServletRequest request) {
+                    String domainName = null;
+
+                    String serverName = request.getRequestURL().toString();
+                    if (serverName == null || serverName.equals("")) {
+                        domainName = "";
+                    } else {
+                        serverName = serverName.toLowerCase();
+                        serverName = serverName.substring(7);
+                        final int end = serverName.indexOf("/");
+                        serverName = serverName.substring(0, end);
+                        final String[] domains = serverName.split("\\.");
+                        int len = domains.length;
+                        if (len > 3) {
+                            // www.xxx.com.cn
+                            domainName = "." + domains[len - 3] + "." + domains[len - 2] + "." + domains[len - 1];
+                        } else if (len <= 3 && len > 1) {
+                            // xxx.com or xxx.cn
+                            domainName = "." + domains[len - 2] + "." + domains[len - 1];
+                        } else {
+                            domainName = serverName;
+                        }
+                    }
+
+                    if (domainName != null && domainName.indexOf(":") > 0) {
+                        String[] ary = domainName.split("\\:");
+                        domainName = ary[0];
+                    }
+                    return domainName;
+                }
+            }
+
+    7、配置文件
+        在user-sso-web工程中的resource.properties配置文件中配置存入cookie中的key
+
+        #存到cookies中的token的key
+        TOKEN_COOKIE_KEY=WJ_TOKEN_KEY
+    
+    8、controller
+        需要导入servlet-api、jsp-api依赖
+            <dependency>
+                <groupId>javax.servlet</groupId>
+                <artifactId>servlet-api</artifactId>
+                <version>${servlet-api.version}</version>
+                <scope>provided</scope>
+            </dependency>
+            <dependency>
+                <groupId>javax.servlet</groupId>
+                <artifactId>jsp-api</artifactId>
+                <version>${jsp-api.version}</version>
+                <scope>provided</scope>
+            </dependency>
+
+        在user-sso-web工程的UserController.java中对接页面和业务层
+
+        @Value("${TOKEN_COOKIE_KEY}")
+        private String TOKEN_COOKIE_KEY;
+        /**
+        * 功能19：
+        *      用户登录
+        * 请求：
+        *      /user/login
+        * 参数：
+        *      String username
+        *      String password
+        * 返回值：
+        *       封装token数据TaoTaoResult。
+        *       校验用户名不存在，返回400,msg:用户名或者密码错误
+        *       校验密码：密码错误，返回400，msg：用户名或者密码错误。
+        * 业务流程：
+        *      1、根据用户名查询用户信息(校验用户是否存在)
+        *          存在：
+        *              获取查询到的数据
+        *              判断加密后的密码是否正确，校验通过，则等陆成功
+        *          不存在：
+        *              直接返回给出错误 信息
+        *              
+        *      2、登录成功后把用户信息放入redis服务器
+        *      3、返回token，token就是redis存储用户身份信息的可以
+        *      4、把返回的token写入cookie
+        *      
+        * 需要将用户信息写入redis
+        *      redis的数据结构：key ：value
+        *      key: SESSION_KEY:token
+        *      value: json格式i的user对象
+        */
+        @ResponseBody
+        @RequestMapping(value = "/user/login", method = RequestMethod.POST)
+        public ProjectResultDTO login(HttpServletRequest request, HttpServletResponse response, String username, String password){
+
+            ProjectResultDTO result = userService.login(username, password);
+
+            if (result.getStatus() == 200 && result.getData() != null) {
+                //把token放入cookies、true：存入cookie中的数据加密
+                CookieUtils.setCookie(request, response, TOKEN_COOKIE_KEY, result.getData().toString(), true);
+            return result;
+        }
+
+    8、jsp
+        通过controller请求/user/showLogin跳转到登录页面login.jsp
+
+        到用户输入完用户名和密码点击登录时执行57行登录
+
+        根据57行 id="loginsubmit"执行106行的点击事件方法
+
+        执行100行登录方法，同时根据101行找到登录前的用户名和密码的校验
+
+        根据102行找到登录方法找到85行的登录请求/user/login
+
+        成功后执行90行跳转到门户系统：location.href = "http://localhost:8083";
+
+        门户系统默认访问index.jsp
+
+        indes.jsp的396行包含了footer.jsp页面：<jsp:include page="commons/footer.jsp" />
+
+        footer.jsp页面的78行引入了taotao.js：<script type="text/javascript" src="/js/taotao.js" charset="utf-8"></script>
+
+        taotao.js会先执行22行的方法
+
+        根据23行的调用会执行2行的查询请求
+
+        taotao.js的意思是获取“7“中存入cookie中的key：WJ_TOKEN_KEY，并跨服务器查询redis中的用户信息
+
+        查到后回显
+
+三十四、前台系统-根据cookie中token跨服务器查询redis中的用户登录信息(20)
+
+    注意： 
+        SSO主要就是依靠cookie实现的，如果cookie被禁用  则不能实现登录和单点登录
+
+    1、jsp
+        通过controller请求/user/showLogin跳转到登录页面login.jsp
+
+        到用户输入完用户名和密码点击登录时执行57行登录
+
+        根据57行 id="loginsubmit"执行106行的点击事件方法
+
+        执行100行登录方法，同时根据101行找到登录前的用户名和密码的校验
+
+        根据102行找到登录方法找到85行的登录请求/user/login
+
+        成功后执行90行跳转到门户系统：location.href = "http://localhost:8083";
+
+        门户系统默认访问index.jsp
+
+        indes.jsp的396行包含了footer.jsp页面：<jsp:include page="commons/footer.jsp" />
+
+        footer.jsp页面的78行引入了taotao.js：<script type="text/javascript" src="/js/taotao.js" charset="utf-8"></script>
+
+        taotao.js会先执行22行的方法
+
+        根据23行的调用会执行2行的查询请求
+
+        taotao.js的意思是获取“7“中存入cookie中的key：WJ_TOKEN_KEY，并跨服务器查询redis中的用户信息
+
+        查到后回显
+
+    2、根据token查询redis--interface
+        在user-interface工程的IUserService.java接口类中编写接口方法
+
+        /**
+        * 功能20：
+        *      页面加载时根据token查询redis服务器中是否有用户登录信息
+        * 请求：
+        *      /user/token/{token}
+        * 参数：
+        *      String token
+        *      String callback
+        */
+        public ProjectResultDTO userCheck(String token, String callback);
+
+    3、service
+        在user-service工程下的UserServiceImpl.java类中实现接口的实现方法
+
+        /**
+        * 功能20：
+        *      页面加载时根据token查询redis服务器中是否有用户登录信息
+        * 请求：
+        *      /user/token/{token}
+        * 参数：
+        *      String token
+        *      String callback
+        */
+        public ProjectResultDTO userCheck(String token, String callback) {
+
+            String userCookieInfo = jedisDao.get(SESSION_KEY + ":" + token);
+
+            if (StringUtils.isNotBlank(userCookieInfo)) {
+
+                TbUser user = JsonUtils.jsonToPojo(userCookieInfo, TbUser.class);
+
+                //设置用户登录信息的超时时间
+                jedisDao.expire(SESSION_KEY+":"+token, SESSION_TIMEOUT);
+
+                return ProjectResultDTO.ok(user);
+            }
+            return ProjectResultDTO.build(201, "您的登录信息已经过期，请重新登录！");
+        }
+
+    4、controller
+        在user-sso-web工程下的UserControlle.java类中对接接口和页面
+
+        /**
+        * 功能20：
+        *      页面加载时根据token查询redis服务器中是否有用户登录信息
+        * 请求：
+        *      /user/token/{token}
+        * 参数：
+        *      String token
+        *      String callback
+        */
+        @ResponseBody
+        @RequestMapping("/user/token/{token}")
+        public Object userCheck(@PathVariable String token, String callback){
+
+            ProjectResultDTO result = userService.userCheck(token, callback);
+
+            if (StringUtils.isBlank(callback)) {
+                return result;
+            } else {
+                //否则是一个跨域请求
+                //返回json格式就是必须是callback(json) callback(userCheck)
+                MappingJacksonValue mappingJacksonValue = new MappingJacksonValue(result);
+                mappingJacksonValue.setJsonpFunction(callback);
+                return mappingJacksonValue;
+            }
+        }
+
+    9、测试
+        启动user、user-sso-web、content、protal-web
+            
+        访问登录页面：/user/login
+			
+三十五、前台系统-搭建订单和购物车系统
+    1、添加商品到购物车分析
+        见图5
+
+        购物车原理分析
+            A：未登录
+                添加商品到购物车时存在了cookie中
+
+                添加商品到购物车要先判断当前cookie购物车中是否已经有当前要添加到购物车的商品
+                    有：
+                        数量相加
+                    没有：
+                        直接添加商品到cookie购物车中
+
+                登录时：
+                    要将cookie购物车中的商品同步到redis服务器的购物车中
+                    redis中已有当前商品：
+                        数量相加
+
+                    redis中没有当前商品：
+                        直接添加到购物车
+
+            B：已登录
+                直接将当前要购买的商品添加到redis服务器的购物车中
+
+                添加前要判断当前redis购物车中是否已有当前有添加的商品
+                    有：
+                        数量相加
+                    没有：
+                        直接添加商品到redis购物车中
+        redis购物车结构设计：
+            KEY：REDIS_CART_USERID
+            FILED:userId
+            Value:json格式的item数据信息
+
+    2、搭建
+        2.1、搭建订单系统-22taotao-order
+            继承：01taotao-parent
+            打包方式：pom
+            见图1
+
+        2.2、搭建订单系统-22taotao-order-interface
+            继承：22taotao-order
+            打包方式：jar
+            见图2
+
+        2.3、搭建订单系统-22taotao-order-service
+            继承：22taotao-order
+            打包方式：war
+            见图3
+
+        2.4、搭建订单系统-22taotao-order-web
+            继承：01taotao-parent
+            打包方式：war
+            见图4
+			
+	3、整合
+        3.1、22taotao-order	
+            pom.xml
+
+            <!--
+                需要的依赖：
+                    1、抽取公共的jar
+                    2、管理聚合项目(依赖、插件)
+                参考：
+                    content工程
+            -->
+            <dependencies>
+                <dependency>
+                    <groupId>com.taotao</groupId>
+                    <artifactId>02taotao-common</artifactId>
+                    <version>0.0.1-SNAPSHOT</version>
+                </dependency>
+            </dependencies>
+
+            <build>
+                <plugins>
+                    <plugin>
+                        <groupId>org.apache.tomcat.maven</groupId>
+                        <artifactId>tomcat7-maven-plugin</artifactId>
+                        <version>2.2</version>
+                        <configuration>
+                            <!-- 定义项目发布路径，相当于直接放到tomcat的ROOT目录，在访问时不需要项目名称，直接访问路径就行 -->
+                            <path>/</path>
+                            <!-- 配置tomcat端口 -->
+                            <port>8090</port>
+                        </configuration>
+                    </plugin>
+                </plugins>
+            </build>
+
+        3.2、22taotao-order-interface
+            pom.xml
+
+            <!--
+                所需坐标：
+                    pojo
+                参考：
+                    manager-interface
+            -->
+            <dependencies>
+                <dependency>
+                    <groupId>com.taotao</groupId>
+                    <artifactId>04taotao-manager-pojo</artifactId>
+                    <version>0.0.1-SNAPSHOT</version>
+                </dependency>
+            </dependencies>
+
+        3.3、22taotao-order-service
+            3.3.1、配置文件
+                复制content-service工程的配置文件，修改即可
+
+                applicationContext-dao.xml
+                applicationContext-service.xml
+                jdbc.properties
+                log4j.properties
+                resource.properties(删除不必要的数据)
+                sqlMapConfig.xml
+
+                除了applicationContext-service.xml配置文件以外其他的配置文件不需要修改
+
+                applicationContext-service.xml
+                    <!-- 切面 -->
+                    <aop:config>
+                        <aop:advisor advice-ref="txAdvice" pointcut="execution(* study.project.order.service.*.*(..))"/>
+                    </aop:config>
+
+                    <!-- 用dubbo协议在20880端口暴露服务 ：此端口是提供给消费者的，消费者通过dubbo协议调用zk服务 -->
+                    <dubbo:protocol name="dubbo" port="20884" /><!-- 同一个tomcat下端口不能重复 -->
+
+            3.3.2、web.xml
+                复制content-service工程的web.xml，修改即可
+
+            3.3.3、pom.xml
+                content-service工程的pom.xml配置文件，除了依赖包不一样以外 其他都一样
+
+                <!-- 依赖dao、间接依赖pojo -->
+                <dependency>
+                    <groupId>com.taotao</groupId>
+                    <artifactId>05taotao-manager-dao</artifactId>
+                    <version>0.0.1-SNAPSHOT</version>
+                </dependency>
+
+                <!-- 依赖接口 -->
+                <dependency>
+                    <groupId>com.taotao</groupId>
+                    <artifactId>23taotao-order-interface</artifactId>
+                    <version>0.0.1-SNAPSHOT</version>
+                </dependency>
+
+        3.4、22taotao-order-web	
+            3.4.1、配置文件
+                复制portotal-web工程的配置文件修改即可
+
+                log4j.properties
+                resource.properties(删除不必要的数据)
+                springmvc.xml
+
+                修改springmvc.xml配置文件，其他不需要修改
+
+                <!-- 引用服务 -->
+                <dubbo:application name="taotao-user-sso-web"/>     
+
+            3.4.2、web.xml
+                复制portotal-web工程的web.xml文件修改即可 
+
+            3.4.3、pom.xml
+                修改依赖接口，和tomcat端口，其他不变
+
+                <!-- 依赖接口 -->
+                <dependency>
+                    <groupId>com.taotao</groupId>
+                    <artifactId>23taotao-order-interface</artifactId>
+                    <version>0.0.1-SNAPSHOT</version>
+                </dependency>
+
+            3.4.4、复制页面
+                复制必要的页面到webapp和WEB-INF下即可
+                位置：
+                    JAVA/ReStudy/DataWord/30WJ商城/资料/静态页面/购物车成功页面
+			
+三十六、前台系统-添加购物车(未登录)(21)
+
+    在order-web工程下
+
+    1、pom.xml
+        <dependency>
+            <groupId>com.taotao</groupId>
+            <artifactId>08taotao-manager-interface</artifactId>
+            <version>0.0.1-SNAPSHOT</version>
+        </dependency>
+
+    2、springmvc.xml
+        <!-- 引用服务(引用manager工程中的根据ID查询商品信息服务) -->
+        <dubbo:reference id="userService" interface="study.project.ItemService" version="1.0.0" timeout="100000"/>
+    
+    3、resource.properties
+        #cookie中的购物车的唯一key
+        CART_KEY=CART_KEY
+
+    4、controller
+        创建study.project.order.controller包，在此包下创建CartController.java
+
+        /**
+        * 购物车操作
+        * Created by panhusun on 2017/9/9.
+        */
+        @Controller
+        public class CartController {
+
+            @Value("${CART_KEY}")
+            private String CART_KEY;
+
+            @Resource
+            private ItemService itemService;
+
+            /**
+            * 功能21：
+            *      添加购物车(未登录 添加到cookie)
+            * URL:
+            *      /cart/add/${item.id}/" + $("#buy-num").val() + ".html
+            * param：
+            *      URL模板映射
+            *      itemId
+            *      num
+            * return：
+            *      string 返回到购物车添加成功页面
+            * 业务流程：
+            *      先查询购物车(cookie)商品列表
+            *      判断购物车中是否有当前有添加的商品
+            *      有：数量相加
+            *      没有：直接添加到cookie购物车
+            */
+            @RequestMapping("/cart/add/{itemId}/{num}")
+            public String addCart(HttpServletRequest request, HttpServletResponse response, @PathVariable Long itemId, @PathVariable Long num){
+
+                //查询购物车
+                List<TbItem> itemList = this.getCookieValue(request);
+
+                //判断购物车中是否有当前有添加的商品
+                boolean flag = false;
+
+                for (TbItem tbItem : itemList) {
+                    if (tbItem.getId() == itemId.longValue()) {
+                        //存在，数量相加
+                        tbItem.setNum(tbItem.getNum() + num.intValue());
+
+                        flag = true;
+
+                        break;
+                    }
+                }
+
+                //不存在
+                if (!flag) {
+                    //根据itemId查询数据库
+                    TbItem item = itemService.findItemByID(itemId);
+
+                    //设置购买数量
+                    item.setNum(num.intValue());
+
+                    //放回购物车列表
+                    itemList.add(item);
+                }
+
+                //将购物车列表加密存入cookie
+                CookieUtils.setCookie(request, response, CART_KEY, JsonUtils.objectToJson(itemList), true);
+
+                //返回到购物车成功页面cartSuccess
+                return "cartSuccess";
+            }
+
+            //查询cookie中的购物车列表
+            private List<TbItem> getCookieValue(HttpServletRequest request) {
+
+                //根据key加密查询cookie
+                String cookieValue = CookieUtils.getCookieValue(request, CART_KEY, true);
+
+                if (StringUtils.isBlank(cookieValue)) {
+                    //如果为空返回一个空列表
+                    return new ArrayList<>();
+                }
+
+                //将json转成list集合
+                List<TbItem> tbItems = JsonUtils.jsonToList(cookieValue, TbItem.class);
+
+                return tbItems;
+            }
+        }
+
+    5、jsp
+        访问item-web工程的item.jsp页面
+
+        点击233行“加入购物车”，执行点击事件addCart()
+
+        执行461行，跳转到order-web工程
+
+        带参数itemId和num
+
+    6、测试
+        见图6
+            
+三十七、前台系统-查询购物车列表(未登录)(22)
+	1、controller
+        在order-web工程中的CartController.java中
+
+        /**
+        * 功能22：
+        *      查询购物车列表
+        * URL:
+        *      /cart/cart.html
+        * 参数：
+        *      Model
+        * 返回值：
+        *      String  购物车列表页 order-cart.jsp
+        *
+        */
+        @RequestMapping("/cart/cart")
+        public String findCart(HttpServletRequest request, Model model){
+
+            //从cookie中获取购物车列表
+            List<TbItem> cartList = this.getCookieValue(request);
+
+            //放入Model中
+            model.addAttribute("cartList", cartList);
+
+            return "cart";
+        }
+
+    2、jsp
+        添加购物车成功以后跳转到cartSuccess.jsp页面
+
+        点击47行“去购物车结算”发送请求/cart/cart.html
+
+        从cookie中获取购物城列表，并将数据放入Model中供页面回显
+			
+	3、测试
+        见图7
+
+三十八、前台系统-购物车数量加减(未登录)(23)
+
+    在order-web工程中操作
+
+    1、controller
+        /**
+        * 功能23：
+        *      购物车数量加减
+        * URL:
+        *      /cart/update/num/{itemId}/{num}.html"
+        * 参数：
+        *      URL模板映射
+        *      itemId
+        *      num
+        * 返回值：
+        *      ProjectResultDTO.ok();
+        * 业务流程：
+        *      1、从cookie中获取商品列表
+        *      2、根据cookie中商品ID判断要修改哪一个商品
+        *      3、将修改好的商品放回cookie
+        */
+        @ResponseBody
+        @RequestMapping(value = "/cart/update/num/{itemId}/{num}", method = RequestMethod.POST)
+        public ProjectResultDTO updateItemNum(HttpServletRequest request, HttpServletResponse response, @PathVariable Long itemId, @PathVariable Integer num){
+            //1、从cookie中获取购物车商品列表集合
+            List<TbItem> cartList = this.getCookieValue(request);
+
+            //2、遍历购物车列表，判断要修改哪一个商品
+            for (TbItem item : cartList) {
+                if (item.getId() == itemId.longValue()) {
+                    item.setNum(num);
+                    break;
+                }
+            }
+
+            //3、将修改好的商品加密放回cookie
+            CookieUtils.setCookie(request, response, CART_KEY, JsonUtils.objectToJson(cartList), true);
+
+            return ProjectResultDTO.ok();
+        }
+
+    2、jsp
+        访问购物车列表页cart.jsp
+
+        cart.jsp页面中的161行引用的cart.js
+
+        当点击购物车中的加减按钮时会根据class选择器执行cart.js中的6行或者13行进行加减操作
+
+        请求返回后会异步刷新需要改变的内容
+
+        注意：
+            请求后缀是.html的不支持json数据，所以需要改成别的(随意)
+
+            同时修改web.xml的拦截
+
+            添加一个拦截(可以是多个拦截)：
+                <servlet-mapping>
+                    <servlet-name>springmvc</servlet-name>
+                    <!-- 购物车数量加减时使用 -->
+                    <url-pattern>*.do</url-pattern>
+                </servlet-mapping>
+
+三十九、前台系统-购物车删除商品(未登录)(24)
+
+    在order-web工程中操作
+
+    1、controller
+        /**
+        * 功能24：
+        *      删除购物车中的商品
+        * URL:
+        *      /cart/delete/${cart.id}.html
+        * 参数：
+        *      URL模板映射
+        *      itemId
+        * 返回值：
+        *      String 重定向到购物车列表
+        * 业务流程：
+        *      1、从cookie中获取商品列表
+        *      2、根据cookie中商品ID判断要修改哪一个商品
+        *      3、将修改好的商品放回cookie
+        */
+        @RequestMapping(value = "/cart/delete/{itemId}")
+        public String deleteCartItemById(HttpServletRequest request, HttpServletResponse response, @PathVariable Long itemId){
+            //1、从cookie中获取购物车商品列表集合
+            List<TbItem> cartList = this.getCookieValue(request);
+
+            //2、遍历购物车列表，判断要修改哪一个商品
+            for (TbItem item : cartList) {
+                if (item.getId() == itemId.longValue()) {
+                    cartList.remove(item);
+                    break;
+                }
+            }
+
+            //3、将修改好的商品加密放回cookie
+            CookieUtils.setCookie(request, response, CART_KEY, JsonUtils.objectToJson(cartList), true);
+
+            //重定向的上面获取购物车列表的请求
+            return "redirect:/cart/cart.html";
+        }
+
+    2、jsp
+        在cart.jsp页面中点击删除按钮，会执行96行当前标签中的 href="/cart/delete/${cart.id}.html"
+
+        删除成功后需要重定向到获取购物车列表的请求，显示删除效果
+
+
+四十、前台系统-购物车结算(未登录)(25)
+    1、结算业务流程分析
+        订单提交>订单详情页>支付>支付成功
+
+        购物车列表点击提交 > 使用拦截器拦截订单请求判断用户是否登录
+            登录：
+                直接跳转到订单详情 > 确认订单信息 > 支付
+
+                订单详情页应该有的信息：
+                    收货地址
+                    商品信息
+                    购物车信息
+                    支付信息
+
+            未登录：
+                根据TT_TOKEN获取cookie中token
+                    没有：
+                        需要跳转到登录页面登录
+                    有：
+                        标识登录过
+
+                        如果redis中数据过期，需要跳转到登录页面重新登录。
+                
+                        如果redis中数据没有过期，放行拦截器，跳转到订单详情页
+
+    2、redis
+        在order-web工程中操作
+
+        因为要查询redis中用户信息所以要用到redis
+
+        2.1、JedisService.java
+            在web工程下创建study.project.redis.service包，在此包下创建操作redis的常用方法接口JedisService.java
+
+            public interface JedisService {
+
+                //抽取Jedis的常用方法
+                //数据结构string
+                public String set(String key, String value);
+                public String get(String key);
+                //自增、自减
+                public Long incr(String key);
+                public Long decr(String key);
+                
+                //数据结构hash
+                public Long hset(String key, String field, String value);
+                public String hget(String key, String field);
+                //删除
+                public Long hdel(String key, String field);
+                
+                //过期设置
+                public Long expire(String key, int seconds);
+                //查看过期时间
+                public Long ttl(String key);
+            }
+
+        2.2、JedisServiceImpl.java
+            在 order-web工程下创建study.project.redis.impl包，在此包下创建JedisServiceImpl.java实现redis的接口
+
+            @Repository
+            public class JedisServiceImpl implements JedisService {
+
+                //**************集群版*********************
+                @Resource
+                private JedisCluster jedisCluster;
+                
+                @Override
+                public String set(String key, String value) {
+                    String set = jedisCluster.set(key, value);
+                    return set;
+                }
+
+                @Override
+                public String get(String key) {
+                    String get = jedisCluster.get(key);
+                    return get;
+                }
+
+                @Override
+                public Long incr(String key) {
+                    Long incr = jedisCluster.incr(key);
+                    return incr;
+                }
+
+                @Override
+                public Long decr(String key) {
+                    Long decr = jedisCluster.decr(key);
+                    return decr;
+                }
+
+                @Override
+                public Long hset(String key, String field, String value) {
+                    Long hset = jedisCluster.hset(key, field, value);
+                    return hset;
+                }
+
+                @Override
+                public String hget(String key, String field) {
+                    String hget = jedisCluster.hget(key, field);
+                    return hget;
+                }
+
+                @Override
+                public Long hdel(String key, String field) {
+                    Long hdel = jedisCluster.hdel(key, field);
+                    return hdel;
+                }
+
+                @Override
+                public Long expire(String key, int seconds) {
+                    Long expire = jedisCluster.expire(key, seconds);
+                    return expire;
+                }
+
+                @Override
+                public Long ttl(String key) {
+                    Long ttl = jedisCluster.ttl(key);
+                    return ttl;
+                }
+            }
+
+        2.3、applicationContext-redis.xml
+            在order-web工程下添加redis的配置文件
+
+            <?xml version="1.0" encoding="UTF-8"?>
+            <beans xmlns="http://www.springframework.org/schema/beans"
+                xmlns:context="http://www.springframework.org/schema/context" 
+                xmlns:mvc="http://www.springframework.org/schema/mvc"
+                xmlns:aop="http://www.springframework.org/schema/aop" 
+                xmlns:tx="http://www.springframework.org/schema/tx"
+                xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                xmlns:dubbo="http://code.alibabatech.com/schema/dubbo"
+                xsi:schemaLocation="http://www.springframework.org/schema/beans 
+                                    http://www.springframework.org/schema/beans/spring-beans-4.0.xsd
+                                    http://www.springframework.org/schema/context 
+                                    http://www.springframework.org/schema/context/spring-context-4.0.xsd
+                                    http://www.springframework.org/schema/aop 
+                                    http://www.springframework.org/schema/aop/spring-aop-4.0.xsd
+                                    http://www.springframework.org/schema/tx 
+                                    http://www.springframework.org/schema/tx/spring-tx-4.0.xsd
+                                    http://www.springframework.org/schema/mvc
+                                    http://www.springframework.org/schema/mvc/spring-mvc-4.0.xsd
+                                    http://www.springframework.org/schema/util
+                                    http://www.springframework.org/schema/util/spring-util-4.0.xsd
+                                    http://code.alibabatech.com/schema/dubbo 
+                                    http://code.alibabatech.com/schema/dubbo/dubbo.xsd">	
+                
+                <!--1、 测试单机版的Jedis连接Redis -->
+                <!-- <bean class="redis.clients.jedis.Jedis">
+                    <constructor-arg name="host" value="192.168.145.129"></constructor-arg>
+                    <constructor-arg name="port" value="6379"></constructor-arg>
+                </bean> -->
+                
+                <!--2、使用单机版的jedis连接池连接redis 把JedisPoolConfig对象交给spring创建 -->
+                <bean id="poolConfig" class="redis.clients.jedis.JedisPoolConfig">
+                    <property name="maxIdle" value="20"/>
+                    <property name="maxTotal" value="1000"/>
+                </bean>
+                <!-- 将JedisPool对象交给spring创建 -->
+                <!-- <bean class="redis.clients.jedis.JedisPool">
+                    <constructor-arg name="poolConfig" ref="poolConfig"></constructor-arg>
+                    <constructor-arg name="host" value="192.168.145.129"></constructor-arg>
+                    <constructor-arg name="port" value="6379"></constructor-arg>
+                </bean> -->
+                
+                <!-- 3、使用spring整合集群版的jedis连接池连接redis集群 -->
+                <bean class="redis.clients.jedis.JedisCluster">
+                    <constructor-arg name="nodes">
+                        <set>
+                            <bean class="redis.clients.jedis.HostAndPort">
+                                <constructor-arg name="host" value="192.168.145.129"/>
+                                <constructor-arg name="port" value="7001"/>
+                            </bean>
+                            <bean class="redis.clients.jedis.HostAndPort">
+                                <constructor-arg name="host" value="192.168.145.129"/>
+                                <constructor-arg name="port" value="7002"/>
+                            </bean>
+                            <bean class="redis.clients.jedis.HostAndPort">
+                                <constructor-arg name="host" value="192.168.145.129"/>
+                                <constructor-arg name="port" value="7003"/>
+                            </bean>
+                            <bean class="redis.clients.jedis.HostAndPort">
+                                <constructor-arg name="host" value="192.168.145.129"/>
+                                <constructor-arg name="port" value="7004"/>
+                            </bean>
+                            <bean class="redis.clients.jedis.HostAndPort">
+                                <constructor-arg name="host" value="192.168.145.129"/>
+                                <constructor-arg name="port" value="7005"/>
+                            </bean>
+                            <bean class="redis.clients.jedis.HostAndPort">
+                                <constructor-arg name="host" value="192.168.145.129"/>
+                                <constructor-arg name="port" value="7006"/>
+                            </bean>
+                            <bean class="redis.clients.jedis.HostAndPort">
+                                <constructor-arg name="host" value="192.168.145.129"/>
+                                <constructor-arg name="port" value="7007"/>
+                            </bean>
+                            <bean class="redis.clients.jedis.HostAndPort">
+                                <constructor-arg name="host" value="192.168.145.129"/>
+                                <constructor-arg name="port" value="7008"/>
+                            </bean>
+                        </set>
+                    </constructor-arg>
+                    <constructor-arg name="poolConfig" ref="poolConfig"/>
+                </bean>
+            </beans>
+
+        2.4、web.xml
+            在order-web工程的web.xml中加载spring的配置文件，同时修改优先级
+
+            <!-- 加载springmvc配置文件 -->
+            <servlet>
+                <servlet-name>springmvc</servlet-name>
+                <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+                <init-param>
+                    <param-name>contextConfigLocation</param-name>
+                    <param-value>classpath:springmvc.xml,classpath:applicationContext-redis.xml</param-value>
+                </init-param>
+                <!--应为要随着web容器的启动加载spring的配置文件所有要配置优先级-->
+                <load-on-startup>1</load-on-startup>
+            </servlet>
+
+    3、resource.properties
+#cookie中的购物车的唯一key
+CART_KEY=CART_KEY
+#存到cookies中的token的key
+TOKEN_COOKIE_KEY=WJ_TOKEN_KEY
+#SSO重定向请求
+SSO_URL=http://localhost:8089/user/showLogin
+#存入redis缓存服务器中的用户登录信息的key
+SESSION_KEY=SESSION_KEY
+
+    4、LoginInterceptor.java
+在order-web工程下创建study.project.interceptor包，在此包下创建LoginInterceptor.java拦截器
+
+/**
+* 登录拦截器
+* Created by panhusun on 2017/9/10.
+*/
+public class LoginInterceptor implements HandlerInterceptor{
+
+    //存入cookie中的用户唯一标识token
+    @Value("${TOKEN_COOKIE_KEY}")
+    private String TOKEN_COOKIE_KEY;
+
+    //重定向到登录页面的URL
+    @Value("${SSO_URL}")
+    private String SSO_URL;
+
+    @Resource
+    private JedisService jedisService;
+
+    //存入redis和缓存服务器中的用户信息的唯一key
+    @Value("${SESSION_KEY}")
+    private String SESSION_KEY;
+    /**
+    * 业务流程：
+    *      1、判断cookie中是否有当前用户的token
+    *          有：仅仅表示登陆过
+    *          没有：重新登录。登录成功后必须跳转到历史操作页面
+    *      2、判断redis中用户身份信息是否过期
+    *          没有：放行，登录成功
+    *          过期：重新登录。登录成功后必须跳转到历史操作页面
+    * @param request
+    * @param response
+    * @param handler
+    * @return
+    * @throws Exception
+    */
+    @Override
+    public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
+
+        //获取cookie中的用户唯一标识token
+        String userToken = CookieUtils.getCookieValue(request, TOKEN_COOKIE_KEY);
+
+        //判断token是否为空
+        if (StringUtils.isBlank(userToken)) {//为空,重新登录
+            //获取当前操作请求地址
+            String url = request.getRequestURL().toString();
+            //跳转登录页面，携带历史操作地址
+            response.sendRedirect(SSO_URL+"?redirectURL="+url);
+            //拦截
+            return false;
+        }
+
+        //不为空
+        //根据token查询redis服务器
+        String userRedis = jedisService.get(SESSION_KEY + ":" + userToken);
+
+        //判断redis中用户信息是否过期
+        if (StringUtils.isBlank(userRedis)) {//过期
+            //获取当前操作请求地址
+            String url = request.getRequestURL().toString();
+            //跳转登录页面，携带历史操作地址
+            response.sendRedirect(SSO_URL + "?redirectURL=" + url);
+            //拦截
+            return false;
+        }
+
+        //没有过期,登录成功，将用户信息存入request
+        request.setAttribute("user", JsonUtils.jsonToPojo(userRedis, TbUser.class));
+
+        return true;
+    }
+
+    @Override
+    public void postHandle(HttpServletRequest request, HttpServletResponse response, Object handler, ModelAndView modelAndView) throws Exception {
+
+    }
+
+    @Override
+    public void afterCompletion(HttpServletRequest request, HttpServletResponse response, Object handler, Exception ex) throws Exception {
+
+    }
+}
+
+    5、springmvc.xml
+        <!--配置登录拦截器-->
+        <mvc:interceptors>
+            <mvc:interceptor>
+                <mvc:mapping path="/order/**"/>
+                <bean class="study.project.interceptor.LoginInterceptor"></bean>
+            </mvc:interceptor>
+        </mvc:interceptors>
+
+    6、controller
+        在orde-web工程下的study.project.order.controller.CartController.java下添加跳转到订单详情的方法
+
+        /**
+        * 功能25：
+        *      去结算 - 跳转待订单详情页
+        * URL:
+        *      /order/order-cart.html
+        * return：
+        *      String  跳转到订单详情页
+        */
+        @RequestMapping("/order/order-cart")
+        public String orderCart(HttpServletRequest request, HttpServletResponse response, Model model){
+
+            //从cookie中获取购物车列表数据
+            List<TbItem> cartList = this.getCookieValue(request);
+
+            //从request中获取用户身份信息
+            TbUser user = (TbUser) request.getAttribute("user");
+
+            //放入model中
+            model.addAttribute("user", user);
+            model.addAttribute("cartList", cartList);
+
+            return "order-cart";
+        }
+
+    7、jsp
+        点击购物车“去结算”执行138行代码，发送请求/order/order-cart.html
+
+        跳转前后先经过拦截器，判断是否登录
+
+        未登录跳转到user-sso-web工程的login.jsp，需要带参数历史操作页面(登录完成后调回历史操作页面)
+
+        把历史操作页面当做参数传递，参数名redirect
+
+        在user-sso-web工程的login.jps中的点击登录时会根据id执行106行代码
+
+        根据106行代码执行100行代码，
+
+        根据106行代码执行85代码，
+
+        成功后先判断从request(70行代码获取的值)中拿到的redirectUrl是否为空
+
+        没值跳转到首页
+
+        有值就跳转到redirectUrl对应的值的页面
+
+        所以修改修改user-sso-web工程的study.project.user.sso.controller.PageController.java中的showLogin方法
+
+        /**
+        * 跳转到登录
+        * /user/showLogin
+        * @return
+        */
+        @RequestMapping("/user/showLogin")
+        public String showLogin(Model model, String redirect){
+
+            model.addAttribute("redirect", redirect);
+
+            return "login";
+        }
+
+    8、测试
+        见图8
+
+四十一、前台系统-提交订单(未登录)(26)
+    1、分析
+        提交订单需要操作三张表，所以需要封装一个包装类对象分装三张表的数据
+
+        见图9
+
+    2、jsp
+        访问order-web工程中的order-cart.jsp点击280行的“提交订单按钮”，
+
+        执行一个点击事件onclick="$('#orderForm').submit()"
+
+        找到36行发请求action="/order/create.html"
+
+    3、pojo
+        在order-interface工程中创建包装类对象OrderInfo.java implements Serializable(order-web工程依赖interface接口依赖，所以在web工程中页可以使用)
+
+        //变量名称必须和页面保持一样才能封装成功
+        //封装订单对象
+        private TbOrder order;
+        //封装订单明细对象
+        private List<TbOrderItem> orderItems;
+        //封装收货地址对象
+        private TbOrderShipping orderShipping;
+
+    4、jedis
+        4.1、JedisDao.java
+            在order-interface工程中创建 study.project.order.redis.dao.JedisDao.java
+
+            public interface JedisDao {
+
+                //抽取Jedis的常用方法
+                //数据结构string
+                public String set(String key, String value);
+                public String get(String key);
+                //自增、自减
+                public Long incr(String key);
+                public Long decr(String key);
+                
+                //数据结构hash
+                public Long hset(String key, String field, String value);
+                public String hget(String key, String field);
+                //删除
+                public Long hdel(String key, String field);
+                
+                //过期设置
+                public Long expire(String key, int seconds);
+                //查看过期时间
+                public Long ttl(String key);
+            }
+
+        4.2、JedisDaoImpl.java
+            在order-service工程中创建study.project.order.redis.service.impl.JedisDaoImpl.java
+
+            @Repository
+            public class JedisDaoImpl implements JedisDao {
+
+                //**************集群版*********************
+                @Resource
+                private JedisCluster jedisCluster;
+                
+                @Override
+                public String set(String key, String value) {
+                    String set = jedisCluster.set(key, value);
+                    return set;
+                }
+
+                @Override
+                public String get(String key) {
+                    String get = jedisCluster.get(key);
+                    return get;
+                }
+
+                @Override
+                public Long incr(String key) {
+                    Long incr = jedisCluster.incr(key);
+                    return incr;
+                }
+
+                @Override
+                public Long decr(String key) {
+                    Long decr = jedisCluster.decr(key);
+                    return decr;
+                }
+
+                @Override
+                public Long hset(String key, String field, String value) {
+                    Long hset = jedisCluster.hset(key, field, value);
+                    return hset;
+                }
+
+                @Override
+                public String hget(String key, String field) {
+                    String hget = jedisCluster.hget(key, field);
+                    return hget;
+                }
+
+                @Override
+                public Long hdel(String key, String field) {
+                    Long hdel = jedisCluster.hdel(key, field);
+                    return hdel;
+                }
+
+                @Override
+                public Long expire(String key, int seconds) {
+                    Long expire = jedisCluster.expire(key, seconds);
+                    return expire;
+                }
+
+                @Override
+                public Long ttl(String key) {
+                    Long ttl = jedisCluster.ttl(key);
+                    return ttl;
+                }
+            }
+
+        4.3、applicationContext-redis.xml
+            在order-service工程中创建redis所需的配置文件
+
+            <?xml version="1.0" encoding="UTF-8"?>
+            <beans xmlns="http://www.springframework.org/schema/beans"
+                xmlns:context="http://www.springframework.org/schema/context" 
+                xmlns:mvc="http://www.springframework.org/schema/mvc"
+                xmlns:aop="http://www.springframework.org/schema/aop" 
+                xmlns:tx="http://www.springframework.org/schema/tx"
+                xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                xmlns:dubbo="http://code.alibabatech.com/schema/dubbo"
+                xsi:schemaLocation="http://www.springframework.org/schema/beans 
+                                    http://www.springframework.org/schema/beans/spring-beans-4.0.xsd
+                                    http://www.springframework.org/schema/context 
+                                    http://www.springframework.org/schema/context/spring-context-4.0.xsd
+                                    http://www.springframework.org/schema/aop 
+                                    http://www.springframework.org/schema/aop/spring-aop-4.0.xsd
+                                    http://www.springframework.org/schema/tx 
+                                    http://www.springframework.org/schema/tx/spring-tx-4.0.xsd
+                                    http://www.springframework.org/schema/mvc
+                                    http://www.springframework.org/schema/mvc/spring-mvc-4.0.xsd
+                                    http://www.springframework.org/schema/util
+                                    http://www.springframework.org/schema/util/spring-util-4.0.xsd
+                                    http://code.alibabatech.com/schema/dubbo 
+                                    http://code.alibabatech.com/schema/dubbo/dubbo.xsd">	
+                
+                <!--1、 测试单机版的Jedis连接Redis -->
+                <!-- <bean class="redis.clients.jedis.Jedis">
+                    <constructor-arg name="host" value="192.168.145.129"></constructor-arg>
+                    <constructor-arg name="port" value="6379"></constructor-arg>
+                </bean> -->
+                
+                <!--2、使用单机版的jedis连接池连接redis 把JedisPoolConfig对象交给spring创建 -->
+                <bean id="poolConfig" class="redis.clients.jedis.JedisPoolConfig">
+                    <property name="maxIdle" value="20"/>
+                    <property name="maxTotal" value="1000"/>
+                </bean>
+                <!-- 将JedisPool对象交给spring创建 -->
+                <!-- <bean class="redis.clients.jedis.JedisPool">
+                    <constructor-arg name="poolConfig" ref="poolConfig"></constructor-arg>
+                    <constructor-arg name="host" value="192.168.145.129"></constructor-arg>
+                    <constructor-arg name="port" value="6379"></constructor-arg>
+                </bean> -->
+                
+                <!-- 3、使用spring整合集群版的jedis连接池连接redis集群 -->
+                <bean class="redis.clients.jedis.JedisCluster">
+                    <constructor-arg name="nodes">
+                        <set>
+                            <bean class="redis.clients.jedis.HostAndPort">
+                                <constructor-arg name="host" value="192.168.145.129"/>
+                                <constructor-arg name="port" value="7001"/>
+                            </bean>
+                            <bean class="redis.clients.jedis.HostAndPort">
+                                <constructor-arg name="host" value="192.168.145.129"/>
+                                <constructor-arg name="port" value="7002"/>
+                            </bean>
+                            <bean class="redis.clients.jedis.HostAndPort">
+                                <constructor-arg name="host" value="192.168.145.129"/>
+                                <constructor-arg name="port" value="7003"/>
+                            </bean>
+                            <bean class="redis.clients.jedis.HostAndPort">
+                                <constructor-arg name="host" value="192.168.145.129"/>
+                                <constructor-arg name="port" value="7004"/>
+                            </bean>
+                            <bean class="redis.clients.jedis.HostAndPort">
+                                <constructor-arg name="host" value="192.168.145.129"/>
+                                <constructor-arg name="port" value="7005"/>
+                            </bean>
+                            <bean class="redis.clients.jedis.HostAndPort">
+                                <constructor-arg name="host" value="192.168.145.129"/>
+                                <constructor-arg name="port" value="7006"/>
+                            </bean>
+                            <bean class="redis.clients.jedis.HostAndPort">
+                                <constructor-arg name="host" value="192.168.145.129"/>
+                                <constructor-arg name="port" value="7007"/>
+                            </bean>
+                            <bean class="redis.clients.jedis.HostAndPort">
+                                <constructor-arg name="host" value="192.168.145.129"/>
+                                <constructor-arg name="port" value="7008"/>
+                            </bean>
+                        </set>
+                    </constructor-arg>
+                    <constructor-arg name="poolConfig" ref="poolConfig"/>
+                </bean>
+            </beans>
+
+        4.4、jedis依赖
+            在order-service工程的pom.xml中引入jedis的配置文件
+
+            <!-- Redis客户端 -->
+            <dependency>
+                <groupId>redis.clients</groupId>
+                <artifactId>jedis</artifactId>
+                <version>${jedis.version}</version>
+            </dependency>
+
+    5、interface
+        在order-interface工程中study.project.order.service.OrderService.java
+
+        /**
+        * 提交订单
+        * Created by panhusun on 2017/9/10.
+        */
+        public interface OrderService {
+            /**
+            * 功能26：
+            *      提交订单
+            * URL:
+            *      /order/create.html
+            * param：
+            *
+            * return：
+            *      页面回显数据:
+            *          orderId
+            *          时间
+            *          金额(页面传递)
+            *      success成功页面
+            * 订单号设置：
+            *      1、sql查询获取初始值，每次加1(缺点：加重的数据库的读写压力)
+            *      2、redis自增方法，每一次生成一个订单，自动加1
+            *          redis订单号设计：
+            *              key:ORDER_NUM
+            *              value:初始值(START_ORDER_NUM)
+            * 业务流程;
+            *      需要提交三张表的数据，所以需要封装一个包装类对象来封装三张表的数据
+            */
+            String orderCreate(OrderInfo orderInfo);
+        }
+
+    6、service
+        在order-service工程中创建study.project.order.service.impl.OrderServiceImpl.java
+
+        /**
+        * 订到操作的实现类
+        * Created by panhusun on 2017/9/10.
+        */
+        @Service
+        public class OrderServiceImpl implements OrderService {
+
+            //保存三张表数据
+            @Resource
+            private TbOrderMapper orderMapper;
+
+            @Resource
+            private TbOrderItemMapper orderItemMapper;
+
+            @Resource
+            private TbOrderShippingMapper orderShippingMapper;
+
+            //存入redis服务器中的订单号的key
+            @Value("${ORDER_NUM}")
+            private String ORDER_NUM;
+
+            //存入redis服务器中的订单号的可以对应的初始值
+            @Value("${START_ORDER_NUM}")
+            private String START_ORDER_NUM;
+
+            //订单商品id，在redis中自增1时是1
+            @Value("${ORDER_DETAIL_ID}")
+            private String ORDER_DETAIL_ID;
+
+
+            @Resource
+            private JedisDao jedisDao;
+
+            /**
+            * 功能26：
+            *      提交订单
+            * URL:
+            *      /order/create.html
+            * param：
+            *
+            * return：
+            *      页面回显数据:
+            *          orderId
+            *          时间
+            *          金额(页面传递)
+            *      success成功页面
+            * 订单号设置：
+            *      1、sql查询获取初始值，每次加1(缺点：加重的数据库的读写压力)
+            *      2、redis自增方法，每一次生成一个订单，自动加1
+            *          redis订单号设计：
+            *              key:ORDER_NUM
+            *              value:初始值(START_ORDER_NUM)
+            * 业务流程;
+            *      需要提交三张表的数据，所以需要封装一个包装类对象来封装三张表的数据
+            */
+            @Override
+            public String orderCreate(OrderInfo orderInfo) {
+
+                //****************************保存order对象***************start*************
+                //获取order对象
+                TbOrder order = orderInfo.getOrder();
+                //设计orderId
+                //从redis中获取orderId
+                String orderId = jedisDao.get(ORDER_NUM);
+
+                //判断redis中orderId是否存在
+                if (StringUtils.isBlank(orderId)) {//为空
+                    //设置一个初始值
+                    jedisDao.set(ORDER_NUM, START_ORDER_NUM);
+                }
+
+                //新增订单时redis中的orderId自增1
+                orderId = jedisDao.incr(ORDER_NUM).toString();
+
+                //不全参数 - orderId
+                order.setOrderId(orderId);
+                //邮费
+                order.setPostFee("0");
+                //订单状态：1、未付款，2、已付款，3、未发货，4、已发货，5、交易成功，6、交易关闭
+                order.setStatus(1);
+                //修改日期
+                order.setUpdateTime(new Date());
+                //创建日期
+                order.setCreateTime(new Date());
+
+                //保存
+                orderMapper.insert(order);
+                //****************************保存order对象***************end*************
+
+                //****************************保存订单商品明细对象***************start*************
+                //获取OrderItem对象
+                List<TbOrderItem> orderItemList = orderInfo.getOrderItems();
+
+                for (TbOrderItem orderItem : orderItemList) {
+
+                    //意思是从redis中获取，没有就直接设置值为1，以后每次自增1
+                    Long orderItemId = jedisDao.incr(ORDER_DETAIL_ID);
+
+                    //设置订单商品明细ID
+                    orderItem.setId(orderItemId.toString());
+                    //设置订单id
+                    orderItem.setOrderId(orderId);
+
+                    //保存
+                    orderItemMapper.insert(orderItem);
+                }
+                //****************************保存订单商品明细对象***************end*************
+
+                //****************************保存收货地址对象***************start*************
+                //获取收货地址对象
+                TbOrderShipping orderShipping = orderInfo.getOrderShipping();
+
+                orderShipping.setOrderId(orderId);
+                orderShipping.setCreated(new Date());
+                orderShipping.setUpdated(new Date());
+
+                orderShippingMapper.insert(orderShipping);
+                //****************************保存收货地址对象***************end*************
+
+                return orderId;
+            }
+        }
+
+    7、配置文件
+        在order-service工程的spplicationContext-service.xml配置文件中发布服务
+
+        <!-- 创建需要发布服务 提交订单-->
+        <bean id="orderServiceImpl" class="study.project.order.service.impl.OrderServiceImpl"/>
+        <!-- 发布服务 user工程 -->
+        <dubbo:service ref="orderServiceImpl" interface="study.project.order.service.OrderService" version="1.0.0" retries="0" timeout="100000"/>
+
+    8、controller
+        在order-web工程中创建study.project.order.controller.OrderController.java
+
+        /**
+        * 订单操作
+        * Created by panhusun on 2017/9/10.
+        */
+        @Controller
+        public class OrderController {
+
+            @Resource
+            private OrderService orderService;
+
+            /**
+            * 功能26：
+            *      提交订单
+            * URL:
+            *      /order/create.html
+            * param：
+            *
+            * return：
+            *      页面回显数据:
+            *          orderId
+            *          时间
+            *          金额(页面传递)
+            *      success成功页面
+            * 订单号设置：
+            *      1、sql查询获取初始值，每次加1(缺点：加重的数据库的读写压力)
+            *      2、redis自增方法，每一次生成一个订单，自动加1
+            *          redis订单号设计：
+            *              key:ORDER_NUM
+            *              value:初始值(START_ORDER_NUM)
+            * 业务流程;
+            *      需要提交三张表的数据，所以需要封装一个包装类对象来封装三张表的数据
+            */
+            @RequestMapping("/order/create")
+            public String createOrder(OrderInfo orderInfo, Model model) {
+
+                //订单号
+                String orderId = orderService.orderCreate(orderInfo);
+
+                //订单号
+                model.addAttribute("orderId", orderId);
+                //支付金额
+                model.addAttribute("payment", orderInfo.getOrder().getPayment());
+                //当前时间往后延长三天
+                DateTime dateTime = new DateTime();
+                dateTime.plusDays(3);
+
+                model.addAttribute("date", dateTime);
+
+                return "success";
+            }
+
+        }
+
+    9、配置文件
+        在order-web工程中的springmvc.xml配置文件中引用dubbo服务
+
+        <!--提交订单服务-->
+        <dubbo:reference id="orderService" interface="study.project.order.service.OrderService" version="1.0.0" timeout="100000"/>
+    
+    9、测试
+        见图10
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
