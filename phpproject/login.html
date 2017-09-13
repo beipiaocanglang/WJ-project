@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form name="LoginForm" method="post" action="login.php">
+    <p>
+        <label for="username" class="label">用户名:</label>
+        <input id="username" name="username" type="text" autocomplete="off" class="input" />
+    <p/>
+    <p>
+        <label for="password" class="label">密 码:</label>
+        <input id="password" name="password" type="password" autocomplete="off" class="input" />
+    <p/>
+    <!--<span>
+        <input id="regbtn" type="" name="submit" value="注册" class="left" />
+    </span>-->
+    <span>
+        <input id="loginbtn" type="submit" name="submit" value="登录" onclick="" class="left" />
+    </span>
+    <span>
+        <a href="reg.html">注册</a>
+    </span>
+</form>
+<script>
+    function validation(ele) {
+        if(document.getElementById("username").value == ""){
+            document.getElementById("username").focus();
+            alert("用户名不能为空");
+            return false;
+        }
+        if(document.getElementById("password").value == ""){
+            document.getElementById("password").focus();
+            alert("密码不能为空");
+            return false;
+        }
+    }
+</script>
+</body>
+</html>
