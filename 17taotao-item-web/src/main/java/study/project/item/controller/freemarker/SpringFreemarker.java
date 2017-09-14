@@ -35,7 +35,7 @@ public class SpringFreemarker {
         maps.put("hello", "spring整合Freemarker！！！！");
 
         //Writer out = new FileWriter(new File("E:\\html\\out\\helloSpring.html"));
-        Writer out = new FileWriter(new File("E:\\JAVA\\ReStudy\\Study\\Project\\WJ-project\\WJ-project\\17taotao-item-web\\src\\main\\webapp\\WEB-INF\\jsp\\freemarker\\out\\helloSpring.html"));
+        Writer out = new FileWriter(new File("/Users/panhusun/canglang/java_project/study-project/WJ-project/project/17taotao-item-web/src/main/webapp/WEB-INF/jsp/freemarker/out/helloSpring.html"));
 
         template.process(maps, out);
 

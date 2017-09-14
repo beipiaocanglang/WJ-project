@@ -196,7 +196,7 @@
 		
 		1.5、JDBC.properties
 			#url
-			jdbc.url = jdbc\:mysql\:///taotao
+			jdbc.url = jdbc\:mysql\://WJ
 			#mysql数据源驱动
 			jdbc.driver = com.mysql.jdbc.Driver
 			#用户名

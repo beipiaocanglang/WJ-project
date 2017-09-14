@@ -52,7 +52,7 @@
 	<!-- 提供方应用信息，用于计算依赖关系 -->
 	<dubbo:application name="canglang-order-service"/>
 	<!-- 使用dubbo通过Zookeeper协议注册服务 -->
-	<dubbo:registry protocol="zookeeper" address="192.168.254.66:2181"/>
+	<dubbo:registry protocol="zookeeper" address="192.168.145.129:2181"/>
 	<!-- 用dubbo协议在20880端口暴露服务 ：此端口是提供给消费者的，消费者通过dubbo协议调用zk服务 -->
 	<dubbo:protocol name="dubbo" port="20884" /><!-- 同一个tomcat下端口不能重复 -->
     <!-- 声明需要暴露的服务接口 -->

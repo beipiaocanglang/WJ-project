@@ -26,7 +26,7 @@ public class FirstFreemarkerTest {
         Configuration configuration = new Configuration(Configuration.getVersion());
 
         //指定Freemarker模版路径
-        configuration.setDirectoryForTemplateLoading(new File("E:\\JAVA\\ReStudy\\Study\\Project\\WJ-project\\WJ-project\\17taotao-item-web\\src\\main\\webapp\\WEB-INF\\jsp\\freemarker"));
+        configuration.setDirectoryForTemplateLoading(new File("/Users/panhusun/canglang/java_project/study-project/WJ-project/project/17taotao-item-web/src/main/webapp/WEB-INF/jsp/freemarker"));
 
         //指定模版编码
         configuration.setDefaultEncoding("UTF-8");
@@ -39,7 +39,7 @@ public class FirstFreemarkerTest {
         maps.put("hello", "这是Freemarker的第一个测试案例！！！！！！！！！");
 
         //创建模版输出路径
-        Writer out = new FileWriter(new File("E:\\JAVA\\ReStudy\\Study\\Project\\WJ-project\\WJ-project\\17taotao-item-web\\src\\main\\webapp\\WEB-INF\\jsp\\freemarker\\out\\hello.html"));
+        Writer out = new FileWriter(new File("/Users/panhusun/canglang/java_project/study-project/WJ-project/project/17taotao-item-web/src/main/webapp/WEB-INF/jsp/freemarker/out/hello.html"));
 
         //生成html文件,参数意义：参数1：放入模版中的数据、参数2：模版输出路径
         template.process(maps, out);
@@ -59,7 +59,7 @@ public class FirstFreemarkerTest {
         Configuration configuration = new Configuration(Configuration.getVersion());
 
         //指定Freemarker模版路径
-        configuration.setDirectoryForTemplateLoading(new File("E:\\JAVA\\ReStudy\\Study\\Project\\WJ-project\\WJ-project\\17taotao-item-web\\src\\main\\webapp\\WEB-INF\\jsp\\freemarker"));
+        configuration.setDirectoryForTemplateLoading(new File("/Users/panhusun/canglang/java_project/study-project/WJ-project/project/17taotao-item-web/src/main/webapp/WEB-INF/jsp/freemarker"));
 
         //指定模版编码
         configuration.setDefaultEncoding("UTF-8");
@@ -78,7 +78,7 @@ public class FirstFreemarkerTest {
         maps.put("person", person);
 
         //创建模版输出路径
-        Writer out = new FileWriter(new File("E:\\JAVA\\ReStudy\\Study\\Project\\WJ-project\\WJ-project\\17taotao-item-web\\src\\main\\webapp\\WEB-INF\\jsp\\freemarker\\out\\pojo.html"));
+        Writer out = new FileWriter(new File("/Users/panhusun/canglang/java_project/study-project/WJ-project/project/17taotao-item-web/src/main/webapp/WEB-INF/jsp/freemarker/out/pojo.html"));
 
         //生成html文件,参数意义：参数1：放入模版中的数据、参数2：模版输出路径
         template.process(maps, out);
@@ -98,7 +98,7 @@ public class FirstFreemarkerTest {
         Configuration configuration = new Configuration(Configuration.getVersion());
 
         //指定Freemarker模版路径
-        configuration.setDirectoryForTemplateLoading(new File("E:\\JAVA\\ReStudy\\Study\\Project\\WJ-project\\WJ-project\\17taotao-item-web\\src\\main\\webapp\\WEB-INF\\jsp\\freemarker"));
+        configuration.setDirectoryForTemplateLoading(new File("/Users/panhusun/canglang/java_project/study-project/WJ-project/project/17taotao-item-web/src/main/webapp/WEB-INF/jsp/freemarker"));
 
         //指定模版编码
         configuration.setDefaultEncoding("UTF-8");
@@ -133,7 +133,7 @@ public class FirstFreemarkerTest {
         maps.put("pList", pList);
 
         //创建模版输出路径
-        Writer out = new FileWriter(new File("E:\\JAVA\\ReStudy\\Study\\Project\\WJ-project\\WJ-project\\17taotao-item-web\\src\\main\\webapp\\WEB-INF\\jsp\\freemarker\\out\\list.html"));
+        Writer out = new FileWriter(new File("/Users/panhusun/canglang/java_project/study-project/WJ-project/project/17taotao-item-web/src/main/webapp/WEB-INF/jsp/freemarker/out/list.html"));
 
         //生成html文件,参数意义：参数1：放入模版中的数据、参数2：模版输出路径
         template.process(maps, out);
@@ -153,7 +153,7 @@ public class FirstFreemarkerTest {
         Configuration configuration = new Configuration(Configuration.getVersion());
 
         //指定Freemarker模版路径
-        configuration.setDirectoryForTemplateLoading(new File("E:\\JAVA\\ReStudy\\Study\\Project\\WJ-project\\WJ-project\\17taotao-item-web\\src\\main\\webapp\\WEB-INF\\jsp\\freemarker"));
+        configuration.setDirectoryForTemplateLoading(new File("/Users/panhusun/canglang/java_project/study-project/WJ-project/project/17taotao-item-web/src/main/webapp/WEB-INF/jsp/freemarker"));
 
         //指定模版编码
         configuration.setDefaultEncoding("UTF-8");
@@ -167,7 +167,7 @@ public class FirstFreemarkerTest {
         maps.put("today", new Date());
 
         //创建模版输出路径
-        Writer out = new FileWriter(new File("E:\\JAVA\\ReStudy\\Study\\Project\\WJ-project\\WJ-project\\17taotao-item-web\\src\\main\\webapp\\WEB-INF\\jsp\\freemarker\\out\\date.html"));
+        Writer out = new FileWriter(new File("/Users/panhusun/canglang/java_project/study-project/WJ-project/project/17taotao-item-web/src/main/webapp/WEB-INF/jsp/freemarker/out/date.html"));
 
         //生成html文件,参数意义：参数1：放入模版中的数据、参数2：模版输出路径
         template.process(maps, out);
