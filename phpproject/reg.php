@@ -1,5 +1,11 @@
 <?php
     header("Content-type: text/html; charset=utf-8");
+
+    $url='http://127.0.0.1:8081/findUserInfo';
+    $html = file_get_contents($url);
+    echo $html;
+
+/*
     if(isset($_POST['submit'])){
         $username = $_POST['username'];
         $password = $_POST['password'];
@@ -40,6 +46,6 @@
         mysqli_close($conn);//关闭数据库
     }else {
         exit('<script>location.href=\'login.html\'</script>');
-    }
+    }*/
 
 ?>
