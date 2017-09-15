@@ -117,7 +117,7 @@
 			<dependency>
 				<groupId>com.github.pagehelper</groupId>
 				<artifactId>pagehelper</artifactId>
-				<version>5.0.3</version>
+				<version>3.4.2-fix</version>
 			</dependency>
 			<!-- MySql -->
 			<dependency>

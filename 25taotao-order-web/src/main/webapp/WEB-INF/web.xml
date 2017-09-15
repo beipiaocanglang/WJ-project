@@ -31,7 +31,7 @@
 		<servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
 		<init-param>
 			<param-name>contextConfigLocation</param-name>
-			<param-value>classpath:springmvc.xml,classpath:applicationContext-*.xml</param-value>
+			<param-value>classpath:springmvc.xml,classpath:applicationContext-redis.xml</param-value>
 		</init-param>
         <!--应为要随着web容器的启动加载spring的配置文件所有要配置优先级-->
         <load-on-startup>1</load-on-startup>
