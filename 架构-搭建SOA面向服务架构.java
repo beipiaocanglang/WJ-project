@@ -44,17 +44,17 @@
 			<dependency>
 				<groupId>com.alibaba</groupId>
 				<artifactId>dubbo</artifactId>
-				<version>${dubbo.version}</version>
+				<version>2.5.3</version>
 			</dependency>
 			<dependency>
 				<groupId>org.apache.zookeeper</groupId>
 				<artifactId>zookeeper</artifactId>
-				<version>${zookeeper.version}</version>
+				<version>3.4.7</version>
 			</dependency>
 			<dependency>
 				<groupId>com.github.sgroschupf</groupId>
 				<artifactId>zkclient</artifactId>
-				<version>${zkclient.version}</version>
+				<version>0.1</version>
 			</dependency>
 		
 	2、改造03taotao-manager
@@ -148,37 +148,37 @@
 			<dependency>
 				<groupId>org.springframework</groupId>
 				<artifactId>spring-context</artifactId>
-				<version>${spring.version}</version>
+				<version>4.1.3.RELEASE</version>
 			</dependency>
 			<dependency>
 				<groupId>org.springframework</groupId>
 				<artifactId>spring-beans</artifactId>
-				<version>${spring.version}</version>
+				<version>4.1.3.RELEASE</version>
 			</dependency>
 			<dependency>
 				<groupId>org.springframework</groupId>
 				<artifactId>spring-webmvc</artifactId>
-				<version>${spring.version}</version>
+				<version>4.1.3.RELEASE</version>
 			</dependency>
 			<dependency>
 				<groupId>org.springframework</groupId>
 				<artifactId>spring-jdbc</artifactId>
-				<version>${spring.version}</version>
+				<version>4.1.3.RELEASE</version>
 			</dependency>
 			<dependency>
 				<groupId>org.springframework</groupId>
 				<artifactId>spring-aspects</artifactId>
-				<version>${spring.version}</version>
+				<version>4.1.3.RELEASE</version>
 			</dependency>
 			<dependency>
 				<groupId>org.springframework</groupId>
 				<artifactId>spring-jms</artifactId>
-				<version>${spring.version}</version>
+				<version>4.1.3.RELEASE</version>
 			</dependency>
 			<dependency>
 				<groupId>org.springframework</groupId>
 				<artifactId>spring-context-support</artifactId>
-				<version>${spring.version}</version>
+				<version>4.1.3.RELEASE</version>
 			</dependency>
 		
 		表现层需要以利用dubbo服务，所以要引入dubbo依赖
@@ -186,17 +186,17 @@
 			<dependency>
 				<groupId>com.alibaba</groupId>
 				<artifactId>dubbo</artifactId>
-				<version>${dubbo.version}</version>
+				<version>2.5.3</version>
 			</dependency>
 			<dependency>
 				<groupId>org.apache.zookeeper</groupId>
 				<artifactId>zookeeper</artifactId>
-				<version>${zookeeper.version}</version>
+				<version>3.4.7</version>
 			</dependency>
 			<dependency>
 				<groupId>com.github.sgroschupf</groupId>
 				<artifactId>zkclient</artifactId>
-				<version>${zkclient.version}</version>
+				<version>0.1</version>
 			</dependency>
 			
 		Taotao-manager-service已经改造成war包，不能被依赖。
@@ -227,17 +227,17 @@
 			<dependency>
 				<groupId>com.alibaba</groupId>
 				<artifactId>dubbo</artifactId>
-				<version>${dubbo.version}</version>
+				<version>2.5.3</version>
 			</dependency>
 			<dependency>
 				<groupId>org.apache.zookeeper</groupId>
 				<artifactId>zookeeper</artifactId>
-				<version>${zookeeper.version}</version>
+				<version>3.4.7</version>
 			</dependency>
 			<dependency>
 				<groupId>com.github.sgroschupf</groupId>
 				<artifactId>zkclient</artifactId>
-				<version>${zkclient.version}</version>
+				<version>0.1</version>
 			</dependency>
 
 		spring.xml

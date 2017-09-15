@@ -32,12 +32,12 @@
             <dependency>
                 <groupId>com.github.miemiedev</groupId>
                 <artifactId>mybatis-paginator</artifactId>
-                <version>${mybatis.paginator.version}</version>
+                <version>1.2.15</version>
             </dependency>
             <dependency>
                 <groupId>com.github.pagehelper</groupId>
                 <artifactId>pagehelper</artifactId>
-                <version>${pagehelper.version}</version>
+                <version>5.0.3</version>
             </dependency>
 
         3.2、配置插件
@@ -391,7 +391,7 @@
             <dependency>
                 <groupId>commons-fileupload</groupId>
                 <artifactId>commons-fileupload</artifactId>
-                <version>${commons-fileupload.version}</version>
+                <version>1.3.1</version>
             </dependency>
             <dependency>
                 <groupId>fastdfs_client</groupId>
@@ -1776,7 +1776,7 @@
                 <dependency>
                     <groupId>redis.clients</groupId>
                     <artifactId>jedis</artifactId>
-                    <version>${jedis.version}</version>
+                    <version>2.7.2</version>
                 </dependency>
 
             步骤二：编写测试类
@@ -2841,7 +2841,7 @@
 			<dependency>
 				<groupId>org.apache.solr</groupId>
 				<artifactId>solr-solrj</artifactId>
-				<version>${solrj.version}</version>
+				<version>4.10.3</version>
 			</dependency>
 		
 		3.2、创建solr的配置文件
@@ -3017,7 +3017,7 @@
 		<dependency>
 			<groupId>org.apache.solr</groupId>
 			<artifactId>solr-solrj</artifactId>
-			<version>${solrj.version}</version>
+			<version>4.10.3</version>
 		</dependency>
 	
 	3、创建dao层接口		
@@ -4309,7 +4309,7 @@
 		<dependency>
 			<groupId>redis.clients</groupId>
 			<artifactId>jedis</artifactId>
-			<version>${jedis.version}</version>
+			<version>2.7.2</version>
 		</dependency>
 
 
@@ -4622,13 +4622,13 @@
 		<dependency>
 			<groupId>org.freemarker</groupId>
 			<artifactId>freemarker</artifactId>
-			<version>${freemarker.version}</version>
+			<version>2.3.23</version>
 		</dependency>
         <!-- Activemq -->
         <dependency>
             <groupId>org.apache.activemq</groupId>
             <artifactId>activemq-all</artifactId>
-            <version>${activemq.version}</version>
+            <version>5.11.2</version>
         </dependency>
 			
 	2、添加配置文件		
@@ -4939,7 +4939,7 @@
                     <dependency>
                         <groupId>junit</groupId>
                         <artifactId>junit</artifactId>
-                        <version>${junit.version}</version>
+                        <version>4.12</version>
                         <scope>test</scope>
                     </dependency>
 
@@ -5306,7 +5306,7 @@
         <dependency>
             <groupId>redis.clients</groupId>
             <artifactId>jedis</artifactId>
-            <version>${jedis.version}</version>
+            <version>2.7.2</version>
         </dependency>
 
     3、interface
@@ -5615,13 +5615,13 @@
             <dependency>
                 <groupId>javax.servlet</groupId>
                 <artifactId>servlet-api</artifactId>
-                <version>${servlet-api.version}</version>
+                <version>2.5</version>
                 <scope>provided</scope>
             </dependency>
             <dependency>
                 <groupId>javax.servlet</groupId>
                 <artifactId>jsp-api</artifactId>
-                <version>${jsp-api.version}</version>
+                <version>2.0</version>
                 <scope>provided</scope>
             </dependency>
 
@@ -5854,13 +5854,13 @@
             <dependency>
                 <groupId>javax.servlet</groupId>
                 <artifactId>servlet-api</artifactId>
-                <version>${servlet-api.version}</version>
+                <version>2.5</version>
                 <scope>provided</scope>
             </dependency>
             <dependency>
                 <groupId>javax.servlet</groupId>
                 <artifactId>jsp-api</artifactId>
-                <version>${jsp-api.version}</version>
+                <version>2.0</version>
                 <scope>provided</scope>
             </dependency>
 
@@ -7089,7 +7089,7 @@ public class LoginInterceptor implements HandlerInterceptor{
             <dependency>
                 <groupId>redis.clients</groupId>
                 <artifactId>jedis</artifactId>
-                <version>${jedis.version}</version>
+                <version>2.7.2</version>
             </dependency>
 
     5、interface

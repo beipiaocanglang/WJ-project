@@ -21,34 +21,34 @@
 		<dependency>
 			<groupId>org.mybatis</groupId>
 			<artifactId>mybatis</artifactId>
-			<version>${mybatis.version}</version>
+			<version>3.2.8</version>
 		</dependency>
 		<dependency>
 			<groupId>org.mybatis</groupId>
 			<artifactId>mybatis-spring</artifactId>
-			<version>${mybatis.spring.version}</version>
+			<version>1.2.2</version>
 		</dependency>
 		<dependency>
 			<groupId>com.github.miemiedev</groupId>
 			<artifactId>mybatis-paginator</artifactId>
-			<version>${mybatis.paginator.version}</version>
+			<version>1.2.15</version>
 		</dependency>
 		<dependency>
 			<groupId>com.github.pagehelper</groupId>
 			<artifactId>pagehelper</artifactId>
-			<version>${pagehelper.version}</version>
+			<version>5.0.3</version>
 		</dependency>
 		<!-- MySql -->
 		<dependency>
 			<groupId>mysql</groupId>
 			<artifactId>mysql-connector-java</artifactId>
-			<version>${mysql.version}</version>
+			<version>5.1.32</version>
 		</dependency>
 		<!-- 连接池 -->
 		<dependency>
 			<groupId>com.alibaba</groupId>
 			<artifactId>druid</artifactId>
-			<version>${druid.version}</version>
+			<version>1.0.9</version>
 		</dependency>
 		
 		<!-- dao依赖pojo、service依赖dao从而间接依赖pojo -->
