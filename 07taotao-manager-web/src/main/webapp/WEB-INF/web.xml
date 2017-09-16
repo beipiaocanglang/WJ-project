@@ -5,7 +5,7 @@
 		xsi:schemaLocation="http://java.sun.com/xml/ns/javaee 
 							http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" id="taotao" version="2.5">
 
-<!-- 编码过滤 -->
+    <!-- 编码过滤 -->
     <filter>
         <filter-name>characterEncoding</filter-name>
         <filter-class>org.springframework.web.filter.CharacterEncodingFilter</filter-class>
