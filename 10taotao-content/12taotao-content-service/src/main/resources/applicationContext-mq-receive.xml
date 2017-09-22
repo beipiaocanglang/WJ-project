@@ -44,7 +44,7 @@
 	
 	<!-- 指定自己的监听器 -->
 	<!-- <bean id="messageListener" class="study.project.avtivemqListerne.MyMqListener"></bean> -->
-	<bean id="messageListener" class="study.project.avtivemqListerne.AddItemMessageListerne"/>
+	<bean id="messageListener" class="study.project.addlunbotuListerne.AddLunBoTuListerne"/>
 	
 	<!--  
 		使用监听器接收消息
