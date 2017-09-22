@@ -5,9 +5,15 @@ import java.util.Date;
 import java.util.List;
 
 import javax.annotation.Resource;
+import javax.jms.JMSException;
+import javax.jms.Message;
+import javax.jms.Session;
 
+import org.apache.activemq.command.ActiveMQTopic;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.jms.core.JmsTemplate;
+import org.springframework.jms.core.MessageCreator;
 import org.springframework.stereotype.Service;
 
 import com.github.pagehelper.PageHelper;
@@ -84,24 +90,46 @@ public class ContentServiceImpl implements ContentService {
 		return easyUIResult;
 	}
 
-	/**
-	 * 功能8：
-	 * 		根据分类id添加此分类下的内容数据
-	 * 参数：
-	 * 		TbContent
-	 * 返回值：
-	 * 		ProjectResultDTO
-	 */
-	public ProjectResultDTO saveContent(TbContent content) {
+    //消息发送模版
+    @Resource
+    private JmsTemplate jmsTemplate;
 
-		//补全时间
-		Date date = new Date();
-		content.setCreated(date);
-		content.setUpdated(date);
-		int insert = contentMapper.insert(content);
-		
-		return ProjectResultDTO.ok();
-	}
+    //消息发送目的地
+    @Resource
+    private ActiveMQTopic activeMQTopic;
+
+    /**
+     * 功能8：
+     * 		根据分类id添加此分类下的内容数据
+     * 参数：
+     * 		TbContent
+     * 返回值：
+     * 		ProjectResultDTO
+     */
+    public ProjectResultDTO saveContent(TbContent content) {
+
+        //补全时间
+        Date date = new Date();
+        content.setCreated(date);
+        content.setUpdated(date);
+        int insert = contentMapper.insert(content);
+
+        final Long categoryId = content.getCategoryId();
+
+        if (insert == 1) {
+            //保存成功后发送消息到JMS
+            jmsTemplate.send(activeMQTopic, new MessageCreator() {
+
+                @Override
+                public Message createMessage(Session session) throws JMSException {
+
+                    return session.createTextMessage(String.valueOf(categoryId));
+                }
+            });
+        }
+
+        return ProjectResultDTO.ok();
+    }
 
 
 	/**
