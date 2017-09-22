@@ -44,6 +44,6 @@
 	
 	<!-- 整合到项目中 -->
 	<bean id="addItem" class="org.apache.activemq.command.ActiveMQTopic">
-		<constructor-arg index="0" value="add_item_topic"/>
+		<constructor-arg index="0" value="add_lunbo_topic"/>
 	</bean>
 </beans>
