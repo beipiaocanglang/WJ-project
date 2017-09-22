@@ -139,7 +139,7 @@
                             </span>
                             <span class="shopping">
                                 <b></b>
-                                <a href="http://localhost:8083" target="_blank" clstag="clickcart|keycount|xincart|coudanlink" id="continue">继续购物</a>
+                                <a href="http://wj.portal.client.com" target="_blank" clstag="clickcart|keycount|xincart|coudanlink" id="continue">继续购物</a>
                             </span>
                         </div>
                         <div class="cart-total-2014">

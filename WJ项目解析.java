@@ -2472,7 +2472,7 @@
 		
 				在base-v1.js的33行执行的点击事件：
 					function search(a) {
-						var b = "http://localhost:8085/search.html?q=" + encodeURIComponent(document.getElementById(a).value);
+						var b = "http://wj.search.client.com/search.html?q=" + encodeURIComponent(document.getElementById(a).value);
 						return window.location.href = b;
 					}
 				此时点击搜索将跳转到search-web(8085)工程，加载WEB-INF/jsp/search.jsp
@@ -2485,7 +2485,7 @@
 		
 				在base-v1.js的33行执行的点击事件：
 					function search(a) {
-						var b = "http://localhost:8085/search.html?q=" + encodeURIComponent(document.getElementById(a).value);
+						var b = "http://wj.search.client.com/search.html?q=" + encodeURIComponent(document.getElementById(a).value);
 						return window.location.href = b;
 					}
 				在search-web工程中点击搜索将会在本页面进行搜索
@@ -4149,12 +4149,12 @@
 			
 			修改46和51行的跳转连接：
 				<div class="p-img">
-					<a target="_blank" href="http://localhost:8087/${item.id }.html">
+					<a target="_blank" href="http://wj.item.client.com/${item.id }.html">
 						<img width="160" height="160" data-img="1" data-lazyload="${item.image}" />
 					</a>
 				</div>
 				<div class="p-name">
-					<a target="_blank" href="http://localhost:8087/${item.id }.html">
+					<a target="_blank" href="http://wj.item.client.com/${item.id }.html">
 						${item.title}
 					</a>
 				</div>
@@ -4181,7 +4181,7 @@
 			 * 功能14：
 			 * 		根据商品id查询商品的详情
 			 * 请求：	
-			 * 		http://localhost:8087/${item.id }.html
+			 * 		http://wj.item.client.com/${item.id }.html
 			 * 参数：
 			 * 		itemId
 			 * 页面所需要的数据：
@@ -4218,7 +4218,7 @@
 		 * 功能14：
 		 * 		根据商品id查询商品的详情
 		 * 请求：	
-		 * 		http://localhost:8087/${item.id }.html
+		 * 		http://wj.item.client.com/${item.id }.html
 		 * 参数：
 		 * 		itemId
 		 * 页面所需要的数据：
@@ -4238,7 +4238,7 @@
 		 * 功能14：
 		 * 		根据商品id查询商品的详情
 		 * 请求：	
-		 * 		http://localhost:8087/${item.id }.html
+		 * 		http://wj.item.client.com/${item.id }.html
 		 * 参数：
 		 * 		itemId
 		 * 页面所需要的数据：
@@ -4554,7 +4554,7 @@
             * 功能14：
             * 		根据商品id查询商品的描述
             * 请求：	
-            * 		http://localhost:8087/${item.id }.html
+            * 		http://wj.item.client.com/${item.id }.html
             * 参数：
             * 		itemId
             * 页面所需要的数据：
@@ -5011,9 +5011,9 @@
         3.2、启动user和user-sso-web工程
 			
         3.3、访问
-            http://localhost:8089/register.html
+            http://wj.user.sso.client.com/register.html
             或者
-            http://localhost:8089/login.html
+            http://wj.user.sso.client.com/login.html
 			
 三十一、前台系统-单点登录前检查数据是否可用(17)
     1、interface
@@ -5920,7 +5920,7 @@
 
         根据102行找到登录方法找到85行的登录请求/user/login
 
-        成功后执行90行跳转到门户系统：location.href = "http://localhost:8083";
+        成功后执行90行跳转到门户系统：location.href = "http://wj.portal.client.com";
 
         门户系统默认访问index.jsp
 
@@ -5952,7 +5952,7 @@
 
         根据102行找到登录方法找到85行的登录请求/user/login
 
-        成功后执行90行跳转到门户系统：location.href = "http://localhost:8083";
+        成功后执行90行跳转到门户系统：location.href = "http://wj.portal.client.com";
 
         门户系统默认访问index.jsp
 
@@ -6718,7 +6718,7 @@ CART_KEY=CART_KEY
 #存到cookies中的token的key
 TOKEN_COOKIE_KEY=WJ_TOKEN_KEY
 #SSO重定向请求
-SSO_URL=http://localhost:8089/user/showLogin
+SSO_URL=http://wj.user.sso.client.com/user/showLogin
 #存入redis缓存服务器中的用户登录信息的key
 SESSION_KEY=SESSION_KEY
 

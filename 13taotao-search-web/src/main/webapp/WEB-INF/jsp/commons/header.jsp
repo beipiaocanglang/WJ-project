@@ -29,7 +29,7 @@
 				<dt class="ld">
                     <s></s>
                     <%--跳转到登录页面，走的是controller请求--%>
-                    <a href="http://localhost:8089/user/showLogin" clstag="homepage|keycount|home2012|04a">我的淘淘</a>
+                    <a href="http://wj.user.sso.client.com/user/showLogin" clstag="homepage|keycount|home2012|04a">我的淘淘</a>
                     <b></b>
                 </dt>
 				<dd>
@@ -45,7 +45,7 @@
                     <span class="shopping">
                         <span id="shopping-amount"></span>
                     </span>
-                    <a href="http://localhost:8091/cart/cart.html" id="settleup-url">去购物车结算</a>
+                    <a href="http://wj.order.client.com/cart/cart.html" id="settleup-url">去购物车结算</a>
                     <b></b>
                 </dt>
  			</dl>

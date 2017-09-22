@@ -49,7 +49,7 @@ public interface ItemService {
 	 * 功能14：
 	 * 		根据商品id查询商品的详情
 	 * 请求：	
-	 * 		http://localhost:8087/${item.id }.html
+	 * 		http://wj.item.client.com/${item.id }.html
 	 * 参数：
 	 * 		itemId
 	 * 页面所需要的数据：

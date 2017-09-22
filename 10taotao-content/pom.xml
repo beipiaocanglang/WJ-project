@@ -45,12 +45,12 @@
 					<!-- 配置tomcat端口 -->
 					<port>8084</port>
 
-                    <!-- 项目打包热部署时会部署到manager/text目录下
-                    <url>http://192.168.145.129:8085/manager/text</url>-->
+                    <!-- 项目打包热部署时会部署到manager/text目录下-->
+                    <url>http://192.168.145.129:8085/manager/text</url>
 
-                    <!-- 配置用户名和密码
+                    <!-- 配置用户名和密码-->
                     <username>tomcat</username>
-                    <password>tomcat</password> -->
+                    <password>tomcat</password>
 
 				</configuration>
 			</plugin>
