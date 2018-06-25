@@ -19,7 +19,7 @@ public class MyJedis {
 	@Test
 	public void testRedis01(){
 		//创建Jedis对象，连接redis缓存数据库
-		Jedis jedis = new Jedis("192.168.145.129", 6379);
+		Jedis jedis = new Jedis("172.16.143.128", 6379);
 		jedis.set("itemName", "洗脚盆");
 		String itemName = jedis.get("itemName");
 		System.out.println(itemName);
@@ -36,7 +36,7 @@ public class MyJedis {
 		//设置最大连接数
 		poolConfig.setMaxTotal(10000);
 		//创建JedisPool对象
-		JedisPool jedisPool = new JedisPool(poolConfig, "192.168.145.129", 6379);
+		JedisPool jedisPool = new JedisPool(poolConfig, "172.16.143.128", 6379);
 		//获取redis对象
 		Jedis jedis = jedisPool.getResource();
 		jedis.set("itemName", "洗脚盆wwww");
@@ -56,14 +56,14 @@ public class MyJedis {
 		poolConfig.setMaxTotal(10000);
 		
 		Set<HostAndPort> nodes = new HashSet<HostAndPort>();
-		nodes.add(new HostAndPort("192.168.145.129", 7001));
-		nodes.add(new HostAndPort("192.168.145.129", 7002));
-		nodes.add(new HostAndPort("192.168.145.129", 7003));
-		nodes.add(new HostAndPort("192.168.145.129", 7004));
-		nodes.add(new HostAndPort("192.168.145.129", 7005));
-		nodes.add(new HostAndPort("192.168.145.129", 7006));
-		nodes.add(new HostAndPort("192.168.145.129", 7007));
-		nodes.add(new HostAndPort("192.168.145.129", 7008));
+		nodes.add(new HostAndPort("172.16.143.128", 7001));
+		nodes.add(new HostAndPort("172.16.143.128", 7002));
+		nodes.add(new HostAndPort("172.16.143.128", 7003));
+		nodes.add(new HostAndPort("172.16.143.128", 7004));
+		nodes.add(new HostAndPort("172.16.143.128", 7005));
+		nodes.add(new HostAndPort("172.16.143.128", 7006));
+		nodes.add(new HostAndPort("172.16.143.128", 7007));
+		nodes.add(new HostAndPort("172.16.143.128", 7008));
 		//创建JedisCluster对象
 		JedisCluster jedisCluster = new JedisCluster(nodes, poolConfig);
 		jedisCluster.set("itemName", "iphone6s plus");

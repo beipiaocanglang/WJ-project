@@ -26,7 +26,7 @@ public class MySendTopicMessage {
 		 * 创建消息工厂：
 		 * 		参数：协议、地址、端口
 		 */
-		ConnectionFactory cf = new ActiveMQConnectionFactory("tcp://192.168.145.129:61616");
+		ConnectionFactory cf = new ActiveMQConnectionFactory("tcp://172.16.143.128:61616");
 		
 		//获取连接
 		Connection connection = cf.createConnection();

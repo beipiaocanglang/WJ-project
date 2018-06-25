@@ -148,7 +148,7 @@
                     <port>8091</port>
 
                     <!-- 项目打包热部署时会部署到manager/text目录下 -->
-                    <!--<url>http://192.168.145.129:8093/manager/text</url>-->
+                    <!--<url>http://172.16.143.128:8093/manager/text</url>-->
 
                     <!-- 配置用户名和密码 -->
                     <!--<username>tomcat</username>
