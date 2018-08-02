@@ -7,7 +7,22 @@
     <artifactId>01taotao-parent</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <packaging>pom</packaging>
-  
+
+	<modules>
+		<module>../02taotao-common</module>
+		<module>../03taotao-manager</module>
+		<module>../07taotao-manager-web</module>
+		<module>../09taotao-portal-web</module>
+		<module>../10taotao-content</module>
+		<module>../13taotao-search-web</module>
+		<module>../14taotao-search</module>
+		<module>../17taotao-item-web</module>
+		<module>../18taotao-user</module>
+		<module>../21taotao-user-sso-web</module>
+		<module>../22taotao-order</module>
+		<module>../25taotao-order-web</module>
+	</modules>
+
     <!-- parent工程的pom文件主要作用是管理坐标、管理插件 -->
   
     <!-- 集中定义依赖版本号 -->

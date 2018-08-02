@@ -23,7 +23,7 @@ import javax.servlet.http.HttpServletResponse;
  * Created by canglang on 2017/9/5.
  */
 @Controller
-public class UaerController {
+public class UserController {
 
     @Resource
     private IUserService userService;
